@@ -31,15 +31,7 @@ This course ships sample files in `resources/img/`, so you can use real images r
 ### CSS
 
 ```
-img {
-  max-width: 100%;
-  height: auto;
-}
 
-figcaption {
-  font-size: 13px;
-  color: #4b5563;
-}
 ```
 
 ### Javascript

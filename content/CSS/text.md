@@ -1,21 +1,8 @@
-# Text and fonts
+# Text overview
 
-`font-family` takes a list, called the font stack. The browser tries each name in order and uses the
-first one installed, so the last entry must be a generic family — `sans-serif`, `serif` or
-`monospace` — which always resolves to something.
-
-`font-size` in `px` is a fixed size. `rem` is a multiple of the root font size, 16px by default, so
-`1.5rem` is 24px and every `rem` size on the page scales together when a reader enlarges their
-browser font. Prefer `rem` for text. (`em` behaves differently and compounds; that is the Advanced
-lesson.)
-
-`font-weight` accepts `normal`, `bold`, or a number from 100 to 900 in steps of 100.
-
-Write `line-height` with no unit — `1.5` means 1.5 times *this* element's own font size, so a large
-heading and small body text each get sensible spacing.
-
-`text-align` positions the text inside its box, and `text-decoration` adds or removes the underline,
-which is how you strip the default line off a link.
+You have now met text styling in three pieces: `color`, the font stack and size, and weight with
+spacing and alignment. A real page combines all three — a consistent look comes from applying them
+together, not from picking properties one at a time.
 
 ## Display
 ### HTML
@@ -60,67 +47,79 @@ a { color: #6B4207; text-decoration: none; }
 ```
 
 ## Your Tasks
-### 1. Set a font stack
-Quote any family name that contains a space, and end with a generic family.
+### 1. Style a heading in one pass
+Colour, weight and size together give a heading its identity.
 
 ```
-body {
-  font-family: "Segoe UI", system-ui, Arial, sans-serif;
+h1 {
+  color: #0F1B33;
+  font-weight: 700;
+  font-size: 2rem;
 }
 ```
 
-### 2. Size text in `rem`
-`1.5rem` is 1.5 × the root size — 24px by default, and larger if the reader has enlarged their font.
+### 2. Build a readable body paragraph
+Font stack, size and line height work together to make long text comfortable to read.
 
 ```
+body {
+  font-family: system-ui, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+```
+
+### 3. Style a lead paragraph
+A lead paragraph is usually larger, centred and a softer colour than body text.
+
+```
+.lead {
+  font-size: 1.25rem;
+  text-align: center;
+  color: #4B5563;
+}
+```
+
+### 4. Style a link
+Give it its own colour and remove the default underline.
+
+```
+a {
+  color: #6B4207;
+  text-decoration: none;
+}
+```
+
+### 5. Build a consistent scale
+`h1`, `h2` and body text should share one font stack and a proportional size scale.
+
+```
+body, h1, h2 { font-family: system-ui, sans-serif; }
+h1 { font-size: 2rem; }
 h2 { font-size: 1.5rem; }
-```
-
-### 3. Set the weight
-`700` is what `bold` maps to; the numeric form gives you the in-between weights.
-
-```
-h1 { font-weight: 700; }
-
-.lead { font-weight: 300; }
-```
-
-### 4. Give the text room to breathe
-No unit on `line-height`, so each element computes it from its own `font-size`.
-
-```
-body { line-height: 1.6; }
-```
-
-### 5. Align text and remove an underline
-`text-decoration: none` strips the browser's default link underline.
-
-```
-.lead { text-align: center; }
-
-a { text-decoration: none; }
 ```
 
 ## Exercises
 
-### Exercise 1: Build a stack
-Give `body` a four-name font stack ending in `sans-serif`, then insert a font name you know is not
-installed as the first entry. Confirm in DevTools which family the browser actually used.
+### Exercise 1: Style an article
+Combine everything from this group: give a heading its own colour and weight, a lead paragraph its
+own size and alignment, body text a font stack and line height, and a link a colour with no
+underline.
 
-### Exercise 2: px versus rem
-Set one heading to `24px` and another to `1.5rem`. Change the browser's default font size to 20px
-and report what happened to each heading.
+### Exercise 2: Style guide page
+List `h1`, `h2`, a lead paragraph and a link, each showing its own rules and a one-line note on why
+you chose those values.
 
-### Exercise 3: A weight scale
-Show the same sentence five times at weights 300, 400, 500, 700 and 900, labelled with its number.
+### Exercise 3: Fix an inconsistent page
+Given three paragraphs with three different font stacks, unify them into one consistent stack.
 
-### Exercise 4: Readable paragraph
-Take a paragraph of at least eight lines and tune `line-height` from `1` to `2`. State which value
-you would ship and why.
-
-### Exercise 5: Link styling
+### Exercise 4: Hover feedback
 Style links so they have no underline normally but gain one on `:hover`, and make sure colour alone
 is never the only signal that text is a link.
+
+### Exercise 5: Readable long-form text
+Take a paragraph of at least eight lines, and choose a font size, line height and colour you would
+actually ship for a course reading page. Justify each choice in one sentence.
 
 ## Quizes
 
@@ -136,11 +135,11 @@ is never the only signal that text is a link.
 3. 20px
 4. 25px
 
-### Q3. Why is `line-height` usually written without a unit?
-1. Units are not allowed on `line-height`
-2. The unitless number is a multiplier of each element's own font size
-3. It makes the line height fixed for the whole page
-4. It is the only way to write a value smaller than 1
+### Q3. Which set of declarations together gives a heading its own consistent look?
+1. `color`, `font-weight` and `font-size` used together
+2. `color` alone is always enough
+3. `line-height` alone controls a heading's appearance
+4. `text-align` replaces the need for `color`
 
 ### Q4. Which declaration removes the underline from a link?
 1. `text-decoration: none;`

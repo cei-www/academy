@@ -94,7 +94,36 @@ and say so in your final report. Prefer short declarative sentences to bullet li
 Teach the *why* in one clause, not a paragraph. Good: "Give `width` and `height` so the browser
 reserves the space and the page does not jump while loading." Bad: a three-sentence essay on CLS.
 
-## 3. Playground rules
+## 3. Teach one language at a time
+
+Reading order is Basic HTML → Basic CSS → Basic JS. A lesson must never lean on a language the
+student has not reached yet in that order:
+
+- **Basic HTML** lessons get an **empty `### CSS` fence**. The student has not started Basic CSS,
+  so the Display starter should render with browser defaults only — no `font-family`, no colours,
+  no layout rules, even ones that seem harmless. This also means the raw, unstyled look *is* the
+  lesson: it is fine, even useful, for a table or a wide image to look plain or overflow slightly.
+- **Basic CSS** lessons get an **empty `### Javascript` fence** (already the existing convention).
+- **Advanced HTML/CSS/JS**, **AJAX** and **Framework** lessons come after all three Basic groups, so
+  they may freely use HTML, CSS and JS together in one Display starter.
+
+## 4. Splitting a dense topic into sub-lessons
+
+If a topic has several genuinely distinct variants — list types, form control families, and similar
+— prefer several short lessons over one long one:
+
+- One lesson per variant (e.g. `lists-unordered.md`, `lists-ordered.md`, `lists-description.md`),
+  each self-contained and following the full schema in this document.
+- A final **combining/overview lesson** (e.g. `lists.md` → "Lists overview") that recaps the
+  decision between variants and shows them working together on one page. Keep the original filename
+  for this overview lesson so existing links and `toc.json` entries for the topic still resolve —
+  only its `## Display`/tasks/exercises/quizzes content changes to the combining version.
+- List the variant lessons before the overview lesson in `toc.json`, in the same reading order they
+  build on each other.
+- Do not split a topic that is already short and has no real sub-variants — this pattern is for
+  genuinely dense topics, not for splitting for its own sake.
+
+## 5. Playground rules
 
 The preview is an iframe built as `<style>CSS</style> + HTML + <script>JS</script>`. So:
 
@@ -105,7 +134,7 @@ The preview is an iframe built as `<style>CSS</style> + HTML + <script>JS</scrip
 - The iframe's base URL is the app's URL, so **relative asset paths work**: `resources/img/…`,
   `resources/data/…`. Never link to an external CDN or an image host — lessons must work offline.
 
-## 4. Available assets
+## 6. Available assets
 
 Under `resources/`. Use these; do not invent file names.
 
@@ -135,7 +164,7 @@ Under `resources/`. Use these; do not invent file names.
 If you need an asset that does not exist, do **not** reference it. Use an existing one, or drop the
 idea. Report the gap in your final message instead.
 
-## 5. House style
+## 7. House style
 
 - Sentence case for headings. No trailing punctuation in headings.
 - Inline code for every property, tag, keyword and file name: `color`, `<figure>`, `const`.
@@ -150,7 +179,7 @@ idea. Report the gap in your final message instead.
 - Quiz questions should test understanding, including one "what does this code print / produce"
   style question per lesson. Distractors must be plausible — no joke options.
 
-## 6. Worked example — copy this shape
+## 8. Worked example — copy this shape
 
 ```markdown
 # Colors and backgrounds
@@ -227,7 +256,7 @@ Give `h1`, `h2` and `h3` three different colours — one name, one hex, one `rgb
 … (Q2–Q5)
 ```
 
-## 7. What to deliver
+## 9. What to deliver
 
 Write each lesson with the `Write` tool to the exact path you are given. Do not create any other
 files. When you are done, reply with **only** a JSON array, no prose around it:

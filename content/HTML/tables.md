@@ -39,16 +39,7 @@ turns a screen reader's row-by-row reading into nonsense.
 ### CSS
 
 ```
-table { border-collapse: collapse; font-family: system-ui, sans-serif; }
 
-th, td {
-  border: 1px solid #DDE2E8;
-  padding: 6px 10px;
-  text-align: left;
-}
-
-thead th { background: #EEF1F4; }
-caption { padding-bottom: 8px; color: #4B5563; }
 ```
 
 ### Javascript

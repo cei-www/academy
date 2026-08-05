@@ -42,18 +42,7 @@ single space.
 ### CSS
 
 ```
-body {
-  font-family: system-ui, sans-serif;
-  color: #131A26;
-  margin: 16px;
-}
 
-blockquote {
-  border-left: 4px solid #F2A93B;
-  margin-left: 0;
-  padding-left: 12px;
-  color: #4B5563;
-}
 ```
 
 ### Javascript

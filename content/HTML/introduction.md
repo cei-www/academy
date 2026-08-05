@@ -52,13 +52,7 @@ then act on a tree you did not intend. Anything inside `<!-- ... -->` is a comme
 ### CSS
 
 ```
-body {
-  font-family: system-ui, sans-serif;
-  color: #131A26;
-  margin: 16px;
-}
 
-h1 { color: #0F1B33; }
 ```
 
 ### Javascript

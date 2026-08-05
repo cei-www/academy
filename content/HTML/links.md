@@ -42,13 +42,7 @@ context. "Download the syllabus (PDF)" works; a page of "click here" does not.
 ### CSS
 
 ```
-body {
-  font-family: system-ui, sans-serif;
-  margin: 16px;
-}
 
-a { color: #0F1B33; }
-a:hover { color: #6B4207; }
 ```
 
 ### Javascript

@@ -36,13 +36,32 @@ _spec/
   LESSON_SPEC.md  the authoring contract every lesson file follows
 ```
 
-## The course: 8 groups, 50 lessons
+## The course: 8 groups, 59 lessons
 
 Reading order is Basic (HTML → CSS → JS) → Advanced (HTML → CSS → JS) → AJAX → Framework (Tailwind).
 Basic and Advanced share a language folder — the split lives in `toc.json`, not on disk, so
 `CSS/selectors.md` (Basic) and `CSS/specificity.md` (Advanced) sit side by side. Advanced lessons
 assume the Basic ones and deliberately do not re-teach them; when you edit one, check you are not
 duplicating or contradicting its counterpart.
+
+Basic HTML lessons keep their `### CSS` Display fence **empty** — the student has not reached Basic
+CSS yet, so the starter renders with browser defaults only, plain look and all. Basic CSS lessons
+keep `### Javascript` empty the same way. Only from Advanced HTML onward can a Display starter freely
+mix HTML, CSS and JS, since by then all three Basic groups are behind the student.
+
+Three dense topics are split into a family of lessons instead of one long file, each nested under a
+level-2 group node in `toc.json` (`toc.json` supports arbitrary nesting — `app.js` renders depth 0 as
+`.l1` and every deeper level as `.l2`, reused): Basic HTML's Lists (`lists-unordered.md` /
+`lists-ordered.md` / `lists-description.md` / `lists.md` "Lists overview"), Basic HTML's Forms
+(`forms-text.md` / `forms-choices.md` / `forms-controls.md` / `forms.md` "Forms overview"), and
+Basic CSS's Text (`text-color.md` / `text-font.md` / `text-style.md` / `text.md` "Text overview").
+Each family's combining/overview lesson keeps the group's original filename so old links still
+resolve, and the variant lessons are ordered simplest-first — `text-color.md` is deliberately the
+shortest, plainest lesson in the group, with each lesson after it a little more advanced, ending in
+the combining lesson that uses them together. `_spec/LESSON_SPEC.md` sections 3–4 have the pattern
+and the "teach one language at a time" rule — reuse both for any other topic that turns out to have
+several genuine variants; don't split topics that don't, and don't reach for CSS or JS in a Basic
+HTML lesson before the student has reached that group.
 
 `_spec/LESSON_SPEC.md` is the contract: the exact heading schema, the ≤170-line cap, the 5 tasks /
 5 exercises / 5 quizzes rule, the asset inventory, and house style. Read it before writing or editing

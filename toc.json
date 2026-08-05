@@ -20,7 +20,24 @@
       },
       {
         "name": "Lists",
-        "file": "HTML/lists.md"
+        "children": [
+          {
+            "name": "Unordered lists",
+            "file": "HTML/lists-unordered.md"
+          },
+          {
+            "name": "Ordered lists",
+            "file": "HTML/lists-ordered.md"
+          },
+          {
+            "name": "Description lists",
+            "file": "HTML/lists-description.md"
+          },
+          {
+            "name": "Lists overview",
+            "file": "HTML/lists.md"
+          }
+        ]
       },
       {
         "name": "Tables",
@@ -28,7 +45,24 @@
       },
       {
         "name": "Forms",
-        "file": "HTML/forms.md"
+        "children": [
+          {
+            "name": "Text inputs",
+            "file": "HTML/forms-text.md"
+          },
+          {
+            "name": "Choice inputs",
+            "file": "HTML/forms-choices.md"
+          },
+          {
+            "name": "Textarea and buttons",
+            "file": "HTML/forms-controls.md"
+          },
+          {
+            "name": "Forms overview",
+            "file": "HTML/forms.md"
+          }
+        ]
       }
     ]
   },
@@ -48,8 +82,25 @@
         "file": "CSS/colors.md"
       },
       {
-        "name": "Text and fonts",
-        "file": "CSS/text.md"
+        "name": "Text",
+        "children": [
+          {
+            "name": "Color",
+            "file": "CSS/text-color.md"
+          },
+          {
+            "name": "Font family and size",
+            "file": "CSS/text-font.md"
+          },
+          {
+            "name": "Weight, spacing and alignment",
+            "file": "CSS/text-style.md"
+          },
+          {
+            "name": "Text overview",
+            "file": "CSS/text.md"
+          }
+        ]
       },
       {
         "name": "Box model",
