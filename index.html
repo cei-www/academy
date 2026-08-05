@@ -889,7 +889,7 @@ h2 { color: red; }</textarea>
   /* ---- code font-size control ---- */
   var fontSize = 12;
   var fontLabel = document.getElementById('fontSizeLabel');
-  var codeAreas = [h, c, j];
+  var codeAreas = [h, c, j, fullBox];
   function applyFontSize(){
     codeAreas.forEach(function(el){ el.style.fontSize = fontSize + 'px'; });
     fontLabel.textContent = fontSize + 'px';
