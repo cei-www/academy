@@ -216,6 +216,20 @@
     applySearch(navSearch.value);
   });
 
+  /* ---------- brand / home ---------- */
+
+  var brandHome = document.getElementById('brandHome');
+  if (brandHome) {
+    brandHome.addEventListener('click', function () {
+      var leaves = [];
+      collectLeaves(toc, leaves);
+      if (!leaves.length) return;
+      navSearch.value = '';
+      applySearch('');
+      loadLesson(leaves[0].file, true);
+    });
+  }
+
   /* ---------- deep linking ---------- */
 
   window.addEventListener('popstate', function () {

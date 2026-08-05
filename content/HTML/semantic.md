@@ -1,20 +1,11 @@
-# Semantic and accessibility
+# Semantic and accessibility overview
 
-Tags carry meaning, not only appearance. A `<div>` says "a box". `<nav>` says "these are the site's
-navigation links". Browsers, search engines and screen readers all read that meaning.
+You have now met landmark elements and the document outline, and ARIA and the accessibility tree, on
+their own. Tags carry meaning, not only appearance — browsers, search engines and screen readers all
+read that meaning, and native elements fill in most of the accessibility tree for free.
 
-Landmark elements name the regions of a page: `<header>` is introductory content, `<nav>` is a block
-of navigation links, `<main>` is the content unique to this page, `<article>` is a self-contained
-item that would still make sense pasted elsewhere, `<section>` is a thematic group with its own
-heading, `<aside>` is related but separate content, `<footer>` closes a page or a section.
-
-Use one `<main>` and one `<h1>` per page, and let heading levels descend without skipping. That
-order is the document outline, and it is how a screen-reader user jumps around a page.
-
-From your markup the browser builds an **accessibility tree**: every node gets a role, a name and a
-state. Native elements fill that in for free — a `<button>` is already a button. ARIA attributes
-only patch what HTML cannot express, so a native element beats ARIA every time. `<div>` is still the
-right answer when you need a box for styling with no meaning of its own.
+Use one `<main>` and one `<h1>` per page, let heading levels descend without skipping, and reach for
+ARIA only to patch what HTML cannot already express.
 
 ## Display
 ### HTML
@@ -37,7 +28,7 @@ right answer when you need a box for styling with no meaning of its own.
   </article>
 </main>
 
-<footer><p>KMITL, Bangkok</p></footer>
+<footer><p>CE-KMITL</p></footer>
 ```
 
 ### CSS
@@ -71,7 +62,7 @@ Everything unique to this page goes inside `<main>`; site-wide chrome stays outs
   <h2>Announcements</h2>
   <p>Lab 3 is due on Friday.</p>
 </main>
-<footer><p>Faculty of Engineering</p></footer>
+<footer><p>CE-KMITL</p></footer>
 ```
 
 ### 2. Name two navigations

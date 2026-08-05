@@ -1,23 +1,12 @@
-# Loops
+# Loops overview
 
-A loop repeats a block. The `for` loop puts all three controls on one line: the initialiser, the
-condition checked before each pass, and the update run after each pass.
+You have now met `for`, `while` and `for...of` on their own. All three repeat a block; they differ in
+what controls the repetition. `for` puts the initialiser, condition and step on one line. `while`
+only has the condition — you must change something inside the body yourself. `for...of` walks an
+array and hands you each element directly.
 
-```
-for (let i = 0; i < 3; i++) {
-  console.log(i);   // 0, 1, 2
-}
-```
-
-`while (cond) { … }` only has the condition, so you must change something inside the body or the loop
-never ends.
-
-To walk an array, `for...of` gives you each element directly and is the clearest choice. `for...in`
-gives you an object's *keys* — it is for objects, and using it on an array hands you index strings
-like `"0"` instead of values.
-
-Inside any loop, `break` leaves it immediately and `continue` skips to the next pass. Loops are how
-you build a list: collect text in a variable, then write it to the page once at the end.
+Inside any of them, `break` leaves the loop immediately and `continue` skips to the next pass. Loops
+are how you build a list: collect text in a variable, then write it to the page once at the end.
 
 ## Display
 ### HTML
@@ -145,11 +134,11 @@ actually gives you for an array.
 3. Both end the loop, but `break` also returns a value
 4. `break` works only in `while`, `continue` only in `for`
 
-### Q4. Why is `for...in` the wrong tool for an array?
-1. It runs the body in reverse order
-2. It cannot be used with `const`
-3. It gives you keys, which for an array are index strings, not the values
-4. It stops at the first empty slot
+### Q4. Which loop has no built-in initialiser or step clause?
+1. `for`
+2. `while`
+3. `for...of`
+4. All loops have both
 
 ### Q5. What does `let s = 0; for (let i = 1; i <= 4; i++) { if (i === 2) continue; s += i; } console.log(s);` print?
 1. `10`

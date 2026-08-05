@@ -1,21 +1,14 @@
-# Arrays and objects
+# Arrays and objects overview
 
-An array is an ordered list. Write it with `[]`, read an item by index starting at `0`, and ask for
-`length` to know how many there are. `push` adds to the end, `pop` removes from the end and returns
-the removed item.
-
-An object is a set of named properties. Write it with `{}`, and read a property with dot notation
-`student.gpa`. Use bracket notation `student["gpa"]` when the key is in a variable or is not a plain
-identifier. Assigning to a property that does not exist yet creates it.
+You have now met arrays (ordered lists, `[]`) and objects (named properties, `{}`) on their own.
+These nest freely, and the shape you will meet most often on the web is an array of objects. Loop it
+with `for...of` and read each object's properties inside the body.
 
 ```
 const student = { name: "Ploy", gpa: 3.41 };
 student.year = 2;              // added
 student["gpa"] = 3.52;         // updated
 ```
-
-These nest freely, and the shape you will meet most often on the web is an array of objects. Loop it
-with `for...of` and read each object's properties inside the body.
 
 `JSON.stringify(value, null, 2)` turns a value into indented text, which is the easiest way to see a
 whole nested structure in the console.

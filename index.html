@@ -36,6 +36,8 @@
   .app{display:flex;flex-direction:column;height:100vh;overflow:hidden;}
   .app-head{background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:space-between;padding:10px 16px;flex:0 0 auto;}
   .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:14px;letter-spacing:-.01em;}
+  button.brand{background:none;border:none;padding:0;cursor:pointer;color:inherit;font-family:inherit;}
+  button.brand:hover .mark{filter:brightness(1.1);}
   .brand .mark{width:24px;height:24px;border-radius:0;background:var(--amber);display:flex;align-items:center;justify-content:center;color:var(--amber-ink);font-family:var(--font-mono);font-weight:700;font-size:12px;}
   .crumb{font-size:12px;color:#AEB8CC;font-family:var(--font-mono);}
   .crumb b{color:#fff;font-weight:500;}
@@ -282,7 +284,7 @@
 
 <div class="app">
   <header class="app-head">
-    <div class="brand"><span class="mark">&lt;/&gt;</span>CE WebDev Academy</div>
+    <button type="button" class="brand" id="brandHome" title="Back to home" aria-label="Back to home"><span class="mark">&lt;/&gt;</span>CE WebDev Academy</button>
     <div class="crumb" id="crumb">Loading&hellip;</div>
   </header>
 
@@ -333,17 +335,17 @@
 
           <div class="pg-box html tab-active">
             <label>HTML<button type="button" class="box-collapse-btn" data-box="html" title="Collapse HTML editor" aria-label="Collapse HTML editor" aria-expanded="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></button></label>
-            <textarea id="pgHtml">&lt;h1&gt;This is heading 1&lt;/h1&gt;
+            <textarea id="pgHtml" wrap="off">&lt;h1&gt;This is heading 1&lt;/h1&gt;
 &lt;h2&gt;This is heading 2&lt;/h2&gt;</textarea>
           </div>
           <div class="pg-box css">
             <label>CSS<button type="button" class="box-collapse-btn" data-box="css" title="Collapse CSS editor" aria-label="Collapse CSS editor" aria-expanded="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></button></label>
-            <textarea id="pgCss">h1 { color: green; }
+            <textarea id="pgCss" wrap="off">h1 { color: green; }
 h2 { color: red; }</textarea>
           </div>
           <div class="pg-box js">
             <label>JS<button type="button" class="box-collapse-btn" data-box="js" title="Collapse JS editor" aria-label="Collapse JS editor" aria-expanded="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></button></label>
-            <textarea id="pgJs"></textarea>
+            <textarea id="pgJs" wrap="off"></textarea>
           </div>
 
           <div class="pg-split-handle split-handle" id="pgHandle" role="separator" aria-orientation="vertical" aria-label="Resize editors vs output"><span class="line"></span><span class="line"></span></div>
@@ -353,7 +355,7 @@ h2 { color: red; }</textarea>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 17h.01M10.29 3.86l-8.18 14.14A2 2 0 0 0 3.82 21h16.36a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path></svg>
               <span>Editing here is just a merged preview &mdash; it won't change the real HTML, CSS or JS boxes.</span>
             </div>
-            <textarea id="pgFullHtml" class="full-html-box" spellcheck="false"></textarea>
+            <textarea id="pgFullHtml" class="full-html-box" spellcheck="false" wrap="off"></textarea>
           </div>
 
           <div class="pg-out">

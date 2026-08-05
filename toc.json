@@ -214,11 +214,41 @@
       },
       {
         "name": "Operators and conditions",
-        "file": "JS/conditions.md"
+        "children": [
+          {
+            "name": "Comparison and logical operators",
+            "file": "JS/comparison-logical-operators.md"
+          },
+          {
+            "name": "If, else if, else and ternary",
+            "file": "JS/if-else.md"
+          },
+          {
+            "name": "Operators and conditions overview",
+            "file": "JS/conditions.md"
+          }
+        ]
       },
       {
         "name": "Loops",
-        "file": "JS/loops.md"
+        "children": [
+          {
+            "name": "The for loop",
+            "file": "JS/loops-for.md"
+          },
+          {
+            "name": "The while loop",
+            "file": "JS/loops-while.md"
+          },
+          {
+            "name": "Looping arrays with for...of",
+            "file": "JS/loops-for-of.md"
+          },
+          {
+            "name": "Loops overview",
+            "file": "JS/loops.md"
+          }
+        ]
       },
       {
         "name": "Functions",
@@ -226,7 +256,24 @@
       },
       {
         "name": "Arrays and objects",
-        "file": "JS/arrays-objects.md"
+        "children": [
+          {
+            "name": "Arrays",
+            "file": "JS/arrays.md"
+          },
+          {
+            "name": "Objects",
+            "file": "JS/objects.md"
+          },
+          {
+            "name": "Arrays and objects overview",
+            "file": "JS/arrays-objects.md"
+          }
+        ]
+      },
+      {
+        "name": "The Date object",
+        "file": "JS/date.md"
       },
       {
         "name": "DOM and events",
@@ -243,7 +290,20 @@
     "children": [
       {
         "name": "Semantic and accessibility",
-        "file": "HTML/semantic.md"
+        "children": [
+          {
+            "name": "Landmark elements and document outline",
+            "file": "HTML/semantic-landmarks.md"
+          },
+          {
+            "name": "ARIA and the accessibility tree",
+            "file": "HTML/semantic-aria.md"
+          },
+          {
+            "name": "Semantic and accessibility overview",
+            "file": "HTML/semantic.md"
+          }
+        ]
       },
       {
         "name": "Advanced forms",
@@ -327,6 +387,10 @@
       {
         "name": "What is AJAX",
         "file": "AJAX/introduction.md"
+      },
+      {
+        "name": "The XMLHttpRequest object",
+        "file": "AJAX/xmlhttprequest.md"
       },
       {
         "name": "Fetch and GET",
