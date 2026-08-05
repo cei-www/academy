@@ -1,0 +1,19 @@
+{
+  "name": "Rathachai Chawuthai",
+  "role": "Lecturer",
+  "department": "Computer Engineering",
+  "faculty": "Engineering",
+  "university": "KMITL",
+  "lab": {
+    "name": "SAIG Lab",
+    "url": "https://github.com/SAIG-KMITL"
+  },
+  "teaches": [
+    "Web Application Development",
+    "Machine Learning"
+  ],
+  "office": {
+    "building": "ECC",
+    "room": "12-701"
+  }
+}

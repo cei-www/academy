@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WebDev Academy · Text color</title>
+<title>CE WebDev Academy</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23F2A93B'/%3E%3Ctext x='16' y='22' font-family='ui-monospace,SFMono-Regular,Menlo,Consolas,monospace' font-size='15' font-weight='700' fill='%236B4207' text-anchor='middle'%3E%26lt%3B/%26gt%3B%3C/text%3E%3C/svg%3E">
 <style>
   :root{
     --navy:#0F1B33;
@@ -29,7 +30,8 @@
   a{color:inherit;text-decoration:none;}
   code{font-family:var(--font-mono);}
   body.resizing{cursor:col-resize;user-select:none;}
-  body.resizing iframe{pointer-events:none;}
+  body.resizing-y{cursor:row-resize;user-select:none;}
+  body.resizing iframe,body.resizing-y iframe{pointer-events:none;}
 
   .app{display:flex;flex-direction:column;height:100vh;overflow:hidden;}
   .app-head{background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:space-between;padding:10px 16px;flex:0 0 auto;}
@@ -37,8 +39,9 @@
   .brand .mark{width:24px;height:24px;border-radius:0;background:var(--amber);display:flex;align-items:center;justify-content:center;color:var(--amber-ink);font-family:var(--font-mono);font-weight:700;font-size:12px;}
   .crumb{font-size:12px;color:#AEB8CC;font-family:var(--font-mono);}
   .crumb b{color:#fff;font-weight:500;}
-  .app-foot{background:var(--navy);color:#8A93A3;display:flex;justify-content:space-between;padding:7px 16px;font-size:11px;flex:0 0 auto;}
-  .app-foot span:last-child{color:#5D6B85;}
+  .app-foot{background:var(--navy);color:#8A93A3;display:flex;justify-content:center;text-align:center;padding:7px 16px;font-size:11px;flex:0 0 auto;}
+  .app-foot a{color:#C6D0E2;}
+  .app-foot a:hover{color:#fff;text-decoration:underline;}
 
   .app-main{flex:1;min-height:0;padding:10px;display:flex;flex-direction:column;overflow:hidden;}
   .card{background:var(--card);border:1px solid var(--border);border-radius:0;padding:10px 12px;display:flex;flex-direction:column;height:100%;min-height:0;}
@@ -54,6 +57,18 @@
   .panel.collapsed .panel-body{display:none;}
   .panel.collapsed .panel-head h2{display:none;}
   .panel.collapsed .nav-search-row{display:none;}
+  .panel.collapsed .panel-head{justify-content:center;padding:7px 4px;}
+  .panel.collapsed .md-tools{display:none;}
+  .panel-head-right{display:flex;align-items:center;gap:6px;min-width:0;}
+  #mdTitle{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+
+  /* ---- playground collapse (mirrors .panel.collapsed) ---- */
+  .card.collapsed{padding:10px 4px;}
+  .card.collapsed .pg-body{display:none;}
+  .card.collapsed .pg-header{margin-bottom:0;justify-content:center;}
+  .card.collapsed .pg-header h1, .card.collapsed .pg-tools{display:none;}
+  /* kept in the stylesheet, not inline, so .card.collapsed can switch it off */
+  .pg-tools{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
 
   .nav-search-row{flex:0 0 auto;padding:8px 10px;border-bottom:1px solid var(--border);}
   .nav-search{width:100%;font-family:var(--font-ui);font-size:12px;padding:6px 8px;border:1px solid var(--border);background:#fff;color:var(--ink);}
@@ -78,10 +93,17 @@
   .seg button{font-family:var(--font-ui);font-size:11px;font-weight:600;border:none;background:transparent;color:var(--ink-soft);width:30px;height:26px;border-radius:6px;cursor:pointer;display:flex;align-items:center;justify-content:center;}
   .seg button.active{background:var(--amber);color:var(--amber-ink);}
 
+  .icon-btn{display:flex;align-items:center;justify-content:center;width:30px;height:30px;border:1px solid var(--border);border-radius:8px;background:var(--paper);color:var(--ink-soft);cursor:pointer;flex:0 0 auto;}
+  .icon-btn:hover{background:var(--border);color:var(--ink);}
+  /* second click confirms — no blocking dialog, but no silent loss of work either */
+  .icon-btn.confirm{background:var(--amber);border-color:var(--amber);color:var(--amber-ink);}
+
   .font-ctrl{display:flex;align-items:center;gap:1px;background:var(--paper);border:1px solid var(--border);border-radius:8px;padding:2px;}
   .font-ctrl button{font-family:var(--font-ui);font-size:11px;font-weight:700;border:none;background:transparent;color:var(--ink-soft);padding:5px 8px;border-radius:6px;cursor:pointer;}
   .font-ctrl button:hover{color:var(--ink);}
   .font-ctrl span{font-family:var(--font-mono);font-size:10px;color:var(--ink-muted);padding:0 4px;min-width:28px;text-align:center;}
+  .font-ctrl.compact button{font-size:10px;padding:3px 6px;}
+  .font-ctrl.compact span{font-size:9.5px;min-width:30px;padding:0 2px;}
 
   .pg-body{flex:1;min-height:0;overflow:hidden;display:grid;grid-template-columns:1fr 10px 1fr;}
   .pg-body.layout-grid{grid-template-areas:"html handle css" "js handle out";grid-template-rows:1fr 1fr;}
@@ -120,9 +142,76 @@
   .pg-out{grid-area:out;display:flex;flex-direction:column;height:100%;min-height:0;padding:2px 0 2px 6px;}
   .pg-out label{flex:0 0 auto;font-family:var(--font-mono);font-size:10px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-muted);display:flex;align-items:center;justify-content:space-between;gap:5px;margin-bottom:4px;}
   .pg-out iframe{flex:1;min-height:0;width:100%;border:1px solid var(--border);border-radius:0;background:#fff;}
-  .run-btn{font-family:var(--font-ui);text-transform:none;letter-spacing:0;font-size:11px;font-weight:600;padding:3px 10px;border:1px solid var(--amber);border-radius:0;background:var(--amber);color:var(--amber-ink);cursor:pointer;}
+  .run-btn{font-family:var(--font-ui);text-transform:none;letter-spacing:0;font-size:11px;font-weight:600;padding:3px 10px;border:1px solid var(--amber);border-radius:6px;background:var(--amber);color:var(--amber-ink);cursor:pointer;}
   .run-btn:hover{background:#EE9E22;}
   .run-btn:active{transform:translateY(1px);}
+  .out-actions{display:flex;align-items:center;gap:6px;}
+  .ghost-btn{display:flex;align-items:center;gap:3px;font-family:var(--font-ui);text-transform:none;letter-spacing:0;font-size:11px;font-weight:600;padding:3px 8px 3px 6px;border:1px solid var(--border);border-radius:6px;background:#fff;color:var(--ink-soft);cursor:pointer;}
+  .ghost-btn:hover{background:var(--paper);color:var(--ink);}
+  .ghost-btn:active{transform:translateY(1px);}
+
+  /* ---- console strip: full width, under the whole playground, closed by default ---- */
+  /* height is driven from JS (openHeight) so a dragged size survives collapse/expand;
+     with no inline height the strip falls back to just its header bar */
+  .pg-console{flex:0 0 auto;display:flex;flex-direction:column;min-height:0;margin-top:8px;border:1px solid var(--border);background:#fff;}
+  /* when open the drag grip's own line is the top edge, so drop the container's
+     border-top — otherwise the two 1px lines stack and read as a double rule */
+  /* the grip is a sibling above the box, so the console keeps its own full border */
+  .pg-console.open{margin-top:0;}
+  /* Drag grip: a free-floating rule 4px above the console box, not part of it.
+     9px tall and centred, so the line has 4px of hit-area on each side while the
+     visible gap to the box below stays exactly 4px. */
+  .pg-console-resize{display:none;height:9px;margin-top:4px;cursor:row-resize;align-items:center;background:transparent;}
+  .pg-console-resize.shown{display:flex;}
+  .pg-console-resize::before{content:"";display:block;width:100%;height:1px;background:var(--border);}
+  .pg-console-resize:hover::before{background:var(--amber);}
+  .pg-console-head{flex:0 0 auto;display:flex;align-items:center;gap:7px;padding:2px 6px 2px 8px;background:var(--paper);user-select:none;}
+  .pg-console.open .pg-console-head{border-bottom:1px solid var(--border);}
+  .pg-console-head .ttl{font-family:var(--font-mono);font-size:10px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-muted);}
+  .pg-console-head .spacer{flex:1;}
+  .pg-badge{font-family:var(--font-mono);font-size:9.5px;padding:1px 6px;border-radius:9px;background:var(--border);color:var(--ink-soft);}
+  .pg-badge.err{background:var(--red);color:#fff;}
+  .pg-badge.hidden{display:none;}
+  .pg-clear{font-family:var(--font-ui);font-size:10px;font-weight:600;padding:2px 8px;border:1px solid var(--border);background:#fff;color:var(--ink-soft);cursor:pointer;}
+  .pg-clear:hover{background:var(--paper);color:var(--ink);}
+  /* Clear only makes sense once you can see what you'd be clearing */
+  .pg-console:not(.open) .pg-clear{display:none;}
+
+  .pg-toggle{display:flex;align-items:center;gap:4px;font-family:var(--font-ui);font-size:10px;font-weight:700;padding:2px 8px 2px 5px;border:1px solid var(--border);background:#fff;color:var(--ink-soft);cursor:pointer;}
+  .pg-toggle svg{display:block;flex:0 0 auto;}
+  .pg-toggle:hover{background:var(--paper);color:var(--ink);}
+  /* closed is the default state, so make the way out of it obvious */
+  .pg-console:not(.open) .pg-toggle{border-color:var(--amber);background:var(--amber);color:var(--amber-ink);}
+  .pg-console:not(.open) .pg-toggle:hover{background:#EE9E22;}
+  .pg-console-body{display:none;flex:1;min-height:0;overflow-y:auto;font-family:var(--font-mono);font-size:11px;line-height:1.5;cursor:text;}
+  .pg-console.open .pg-console-body{display:block;}
+  .pg-line{padding:2px 8px;border-bottom:1px solid #F3F5F7;white-space:pre-wrap;word-break:break-word;color:var(--ink);}
+  .pg-line .lv{display:inline-block;min-width:46px;padding-right:8px;color:var(--ink-muted);}
+  .pg-line.warn{background:#FDF9EF;color:#8A6100;}
+  .pg-line.warn .lv{color:#B8860B;}
+  .pg-line.error{background:#FDF1EF;color:var(--red);}
+  .pg-line.error .lv{color:var(--red);}
+  .pg-line.input{color:var(--ink-muted);background:#FAFBFC;}
+  .pg-line.result .lv{color:var(--amber-ink);}
+  .pg-console-empty{padding:6px 8px;color:var(--ink-muted);font-size:11px;font-family:var(--font-ui);}
+  .pg-reset{display:flex;align-items:center;gap:8px;padding:3px 8px;color:var(--ink-muted);font-family:var(--font-ui);font-size:10px;}
+  .pg-reset::before,.pg-reset::after{content:"";flex:1;height:1px;background:var(--border);}
+  .card.collapsed .pg-console,
+  .card.collapsed .pg-console-resize{display:none;}
+
+  /* expandable object preview: one line, click to see it laid out */
+  .pg-expand{font-family:var(--font-mono);font-size:11px;line-height:1;width:14px;padding:0;margin-right:2px;border:none;background:none;color:var(--ink-muted);cursor:pointer;transition:transform .15s ease;display:inline-block;}
+  .pg-expand:hover{color:var(--ink);}
+  .pg-expand.open{transform:rotate(90deg);}
+  .pg-full{display:none;margin:4px 0 2px 54px;padding:6px 8px;background:var(--paper);border:1px solid var(--border);font-size:10.5px;line-height:1.5;overflow-x:auto;}
+  .pg-full.open{display:block;}
+
+  /* REPL prompt, pinned to the bottom like DevTools */
+  .pg-console-input{display:none;flex:0 0 auto;align-items:flex-start;gap:6px;padding:4px 8px;border-top:1px solid var(--border);background:#fff;}
+  .pg-console.open .pg-console-input{display:flex;}
+  .pg-console-input .caret{font-family:var(--font-mono);font-size:12px;line-height:1.5;color:var(--amber-ink);flex:0 0 auto;}
+  .pg-console-input textarea{flex:1;min-width:0;border:none;outline:none;resize:none;font-family:var(--font-mono);font-size:11px;line-height:1.5;color:var(--ink);background:transparent;padding:0;max-height:96px;overflow-y:auto;}
+  .pg-console-input textarea::placeholder{color:var(--ink-muted);}
 
   /* ---- nav tree: single column, weight/color signal level instead of boxes ---- */
   details.l1{margin-bottom:1px;}
@@ -145,16 +234,19 @@
   a.nav-leaf:hover{background:var(--paper);}
   a.nav-leaf.active{font-weight:600;color:var(--amber-ink);background:var(--amber);border-radius:6px;}
 
-  /* ---- rendered markdown output ---- */
-  .mdout h1{font-size:18px;margin:0 0 6px;letter-spacing:-.01em;}
-  .mdout h2{font-size:14px;margin:16px 0 6px;padding-top:10px;border-top:1px solid var(--border);letter-spacing:-.01em;}
+  /* ---- rendered markdown output ----
+     Every size below is relative to .mdout's own font-size, so the A-/A+ control
+     in the lesson header only has to change that one value. --md-base is the 100% mark. */
+  .mdout{--md-base:12.5px;font-size:var(--md-base);}
+  .mdout h1{font-size:1.44em;margin:0 0 6px;letter-spacing:-.01em;}
+  .mdout h2{font-size:1.12em;margin:16px 0 6px;padding-top:10px;border-top:1px solid var(--border);letter-spacing:-.01em;}
   .mdout h2:first-of-type{border-top:none;padding-top:0;}
-  .mdout h3{font-size:12.5px;margin:12px 0 5px;color:var(--ink);}
-  .mdout p{font-size:12.5px;color:var(--ink-soft);line-height:1.65;margin:0 0 7px;}
+  .mdout h3{font-size:1em;margin:12px 0 5px;color:var(--ink);}
+  .mdout p{font-size:1em;color:var(--ink-soft);line-height:1.65;margin:0 0 7px;}
   .mdout pre{background:transparent;margin:0;overflow-x:auto;}
-  .mdout pre code{font-size:11px;line-height:1.55;}
-  .mdout ol,.mdout ul{margin:0 0 9px;padding-left:18px;font-size:12px;color:var(--ink-soft);line-height:1.75;}
-  .mdout code:not(pre code){background:var(--paper);border:1px solid var(--border);padding:1px 5px;font-size:11px;}
+  .mdout pre code{font-size:.88em;line-height:1.55;}
+  .mdout ol,.mdout ul{margin:0 0 9px;padding-left:18px;font-size:.96em;color:var(--ink-soft);line-height:1.75;}
+  .mdout code:not(pre code){background:var(--paper);border:1px solid var(--border);padding:1px 5px;font-size:.88em;}
 
   .code-block{position:relative;margin:0 0 9px;}
   .code-block pre{background:var(--paper);color:var(--ink);border:1px solid var(--border);padding:9px 34px 9px 10px;}
@@ -180,7 +272,7 @@
 
 <div class="app">
   <header class="app-head">
-    <div class="brand"><span class="mark">&lt;/&gt;</span>WebDev Academy</div>
+    <div class="brand"><span class="mark">&lt;/&gt;</span>CE WebDev Academy</div>
     <div class="crumb" id="crumb">Loading&hellip;</div>
   </header>
 
@@ -201,11 +293,11 @@
 
       <div class="split-handle" id="handleNav" role="separator" aria-orientation="vertical" aria-label="Resize course panel"><span class="line"></span><span class="line"></span></div>
 
-      <!-- ================= MIDDLE: code playground ================= -->
-      <section class="card">
+      <!-- ================= MIDDLE: code playground (collapsible + resizable) ================= -->
+      <section class="card" id="pgPanel">
         <div class="pg-header">
           <h1>Code playground</h1>
-          <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+          <div class="pg-tools">
             <div class="font-ctrl">
               <button id="fontDec" aria-label="Decrease code font size">A-</button>
               <span id="fontSizeLabel">12px</span>
@@ -217,7 +309,9 @@
               <button data-layout="tabs" title="Tabs + output" aria-label="Tabbed editors with output layout"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="3" rx="0.5"></rect><rect x="3" y="7.5" width="7" height="13.5" rx="1"></rect><rect x="13" y="3" width="8" height="18" rx="1"></rect></svg></button>
               <button data-layout="fullhtml" title="Full HTML + output" aria-label="Full HTML document with output layout"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="8" height="18" rx="1"></rect><rect x="13" y="3" width="8" height="18" rx="1"></rect></svg></button>
             </div>
+            <button class="icon-btn" id="pgReset" type="button" title="Reset to this lesson&rsquo;s starter code" aria-label="Reset to starter code"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path></svg></button>
           </div>
+          <button class="collapse-btn" id="pgToggle" aria-label="Collapse code playground" aria-expanded="true" title="Collapse playground"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 7 9 12 4 17"></polyline><polyline points="20 7 15 12 20 17"></polyline></svg></button>
         </div>
 
         <div class="pg-body layout-grid" id="pgBody">
@@ -255,9 +349,31 @@ h2 { color: red; }</textarea>
           <div class="pg-out">
             <label>
               <span>Output</span>
-              <button id="pgRender" class="run-btn">Render</button>
+              <span class="out-actions">
+                <button id="pgBack" class="ghost-btn" type="button" title="Go back inside the preview"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>Back</button>
+                <button id="pgRender" class="run-btn" type="button">Render</button>
+              </span>
             </label>
             <iframe id="pgOut" title="Output"></iframe>
+          </div>
+        </div>
+
+        <div class="pg-console-resize" id="pgConsoleResize" role="separator" aria-orientation="horizontal" aria-label="Resize console"></div>
+
+        <div class="pg-console" id="pgConsole">
+          <div class="pg-console-head" id="pgConsoleHead">
+            <span class="ttl">Console</span>
+            <span class="pg-badge hidden" id="pgConsoleBadge">0</span>
+            <span class="spacer"></span>
+            <button class="pg-clear" id="pgConsoleClear" type="button">Clear</button>
+            <button class="pg-toggle" id="pgConsoleToggle" type="button" aria-expanded="false" aria-controls="pgConsoleBody" title="Show console"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg><span id="pgConsoleToggleLabel">Show</span></button>
+          </div>
+          <div class="pg-console-body" id="pgConsoleBody" aria-live="polite"></div>
+          <div class="pg-console-input">
+            <span class="caret">&rsaquo;</span>
+            <textarea id="pgConsoleInput" rows="1" spellcheck="false" autocomplete="off"
+              aria-label="Run JavaScript in the preview"
+              placeholder="Run JavaScript against the preview &mdash; Enter to run, Shift+Enter for a new line"></textarea>
           </div>
         </div>
       </section>
@@ -268,7 +384,14 @@ h2 { color: red; }</textarea>
       <section class="panel" id="mdPanel">
         <div class="panel-head">
           <h2 id="mdTitle">Lesson</h2>
-          <button class="collapse-btn" id="mdToggle" aria-label="Collapse lesson content"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="13 17 18 12 13 7"></polyline><polyline points="6 17 11 12 6 7"></polyline></svg></button>
+          <div class="panel-head-right">
+            <div class="font-ctrl compact md-tools">
+              <button id="mdFontDec" aria-label="Decrease lesson text size" title="Smaller lesson text">A-</button>
+              <span id="mdFontLabel">100%</span>
+              <button id="mdFontInc" aria-label="Increase lesson text size" title="Larger lesson text">A+</button>
+            </div>
+            <button class="collapse-btn" id="mdToggle" aria-label="Collapse lesson content"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="13 17 18 12 13 7"></polyline><polyline points="6 17 11 12 6 7"></polyline></svg></button>
+          </div>
         </div>
         <div class="panel-body mdout" id="mdBody">
           <p style="color:var(--ink-muted)">Loading&hellip;</p>
@@ -279,8 +402,10 @@ h2 { color: red; }</textarea>
   </div>
 
   <footer class="app-foot">
-    <span>&copy; WebDev Academy</span>
-    <span>Terms &middot; Privacy</span>
+    <span>AI Whisperer &mdash;
+      <a href="https://rathachai.creatier.pro/" target="_blank" rel="noopener noreferrer">Rathachai Chawuthai</a> &mdash;
+      <a href="https://github.com/SAIG-KMITL" target="_blank" rel="noopener noreferrer">SAIG Lab</a>,
+      Computer Engineering, KMITL</span>
   </footer>
 </div>
 
@@ -296,31 +421,305 @@ h2 { color: red; }</textarea>
   var fullBox = document.getElementById('pgFullHtml');
   var renderBtn = document.getElementById('pgRender');
   var currentLayout = 'grid';
+
+  /* ---- console bridge ----
+     Injected into every preview document. It forwards console.* calls, uncaught
+     errors, and unhandled rejections to this page via postMessage, so students
+     never have to open DevTools to see why their JS did nothing. */
+  var CONSOLE_HOOK =
+    '(function(){' +
+    'function isErr(v){ return Object.prototype.toString.call(v)==="[object Error]"; }' +
+    'function isBig(v){ return isErr(v)||(v!==null&&typeof v==="object"); }' +
+    'function rep(k,val){ return typeof val==="function"?"[Function]":val; }' +
+    /* one-line preview */
+    'function one(v){' +
+    '  if(typeof v==="string") return v;' +
+    '  if(v===undefined) return "undefined";' +
+    '  if(v===null) return "null";' +
+    '  if(typeof v==="function") return "[Function "+(v.name||"anonymous")+"]";' +
+    '  if(isErr(v)) return v.name+": "+v.message;' +
+    '  if(v.nodeType===1) return "<"+v.tagName.toLowerCase()+(v.id?" id=\\""+v.id+"\\"":"")+(v.className?" class=\\""+v.className+"\\"":"")+">";' +
+    '  if(typeof v!=="object") return String(v);' +
+    '  try{ return JSON.stringify(v,rep); }catch(e){ return String(v); }' +
+    '}' +
+    /* expanded view, only produced for things worth expanding */
+    'function full(v){' +
+    '  if(isErr(v)) return v.stack||(v.name+": "+v.message);' +
+    '  if(v&&v.nodeType===1) return v.outerHTML;' +
+    '  try{ return JSON.stringify(v,rep,2); }catch(e){ return String(v); }' +
+    '}' +
+    'function post(level,args){' +
+    '  var arr=Array.prototype.slice.call(args);' +
+    '  var text=arr.map(one).join(" ");' +
+    '  var f=arr.some(isBig)?arr.map(function(v){ return isBig(v)?full(v):one(v); }).join(" "):"";' +
+    '  try{ parent.postMessage({__pgConsole:1,level:level,text:text,full:f===text?"":f},"*"); }catch(e){}' +
+    '}' +
+    '["log","info","warn","error","debug"].forEach(function(lv){' +
+    '  var orig=console[lv];' +
+    '  console[lv]=function(){ post(lv,arguments); if(orig) orig.apply(console,arguments); };' +
+    '});' +
+    'window.addEventListener("error",function(e){' +
+    '  post("error",[e.message+(e.lineno?"  (line "+e.lineno+")":"")]); });' +
+    'window.addEventListener("unhandledrejection",function(e){' +
+    '  post("error",["Unhandled promise rejection: "+one(e.reason)]); });' +
+    /* REPL entry point. Indirect eval so declarations land in global scope,
+       exactly like typing into DevTools. */
+    'var declWarned=false;' +
+    'window.__pgEval=function(src){' +
+    '  var v,bad=false;' +
+    '  try{ v=(0,eval)(src); }catch(e){ v=e; bad=true; }' +
+    '  post(bad?"error":"result",[v]);' +
+    /* eval always scopes let/const/class to the eval call itself, so a binding
+       declared at the prompt is gone by the next entry. Say so once, rather than
+       rewriting the code and teaching the wrong scoping rules. */
+    '  if(!declWarned&&/^\\s*(let|const|class)\\s/.test(src)){' +
+    '    declWarned=true;' +
+    '    post("info",["Note: let / const / class typed here live only for that one entry — the next command will not see them. Use var, or keep the declaration and its use on the same line."]);' +
+    '  }' +
+    '};' +
+    '})();';
+
+  function hookTag(){ return '<script>' + CONSOLE_HOOK + '<' + '/script>'; }
+
+  /* For a hand-written full document, slot the hook just inside <head> so the
+     doctype stays first and the page keeps rendering in standards mode. */
+  function injectHook(doc){
+    var m = doc.match(/<head[^>]*>/i);
+    if(m){ var at = m.index + m[0].length; return doc.slice(0, at) + hookTag() + doc.slice(at); }
+    return hookTag() + doc;
+  }
+
   function buildFullHtml(){
     return '<!DOCTYPE html>\n<html>\n<head>\n<style>\n' + c.value + '\n</style>\n</head>\n<body>\n' + h.value + '\n<script>\n' + j.value + '\n<' + '/script>\n</body>\n</html>';
   }
-  function update(){
+  function buildPreview(){
+    return hookTag() + '<style>' + c.value + '</style>' + h.value + '<script>' + j.value + '<' + '/script>';
+  }
+  function update(reRender){
+    /* the divider only makes sense when an existing preview is being replaced */
+    clearConsole(!!reRender);
     if(currentLayout === 'fullhtml'){
       /* render exactly what's in the Full HTML box, including any manual edits -
          this never writes back into the html/css/js boxes */
-      out.srcdoc = fullBox.value;
+      out.srcdoc = injectHook(fullBox.value);
     } else {
-      out.srcdoc = '<style>' + c.value + '</style>' + h.value + '<script>' + j.value + '<' + '/script>';
+      out.srcdoc = buildPreview();
       fullBox.value = buildFullHtml();
     }
   }
-  renderBtn.addEventListener('click', update);
+  renderBtn.addEventListener('click', function(){ update(true); });
+
+  /* ---- Back: step back inside the preview ----
+     Following a link navigates the iframe away from the lesson's page. Once it
+     lands on another origin its history object is off-limits, so fall back to
+     re-rendering, which returns to the student's own code either way. */
+  document.getElementById('pgBack').addEventListener('click', function(){
+    try { out.contentWindow.history.back(); }
+    catch (e) { update(true); }
+  });
+
+  /* ---- Reset: restore this lesson's starter code (two clicks) ---- */
+  var resetBtn = document.getElementById('pgReset');
+  var resetArmed = null;
+  function disarmReset(){
+    clearTimeout(resetArmed);
+    resetArmed = null;
+    resetBtn.classList.remove('confirm');
+    resetBtn.title = 'Reset to this lesson’s starter code';
+  }
+  resetBtn.addEventListener('click', function(){
+    if(!resetArmed){
+      resetBtn.classList.add('confirm');
+      resetBtn.title = 'Click again to discard your changes';
+      resetArmed = setTimeout(disarmReset, 4000);
+      return;
+    }
+    disarmReset();
+    h.value = starter.html;
+    c.value = starter.css;
+    j.value = starter.js;
+    update(true);
+  });
 
   /* Called by app.js whenever a new lesson loads, with that lesson's Display code.
      Bypasses the fullhtml-passthrough branch of update() since this is fresh
      starter content, not a manual edit of the Full HTML box. */
+  var starter = { html: h.value, css: c.value, js: j.value };
   window.pgLoadStarter = function(htmlStr, cssStr, jsStr){
-    h.value = htmlStr || '';
-    c.value = cssStr || '';
-    j.value = jsStr || '';
-    out.srcdoc = '<style>' + c.value + '</style>' + h.value + '<script>' + j.value + '<' + '/script>';
+    starter = { html: htmlStr || '', css: cssStr || '', js: jsStr || '' };
+    h.value = starter.html;
+    c.value = starter.css;
+    j.value = starter.js;
+    clearConsole();
+    setConsoleOpen(false);   /* every lesson starts with the console closed */
+    out.srcdoc = buildPreview();
     fullBox.value = buildFullHtml();
   };
+
+  /* ---- console panel ---- */
+  var consoleEl = document.getElementById('pgConsole');
+  var consoleBody = document.getElementById('pgConsoleBody');
+  var consoleBadge = document.getElementById('pgConsoleBadge');
+  var consoleClear = document.getElementById('pgConsoleClear');
+  var consoleToggle = document.getElementById('pgConsoleToggle');
+  var consoleResize = document.getElementById('pgConsoleResize');
+  var CHEV_UP = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>';
+  var CHEV_DOWN = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>';
+  var CONSOLE_MIN_H = 80, CONSOLE_MAX_H = 420;
+  var openHeight = 160;   /* remembered across collapse/expand */
+  var consoleOpen = false;   /* closed on every page load, by design */
+  var pending = 0, pendingErrors = 0;
+  var MAX_LINES = 300;
+
+  function refreshBadge(){
+    if(consoleOpen || pending === 0){ consoleBadge.classList.add('hidden'); return; }
+    consoleBadge.classList.remove('hidden');
+    consoleBadge.classList.toggle('err', pendingErrors > 0);
+    consoleBadge.textContent = pending > 99 ? '99+' : String(pending);
+  }
+  function setConsoleOpen(open){
+    consoleOpen = open;
+    consoleEl.classList.toggle('open', open);
+    consoleResize.classList.toggle('shown', open);
+    /* console sits at the bottom, so it opens upward: ⌃ shows it, ⌄ hides it */
+    consoleToggle.innerHTML = (open ? CHEV_DOWN : CHEV_UP) +
+      '<span id="pgConsoleToggleLabel">' + (open ? 'Hide' : 'Show') + '</span>';
+    consoleToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    consoleToggle.title = open ? 'Hide console' : 'Show console';
+    /* restore the height the user last dragged to; drop it entirely when closed
+       so the strip collapses to its header instead of leaving a blank box */
+    consoleEl.style.height = open ? openHeight + 'px' : '';
+    if(open){
+      pending = 0; pendingErrors = 0;
+      consoleBody.scrollTop = consoleBody.scrollHeight;
+      var input = document.getElementById('pgConsoleInput');
+      if(input) input.focus();
+    }
+    refreshBadge();
+  }
+  var EMPTY_MSG = 'No output yet. Anything your JS logs — and anything you type below — appears here.';
+  function clearConsole(resetNote){
+    consoleBody.innerHTML = '';
+    var empty = document.createElement('div');
+    empty.className = 'pg-console-empty';
+    empty.textContent = EMPTY_MSG;
+    consoleBody.appendChild(empty);
+    if(resetNote){
+      var note = document.createElement('div');
+      note.className = 'pg-reset';
+      note.textContent = 'preview reloaded — variables from the previous run are gone';
+      consoleBody.appendChild(note);
+    }
+    pending = 0; pendingErrors = 0;
+    refreshBadge();
+  }
+
+  var TAGS = { log: '', info: 'info', debug: 'debug', warn: 'warn', error: 'error', result: '‹', input: '›' };
+  function appendLine(level, text, full){
+    var empty = consoleBody.querySelector('.pg-console-empty');
+    if(empty) empty.remove();
+
+    var line = document.createElement('div');
+    var mod = level === 'error' ? ' error' : level === 'warn' ? ' warn'
+            : level === 'result' ? ' result' : level === 'input' ? ' input' : '';
+    line.className = 'pg-line' + mod;
+
+    var tag = document.createElement('span');
+    tag.className = 'lv';
+    tag.textContent = TAGS[level] !== undefined ? TAGS[level] : level;
+    line.appendChild(tag);
+
+    if(full){
+      /* one-line preview by default; the caret reveals the laid-out version */
+      var pre = document.createElement('pre');
+      pre.className = 'pg-full';
+      pre.textContent = full;
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'pg-expand';
+      btn.textContent = '▸';
+      btn.setAttribute('aria-label', 'Expand value');
+      btn.addEventListener('click', function(e){
+        e.stopPropagation();
+        var isOpen = pre.classList.toggle('open');
+        btn.classList.toggle('open', isOpen);
+        btn.setAttribute('aria-label', isOpen ? 'Collapse value' : 'Expand value');
+      });
+      line.appendChild(btn);
+      line.appendChild(document.createTextNode(text));
+      line.appendChild(pre);
+    } else {
+      line.appendChild(document.createTextNode(text));
+    }
+
+    consoleBody.appendChild(line);
+    while(consoleBody.childElementCount > MAX_LINES) consoleBody.removeChild(consoleBody.firstElementChild);
+    if(consoleOpen){ consoleBody.scrollTop = consoleBody.scrollHeight; }
+    else if(level !== 'input'){ pending++; if(level === 'error') pendingErrors++; refreshBadge(); }
+  }
+
+  window.addEventListener('message', function(ev){
+    /* only trust messages coming from our own preview frame */
+    if(ev.source !== out.contentWindow) return;
+    var d = ev.data;
+    if(!d || d.__pgConsole !== 1) return;
+    appendLine(d.level, d.text, d.full);
+  });
+
+  /* ---- REPL prompt: evaluates in the preview's own global scope ---- */
+  var consoleInput = document.getElementById('pgConsoleInput');
+  var history = [], historyPos = 0, draft = '';
+
+  function autoGrow(){
+    consoleInput.style.height = 'auto';
+    consoleInput.style.height = consoleInput.scrollHeight + 'px';
+  }
+  function runInput(){
+    var src = consoleInput.value.trim();
+    if(!src) return;
+    appendLine('input', src);
+    consoleInput.value = '';
+    autoGrow();
+    if(history[history.length - 1] !== src) history.push(src);
+    historyPos = history.length;
+    draft = '';
+    var win = out.contentWindow;
+    if(!win || typeof win.__pgEval !== 'function'){
+      appendLine('error', 'The preview is not ready yet — press Render first.');
+      return;
+    }
+    try { win.__pgEval(src); }
+    catch(err){ appendLine('error', String((err && err.message) || err)); }
+  }
+  consoleInput.addEventListener('input', autoGrow);
+  consoleInput.addEventListener('keydown', function(e){
+    if(e.key === 'Enter' && !e.shiftKey){ e.preventDefault(); runInput(); return; }
+    /* history only while the entry is a single line, so multi-line editing still works */
+    if((e.key === 'ArrowUp' || e.key === 'ArrowDown') && consoleInput.value.indexOf('\n') === -1){
+      if(!history.length) return;
+      if(e.key === 'ArrowUp'){
+        if(historyPos === history.length) draft = consoleInput.value;
+        if(historyPos > 0) historyPos--;
+      } else if(historyPos < history.length){
+        historyPos++;
+      }
+      e.preventDefault();
+      consoleInput.value = historyPos === history.length ? draft : history[historyPos];
+      autoGrow();
+      consoleInput.setSelectionRange(consoleInput.value.length, consoleInput.value.length);
+    }
+  });
+  /* clicking dead space in the log focuses the prompt, like DevTools */
+  consoleBody.addEventListener('click', function(e){
+    if(e.target.closest('.pg-expand, .pg-full')) return;
+    if(String(window.getSelection())) return;
+    consoleInput.focus();
+  });
+
+  consoleToggle.addEventListener('click', function(){ setConsoleOpen(!consoleOpen); });
+  consoleClear.addEventListener('click', function(){ clearConsole(); });
+  setConsoleOpen(false);
+  clearConsole();
   update();
 
   /* ---- playground layout switch ---- */
@@ -350,11 +749,12 @@ h2 { color: red; }</textarea>
   });
 
   /* ---- generic pointer-drag helper ---- */
-  function startDrag(onMove){
-    document.body.classList.add('resizing');
-    function move(ev){ onMove(ev.clientX); }
+  function startDrag(onMove, axis){
+    document.body.classList.add(axis === 'y' ? 'resizing-y' : 'resizing');
+    function move(ev){ onMove(ev.clientX, ev.clientY); }
     function stop(){
       document.body.classList.remove('resizing');
+      document.body.classList.remove('resizing-y');
       document.removeEventListener('pointermove', move);
       document.removeEventListener('pointerup', stop);
     }
@@ -366,28 +766,51 @@ h2 { color: red; }</textarea>
   var split = document.getElementById('split');
   var navPanel = document.getElementById('navPanel');
   var mdPanel = document.getElementById('mdPanel');
+  var pgPanel = document.getElementById('pgPanel');
   var navToggle = document.getElementById('navToggle');
   var mdToggle = document.getElementById('mdToggle');
+  var pgToggle = document.getElementById('pgToggle');
   var handleNav = document.getElementById('handleNav');
   var handleMd = document.getElementById('handleMd');
-  var navCollapsed = false, mdCollapsed = false;
+  var navCollapsed = false, mdCollapsed = false, pgCollapsed = false;
   var navWidth = 260, mdWidth = 340;
+  var COLLAPSED_W = 48;
   var CHEV_LEFT = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="11 17 6 12 11 7"></polyline><polyline points="18 17 13 12 18 7"></polyline></svg>';
   var CHEV_RIGHT = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="13 17 18 12 13 7"></polyline><polyline points="6 17 11 12 6 7"></polyline></svg>';
+  /* middle column: chevrons point inward to collapse, outward to expand */
+  var CHEV_IN = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 7 9 12 4 17"></polyline><polyline points="20 7 15 12 20 17"></polyline></svg>';
+  var CHEV_OUT = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 7 4 12 9 17"></polyline><polyline points="15 7 20 12 15 17"></polyline></svg>';
 
   function applySplit(){
-    var navRender = navCollapsed ? 48 : navWidth;
-    var mdRender = mdCollapsed ? 48 : mdWidth;
-    split.style.gridTemplateColumns = navRender + 'px 10px 1fr 10px ' + mdRender + 'px';
+    var navCol = navCollapsed ? COLLAPSED_W + 'px' : navWidth + 'px';
+    var mdCol  = mdCollapsed  ? COLLAPSED_W + 'px' : mdWidth + 'px';
+    var pgCol  = pgCollapsed  ? COLLAPSED_W + 'px' : '1fr';
+
+    /* exactly one column must absorb the leftover space. Normally that's the
+       playground; when it's collapsed the lesson takes over, then the nav. */
+    if(pgCollapsed){
+      if(!mdCollapsed) mdCol = '1fr';
+      else if(!navCollapsed) navCol = '1fr';
+      else pgCol = '1fr';
+    }
+    split.style.gridTemplateColumns = navCol + ' 10px ' + pgCol + ' 10px ' + mdCol;
+
     navPanel.classList.toggle('collapsed', navCollapsed);
     mdPanel.classList.toggle('collapsed', mdCollapsed);
-    handleNav.classList.toggle('hidden', navCollapsed);
-    handleMd.classList.toggle('hidden', mdCollapsed);
+    pgPanel.classList.toggle('collapsed', pgCollapsed);
+    /* dragging a px width is meaningless while a neighbour is auto-sized */
+    handleNav.classList.toggle('hidden', navCollapsed || pgCollapsed);
+    handleMd.classList.toggle('hidden', mdCollapsed || pgCollapsed);
     navToggle.innerHTML = navCollapsed ? CHEV_RIGHT : CHEV_LEFT;
     mdToggle.innerHTML = mdCollapsed ? CHEV_LEFT : CHEV_RIGHT;
+    pgToggle.innerHTML = pgCollapsed ? CHEV_OUT : CHEV_IN;
+    pgToggle.setAttribute('aria-expanded', pgCollapsed ? 'false' : 'true');
+    pgToggle.setAttribute('aria-label', pgCollapsed ? 'Expand code playground' : 'Collapse code playground');
+    pgToggle.title = pgCollapsed ? 'Expand playground' : 'Collapse playground';
   }
   navToggle.addEventListener('click', function(){ navCollapsed = !navCollapsed; applySplit(); });
   mdToggle.addEventListener('click', function(){ mdCollapsed = !mdCollapsed; applySplit(); });
+  pgToggle.addEventListener('click', function(){ pgCollapsed = !pgCollapsed; applySplit(); });
 
   handleNav.addEventListener('pointerdown', function(e){
     if(navCollapsed) return;
@@ -417,6 +840,16 @@ h2 { color: red; }</textarea>
     });
   });
 
+  /* ---- console height drag (only reachable while the console is open) ---- */
+  consoleResize.addEventListener('pointerdown', function(e){
+    e.stopPropagation();
+    var startY = e.clientY, startH = consoleEl.getBoundingClientRect().height;
+    startDrag(function(x, y){
+      openHeight = Math.min(CONSOLE_MAX_H, Math.max(CONSOLE_MIN_H, startH - (y - startY)));
+      consoleEl.style.height = openHeight + 'px';
+    }, 'y');
+  });
+
   applySplit();
   applyPgSplit();
 
@@ -431,6 +864,22 @@ h2 { color: red; }</textarea>
   document.getElementById('fontDec').addEventListener('click', function(){ fontSize = Math.max(10, fontSize - 1); applyFontSize(); });
   document.getElementById('fontInc').addEventListener('click', function(){ fontSize = Math.min(20, fontSize + 1); applyFontSize(); });
   applyFontSize();
+
+  /* ---- lesson text size control ----
+     Sets one font-size on #mdBody; every .mdout rule is em-relative to it, so the
+     whole lesson scales together. app.js only swaps innerHTML, so this survives
+     navigating to another lesson. */
+  var MD_BASE_PX = 12.5;
+  var mdScale = 100;
+  var mdBodyEl = document.getElementById('mdBody');
+  var mdFontLabel = document.getElementById('mdFontLabel');
+  function applyMdScale(){
+    mdBodyEl.style.fontSize = (MD_BASE_PX * mdScale / 100).toFixed(2) + 'px';
+    mdFontLabel.textContent = mdScale + '%';
+  }
+  document.getElementById('mdFontDec').addEventListener('click', function(){ mdScale = Math.max(80, mdScale - 10); applyMdScale(); });
+  document.getElementById('mdFontInc').addEventListener('click', function(){ mdScale = Math.min(200, mdScale + 10); applyMdScale(); });
+  applyMdScale();
 
   /* ---- copy buttons on md code blocks ---- */
   var COPY_ICON = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>';

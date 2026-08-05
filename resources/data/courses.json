@@ -1,0 +1,62 @@
+[
+  {
+    "code": "01076021",
+    "title": "Web Application Development",
+    "credits": 3,
+    "year": 2,
+    "semester": 1,
+    "instructor": "Rathachai Chawuthai",
+    "seats": 60,
+    "enrolled": 58
+  },
+  {
+    "code": "01076012",
+    "title": "Data Structures and Algorithms",
+    "credits": 3,
+    "year": 2,
+    "semester": 1,
+    "instructor": "Somchai Prasert",
+    "seats": 80,
+    "enrolled": 80
+  },
+  {
+    "code": "01076033",
+    "title": "Database Systems",
+    "credits": 3,
+    "year": 2,
+    "semester": 2,
+    "instructor": "Malee Chaidee",
+    "seats": 60,
+    "enrolled": 47
+  },
+  {
+    "code": "01076044",
+    "title": "Computer Networks",
+    "credits": 3,
+    "year": 3,
+    "semester": 1,
+    "instructor": "Wichai Pongsak",
+    "seats": 50,
+    "enrolled": 50
+  },
+  {
+    "code": "01076055",
+    "title": "Operating Systems",
+    "credits": 3,
+    "year": 3,
+    "semester": 1,
+    "instructor": "Nattapong Sri",
+    "seats": 50,
+    "enrolled": 38
+  },
+  {
+    "code": "01076066",
+    "title": "Machine Learning",
+    "credits": 3,
+    "year": 4,
+    "semester": 2,
+    "instructor": "Rathachai Chawuthai",
+    "seats": 40,
+    "enrolled": 40
+  }
+]

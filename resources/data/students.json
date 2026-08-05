@@ -1,0 +1,101 @@
+[
+  {
+    "id": 1,
+    "name": "Anong Srisai",
+    "nickname": "Nong",
+    "year": 2,
+    "gpa": 3.42,
+    "major": "Computer Engineering",
+    "skills": [
+      "HTML",
+      "CSS",
+      "Python"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Boonmee Thongdee",
+    "nickname": "Boon",
+    "year": 2,
+    "gpa": 3.15,
+    "major": "Computer Engineering",
+    "skills": [
+      "JavaScript",
+      "Git"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Chaiwat Pimpa",
+    "nickname": "Chai",
+    "year": 3,
+    "gpa": 3.78,
+    "major": "Computer Engineering",
+    "skills": [
+      "C",
+      "Verilog",
+      "Linux"
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Duangjai Meesuk",
+    "nickname": "Jai",
+    "year": 2,
+    "gpa": 2.94,
+    "major": "Computer Engineering",
+    "skills": [
+      "HTML",
+      "Figma"
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Ekachai Rattana",
+    "nickname": "Eak",
+    "year": 4,
+    "gpa": 3.61,
+    "major": "Computer Engineering",
+    "skills": [
+      "JavaScript",
+      "Node",
+      "SQL"
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Fonthip Wanna",
+    "nickname": "Fon",
+    "year": 3,
+    "gpa": 3.33,
+    "major": "Computer Engineering",
+    "skills": [
+      "Python",
+      "Pandas"
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Gorn Sukjai",
+    "nickname": "Gorn",
+    "year": 1,
+    "gpa": 3.05,
+    "major": "Computer Engineering",
+    "skills": [
+      "HTML"
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Hathai Ngamdee",
+    "nickname": "Hat",
+    "year": 2,
+    "gpa": 3.88,
+    "major": "Computer Engineering",
+    "skills": [
+      "JavaScript",
+      "CSS",
+      "React"
+    ]
+  }
+]

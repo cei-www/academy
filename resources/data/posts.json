@@ -1,0 +1,73 @@
+[
+  {
+    "id": 1,
+    "title": "Why semantic HTML matters",
+    "author": "Nong",
+    "tags": [
+      "html",
+      "a11y"
+    ],
+    "published": "2026-06-02",
+    "likes": 42,
+    "excerpt": "Screen readers read the document tree, not the pixels."
+  },
+  {
+    "id": 2,
+    "title": "Flexbox in five minutes",
+    "author": "Hat",
+    "tags": [
+      "css",
+      "layout"
+    ],
+    "published": "2026-06-11",
+    "likes": 118,
+    "excerpt": "One axis, three properties, most of your layout problems solved."
+  },
+  {
+    "id": 3,
+    "title": "let, const and the dead zone",
+    "author": "Eak",
+    "tags": [
+      "js"
+    ],
+    "published": "2026-06-19",
+    "likes": 87,
+    "excerpt": "Why reading a let before its declaration throws instead of returning undefined."
+  },
+  {
+    "id": 4,
+    "title": "Responsive images without tears",
+    "author": "Jai",
+    "tags": [
+      "html",
+      "images"
+    ],
+    "published": "2026-07-01",
+    "likes": 65,
+    "excerpt": "srcset tells the browser what you have; sizes tells it how big the slot is."
+  },
+  {
+    "id": 5,
+    "title": "Fetch, promises and async/await",
+    "author": "Chai",
+    "tags": [
+      "js",
+      "ajax"
+    ],
+    "published": "2026-07-14",
+    "likes": 203,
+    "excerpt": "Three ways to write the same request, and when each one reads best."
+  },
+  {
+    "id": 6,
+    "title": "What CORS is actually protecting",
+    "author": "Boon",
+    "tags": [
+      "ajax",
+      "security"
+    ],
+    "published": "2026-07-22",
+    "likes": 91,
+    "excerpt": "The error is in your browser, but the fix is on the server."
+  }
+]

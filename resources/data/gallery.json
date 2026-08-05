@@ -1,0 +1,61 @@
+[
+  {
+    "id": 1,
+    "title": "KMITL Campus",
+    "src": "resources/img/campus-800.jpg",
+    "alt": "Abstract night skyline of the KMITL campus",
+    "width": 800,
+    "height": 450,
+    "tags": [
+      "campus",
+      "wide"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Wide Banner",
+    "src": "resources/img/banner.jpg",
+    "alt": "Amber banner graphic used for object-fit demos",
+    "width": 1600,
+    "height": 400,
+    "tags": [
+      "banner"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Profile",
+    "src": "resources/img/profile.jpg",
+    "alt": "Placeholder square profile picture",
+    "width": 600,
+    "height": 600,
+    "tags": [
+      "square",
+      "avatar"
+    ]
+  },
+  {
+    "id": 4,
+    "title": "CE Chip",
+    "src": "resources/img/chip.png",
+    "alt": "Illustration of a microchip with CE on it",
+    "width": 512,
+    "height": 512,
+    "tags": [
+      "png",
+      "transparent"
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Logo",
+    "src": "resources/img/ce-logo.svg",
+    "alt": "CE WebDev Academy logo",
+    "width": 240,
+    "height": 80,
+    "tags": [
+      "svg",
+      "vector"
+    ]
+  }
+]

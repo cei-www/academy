@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 240" width="360" height="240" role="img"
+     aria-label="Diagram of the CSS box model: margin, border, padding and content">
+  <rect width="360" height="240" fill="#FFFFFF"/>
+
+  <rect x="10"  y="10"  width="340" height="220" fill="#FDF3E3" stroke="#F0D9A8" stroke-dasharray="5 4"/>
+  <rect x="55"  y="45"  width="250" height="150" fill="#FFFFFF" stroke="#0F1B33" stroke-width="3"/>
+  <rect x="70"  y="60"  width="220" height="120" fill="#EEF1F4" stroke="#DDE2E8"/>
+  <rect x="105" y="85"  width="150" height="70"  fill="#F2A93B"/>
+
+  <g font-family="system-ui, -apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="11" font-weight="600">
+    <text x="18"  y="26"  fill="#8A6100">margin</text>
+    <text x="62"  y="41"  fill="#0F1B33">border</text>
+    <text x="76"  y="76"  fill="#4B5563">padding</text>
+    <text x="180" y="125" fill="#6B4207" text-anchor="middle">content</text>
+  </g>
+</svg>

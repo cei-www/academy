@@ -1,31 +1,242 @@
 [
   {
-    "name": "HTML",
+    "name": "Basic HTML",
     "children": [
-      { "name": "Introduction", "file": "HTML/introduction.md" },
-      { "name": "Common tags", "file": "HTML/common-tags.md" }
-    ]
-  },
-  {
-    "name": "CSS",
-    "children": [
-      { "name": "Selectors", "file": "CSS/selectors.md" },
       {
-        "name": "Text",
-        "children": [
-          { "name": "color", "file": "CSS/text-color.md" },
-          { "name": "font size", "file": "CSS/text-font-size.md" }
-        ]
+        "name": "Introduction",
+        "file": "HTML/introduction.md"
       },
-      { "name": "Box model", "file": "CSS/box-model.md" },
-      { "name": "Flexbox", "file": "CSS/flexbox.md" }
+      {
+        "name": "Text and headings",
+        "file": "HTML/text.md"
+      },
+      {
+        "name": "Links",
+        "file": "HTML/links.md"
+      },
+      {
+        "name": "Working with Images",
+        "file": "HTML/images.md"
+      },
+      {
+        "name": "Lists",
+        "file": "HTML/lists.md"
+      },
+      {
+        "name": "Tables",
+        "file": "HTML/tables.md"
+      },
+      {
+        "name": "Forms",
+        "file": "HTML/forms.md"
+      }
     ]
   },
   {
-    "name": "JS",
+    "name": "Basic CSS",
     "children": [
-      { "name": "Variables", "file": "JS/variables.md" },
-      { "name": "Functions", "file": "JS/functions.md" }
+      {
+        "name": "Introduction",
+        "file": "CSS/introduction.md"
+      },
+      {
+        "name": "Selectors",
+        "file": "CSS/selectors.md"
+      },
+      {
+        "name": "Colors and backgrounds",
+        "file": "CSS/colors.md"
+      },
+      {
+        "name": "Text and fonts",
+        "file": "CSS/text.md"
+      },
+      {
+        "name": "Box model",
+        "file": "CSS/box-model.md"
+      },
+      {
+        "name": "Display and sizing",
+        "file": "CSS/display.md"
+      },
+      {
+        "name": "Styling Images",
+        "file": "CSS/images.md"
+      }
+    ]
+  },
+  {
+    "name": "Basic JS",
+    "children": [
+      {
+        "name": "Introduction",
+        "file": "JS/introduction.md"
+      },
+      {
+        "name": "Variables and data types",
+        "file": "JS/variables.md"
+      },
+      {
+        "name": "Operators and conditions",
+        "file": "JS/conditions.md"
+      },
+      {
+        "name": "Loops",
+        "file": "JS/loops.md"
+      },
+      {
+        "name": "Functions",
+        "file": "JS/functions.md"
+      },
+      {
+        "name": "Arrays and objects",
+        "file": "JS/arrays-objects.md"
+      },
+      {
+        "name": "DOM and events",
+        "file": "JS/dom-events.md"
+      },
+      {
+        "name": "Images with JavaScript",
+        "file": "JS/images.md"
+      }
+    ]
+  },
+  {
+    "name": "Advanced HTML",
+    "children": [
+      {
+        "name": "Semantic and accessibility",
+        "file": "HTML/semantic.md"
+      },
+      {
+        "name": "Advanced forms",
+        "file": "HTML/forms-advanced.md"
+      },
+      {
+        "name": "Media and responsive images",
+        "file": "HTML/media.md"
+      },
+      {
+        "name": "Meta, SEO and sharing",
+        "file": "HTML/meta-seo.md"
+      }
+    ]
+  },
+  {
+    "name": "Advanced CSS",
+    "children": [
+      {
+        "name": "Cascade and specificity",
+        "file": "CSS/specificity.md"
+      },
+      {
+        "name": "Flexbox",
+        "file": "CSS/flexbox.md"
+      },
+      {
+        "name": "Grid",
+        "file": "CSS/grid.md"
+      },
+      {
+        "name": "Responsive design",
+        "file": "CSS/responsive.md"
+      },
+      {
+        "name": "Custom properties and theming",
+        "file": "CSS/variables.md"
+      },
+      {
+        "name": "Transitions and animations",
+        "file": "CSS/animation.md"
+      }
+    ]
+  },
+  {
+    "name": "Advanced JS",
+    "children": [
+      {
+        "name": "Scope, hoisting and closures",
+        "file": "JS/scope-closure.md"
+      },
+      {
+        "name": "Array methods",
+        "file": "JS/array-methods.md"
+      },
+      {
+        "name": "Destructuring, spread and rest",
+        "file": "JS/destructuring.md"
+      },
+      {
+        "name": "Objects, this and classes",
+        "file": "JS/classes.md"
+      },
+      {
+        "name": "DOM manipulation",
+        "file": "JS/dom-advanced.md"
+      },
+      {
+        "name": "Error handling",
+        "file": "JS/errors.md"
+      },
+      {
+        "name": "Asynchronous JavaScript",
+        "file": "JS/async.md"
+      }
+    ]
+  },
+  {
+    "name": "AJAX",
+    "children": [
+      {
+        "name": "What is AJAX",
+        "file": "AJAX/introduction.md"
+      },
+      {
+        "name": "Fetch and GET",
+        "file": "AJAX/fetch-get.md"
+      },
+      {
+        "name": "Rendering data to the DOM",
+        "file": "AJAX/render.md"
+      },
+      {
+        "name": "POST, PUT and DELETE",
+        "file": "AJAX/fetch-post.md"
+      },
+      {
+        "name": "Errors and CORS",
+        "file": "AJAX/errors-cors.md"
+      }
+    ]
+  },
+  {
+    "name": "Framework (Tailwind CSS)",
+    "children": [
+      {
+        "name": "Introduction to Tailwind",
+        "file": "FW/introduction.md"
+      },
+      {
+        "name": "Spacing and sizing",
+        "file": "FW/spacing.md"
+      },
+      {
+        "name": "Typography and colours",
+        "file": "FW/typography-colors.md"
+      },
+      {
+        "name": "Layout with flex and grid",
+        "file": "FW/layout.md"
+      },
+      {
+        "name": "Responsive and states",
+        "file": "FW/responsive-states.md"
+      },
+      {
+        "name": "Building components",
+        "file": "FW/components.md"
+      }
     ]
   }
 ]
