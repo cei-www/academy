@@ -838,11 +838,45 @@
       },
       {
         "name": "Responsive and states",
-        "file": "FW/responsive-states.md"
+        "children": [
+          {
+            "name": "Responsive utilities",
+            "file": "FW/responsive.md"
+          },
+          {
+            "name": "Interaction state utilities",
+            "file": "FW/states.md"
+          },
+          {
+            "name": "Responsive and states overview",
+            "file": "FW/responsive-states.md"
+          }
+        ]
       },
       {
         "name": "Building components",
-        "file": "FW/components.md"
+        "children": [
+          {
+            "name": "Reusable class lists",
+            "file": "FW/reusable-classes.md"
+          },
+          {
+            "name": "The @apply directive",
+            "file": "FW/apply-directive.md"
+          },
+          {
+            "name": "Theme tokens with @theme",
+            "file": "FW/theme-tokens.md"
+          },
+          {
+            "name": "Building components overview",
+            "file": "FW/components.md"
+          }
+        ]
+      },
+      {
+        "name": "Arbitrary values",
+        "file": "FW/arbitrary-values.md"
       }
     ]
   },

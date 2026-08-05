@@ -1,4 +1,4 @@
-# Responsive and states
+# Responsive and states overview
 
 Tailwind is mobile-first. An unprefixed utility applies at **every** width. A prefixed one applies
 from its breakpoint **up**: `md:grid-cols-3` means three columns on medium screens and wider, and

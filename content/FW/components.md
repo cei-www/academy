@@ -1,4 +1,4 @@
-# Building components
+# Building components overview
 
 A real component is just a long class list. The problem starts when you need that list three times.
 Copy-paste is the wrong answer: the fourth copy will drift.
@@ -6,13 +6,13 @@ Copy-paste is the wrong answer: the fourth copy will drift.
 In a page that already runs JavaScript, keep the list in one place — a `const` string, or a template
 function that returns the element. Change the constant and every card changes.
 
-Tailwind's own answer is `@apply`, which folds utilities into a normal class. It is justified for
-markup you cannot loop over — a hand-written navbar, or HTML produced by something else. Reach for it
-sparingly: a stylesheet full of `@apply` is the naming problem you left behind.
+Tailwind's own answer is `@apply`, which folds utilities into a normal class — justified for markup
+you cannot loop over, but used sparingly, since a stylesheet full of `@apply` is the naming problem
+you left behind. `@theme` registers a design token and generates its utilities automatically:
+`--color-brand` becomes `bg-brand`, `text-brand` and `border-brand`.
 
-`@apply` and theme customisation must live in a `<style type="text/tailwindcss">` block. This
-playground emits the CSS box as a plain `<style>` with no `type`, which Tailwind ignores, so put that
-block in the **HTML** box, under the script tag.
+Both must live in a `<style type="text/tailwindcss">` block. This playground emits the CSS box as a
+plain `<style>` with no `type`, which Tailwind ignores, so put that block in the **HTML** box.
 
 ## Display
 ### HTML
@@ -21,10 +21,11 @@ block in the **HTML** box, under the script tag.
 <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
 <style type="text/tailwindcss">
+  @theme { --color-brand: #0F1B33; }
   .btn { @apply px-4 py-2 rounded font-medium bg-amber-400 text-amber-900 hover:bg-amber-500; }
 </style>
 
-<nav class="flex items-center justify-between px-6 py-3 bg-slate-900 text-white">
+<nav class="flex items-center justify-between px-6 py-3 bg-brand text-white">
   <span class="font-bold">KMITL CE</span>
   <button class="btn">Enrol</button>
 </nav>
