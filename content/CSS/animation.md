@@ -1,4 +1,4 @@
-# Transitions and animations
+# Transitions and animations overview
 
 A transition animates a property between two states. You declare it once on the element, and it fires
 whenever the value changes — on `:hover`, on `:focus-visible`, on a class toggled by JavaScript.

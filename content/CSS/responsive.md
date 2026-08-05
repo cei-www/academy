@@ -1,23 +1,9 @@
-# Responsive design
+# Responsive design overview
 
-Nothing responsive works without this line in `<head>`. Without it a phone pretends to be a 980px
-desktop and shrinks your page.
-
-```
-<meta name="viewport" content="width=device-width, initial-scale=1">
-```
-
-Write the small-screen layout first, plain and unconditional, then add `min-width` media queries that
-*add* rules as space appears. Mobile-first means every query is an enhancement, never an undo.
-
-Pick breakpoints where your own content breaks — the line where cards get too narrow to read — not
-from device names. Phone sizes change; your content does not.
-
-Use relative units so the layout follows the user's font size: `rem` for spacing and type, `%` and
-`fr` for widths, `ch` for line length. `clamp(min, preferred, max)` gives fluid type in one line.
-
-Media queries also ask about the user, not just the window: `prefers-reduced-motion` and
-`prefers-color-scheme` are queries too.
+You have now met breakpoints and fluid values on their own. A real page combines them: a mobile-first
+base layout with `min-width` queries that add columns, sized with `rem`/`ch`/`clamp()` so type and
+spacing follow the user's own settings, and preference queries that respond to how they like to browse
+— not just how wide their window is.
 
 ## Display
 ### HTML
@@ -78,7 +64,7 @@ The base rule is the phone. The query only adds columns.
 }
 ```
 
-### 3. Make type fluid with `clamp()`
+### 3. Make type fluid with clamp()
 Lower bound, a viewport-relative middle, upper bound — no query needed.
 
 ```

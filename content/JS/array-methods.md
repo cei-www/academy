@@ -1,4 +1,4 @@
-# Array methods
+# Array methods overview
 
 Arrays carry methods that take a function and run the loop for you. Prefer them to a hand-written
 `for` loop: the method name states what the loop is for.

@@ -15,6 +15,14 @@ Some fields offer a fixed set of choices instead of free text. Radio buttons tha
     <label for="pm">Afternoon</label>
   </fieldset>
 
+  <fieldset>
+    <legend>Interests</legend>
+    <input type="checkbox" id="web" name="interest" value="web" checked>
+    <label for="web">Web development</label>
+    <input type="checkbox" id="ai" name="interest" value="ai">
+    <label for="ai">AI</label>
+  </fieldset>
+
   <label for="course">Course</label>
   <select id="course" name="course">
     <option value="01076021">Web Development</option>

@@ -1,4 +1,4 @@
-# Scope, hoisting and closures
+# Scope, hoisting and closures overview
 
 Scope is the region of code in which a name is visible. `let` and `const` are scoped to the nearest
 block — any `{ ... }`, including a loop body or an `if`. `var` ignores blocks and belongs to the whole

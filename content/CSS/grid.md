@@ -1,19 +1,8 @@
-# Grid
+# Grid overview
 
-`display: grid` gives you rows and columns at the same time. You describe the tracks on the
-container, and children drop into cells in order.
-
-`grid-template-columns` lists the column widths. The `fr` unit is a share of the leftover space, so
-`1fr 2fr` makes a second column twice as wide as the first. `repeat(3, 1fr)` is three equal columns.
-`gap` spaces the tracks.
-
-The one line worth memorising builds a responsive card wall with no media query:
-
-```
-grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-```
-
-`auto-fit` creates as many columns as fit at 200px minimum, then lets them grow to fill the row.
+You have now met tracks and placement on their own: `grid-template-columns`/`grid-template-rows` with
+`fr` and `repeat()` size the grid, while `grid-column`/`grid-row` or named `grid-template-areas` place
+children into it. A real layout uses both together.
 
 Use grid when the layout is two-dimensional and known in advance; use flexbox when items are strung
 along one axis and their own content decides the sizes.
@@ -23,10 +12,10 @@ along one axis and their own content decides the sizes.
 
 ```
 <div class="wall">
+  <div class="card wide">CE310 — spans two</div>
   <div class="card">CE101</div>
   <div class="card">CE202</div>
   <div class="card">CE221</div>
-  <div class="card wide">CE310 — spans two</div>
   <div class="card">CE340</div>
 </div>
 ```
@@ -54,8 +43,8 @@ along one axis and their own content decides the sizes.
 ```
 
 ## Your Tasks
-### 1. Make three equal columns
-`repeat(3, 1fr)` beats writing `1fr 1fr 1fr`.
+### 1. Size the tracks
+`fr` shares the leftover space; `repeat()` avoids repeating yourself.
 
 ```
 .grid {
@@ -65,19 +54,8 @@ along one axis and their own content decides the sizes.
 }
 ```
 
-### 2. Mix a fixed track with a flexible one
-A sidebar of exactly 220px, and a main column that takes whatever is left.
-
-```
-.page {
-  display: grid;
-  grid-template-columns: 220px 1fr;
-  gap: 24px;
-}
-```
-
-### 3. Build a card wall without a media query
-The columns re-count themselves as the container changes width.
+### 2. Build a card wall without a media query
+The columns re-count themselves as the container's width changes.
 
 ```
 .wall {
@@ -87,7 +65,7 @@ The columns re-count themselves as the container changes width.
 }
 ```
 
-### 4. Span cells
+### 3. Span cells
 Counting from track line 1 to line 3 covers two columns; `span 2` says the same thing relatively.
 
 ```
@@ -95,7 +73,7 @@ Counting from track line 1 to line 3 covers two columns; `span 2` says the same 
 .hero    { grid-column: 1 / 3; grid-row: 1 / 3; }
 ```
 
-### 5. Name the areas
+### 4. Name the areas
 `grid-template-areas` draws the layout in the stylesheet, so placement reads like a picture.
 
 ```
@@ -110,6 +88,17 @@ Counting from track line 1 to line 3 covers two columns; `span 2` says the same 
 .page > header { grid-area: header; }
 .page > aside  { grid-area: side; }
 .page > main   { grid-area: main; }
+```
+
+### 5. Choose grid over flexbox
+Grid wins once both rows and columns need to line up together, not just one axis.
+
+```
+/* two-dimensional dashboard → grid */
+.dashboard { display: grid; grid-template-columns: repeat(4, 1fr); }
+
+/* one row of tags → flexbox */
+.tags { display: flex; gap: 8px; }
 ```
 
 ## Exercises

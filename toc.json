@@ -323,6 +323,10 @@
         ]
       },
       {
+        "name": "Handling forms with JavaScript",
+        "file": "HTML/forms-javascript.md"
+      },
+      {
         "name": "Media",
         "children": [
           {
@@ -366,8 +370,45 @@
           {
             "name": "Quotations, abbreviations and dates",
             "file": "HTML/inline-quotes.md"
+          },
+          {
+            "name": "Highlights, edits and scripts",
+            "file": "HTML/inline-marks.md"
+          },
+          {
+            "name": "Inline text semantics overview",
+            "file": "HTML/inline-semantics.md"
           }
         ]
+      },
+      {
+        "name": "Native UI widgets",
+        "children": [
+          {
+            "name": "Disclosure widgets",
+            "file": "HTML/widgets-details.md"
+          },
+          {
+            "name": "The dialog element",
+            "file": "HTML/widgets-dialog.md"
+          },
+          {
+            "name": "Progress and meter",
+            "file": "HTML/widgets-progress-meter.md"
+          },
+          {
+            "name": "Native UI widgets overview",
+            "file": "HTML/widgets.md"
+          }
+        ]
+      },
+      {
+        "name": "Embedding content with iframe",
+        "file": "HTML/iframe.md"
+      },
+      {
+        "name": "Global attributes",
+        "file": "HTML/global-attributes.md"
       }
     ]
   },
@@ -377,6 +418,14 @@
       {
         "name": "Cascade and specificity",
         "file": "CSS/specificity.md"
+      },
+      {
+        "name": "Pseudo-elements",
+        "file": "CSS/pseudo-elements.md"
+      },
+      {
+        "name": "Advanced pseudo-classes",
+        "file": "CSS/pseudo-classes-advanced.md"
       },
       {
         "name": "Flexbox",
@@ -421,11 +470,37 @@
       },
       {
         "name": "Grid",
-        "file": "CSS/grid.md"
+        "children": [
+          {
+            "name": "Grid tracks and sizing",
+            "file": "CSS/grid-tracks.md"
+          },
+          {
+            "name": "Grid placement and named areas",
+            "file": "CSS/grid-placement.md"
+          },
+          {
+            "name": "Grid overview",
+            "file": "CSS/grid.md"
+          }
+        ]
       },
       {
         "name": "Responsive design",
-        "file": "CSS/responsive.md"
+        "children": [
+          {
+            "name": "Viewport and breakpoints",
+            "file": "CSS/responsive-breakpoints.md"
+          },
+          {
+            "name": "Fluid values and user preferences",
+            "file": "CSS/responsive-fluid-values.md"
+          },
+          {
+            "name": "Responsive design overview",
+            "file": "CSS/responsive.md"
+          }
+        ]
       },
       {
         "name": "Custom properties and theming",
@@ -437,7 +512,37 @@
       },
       {
         "name": "Transitions and animations",
-        "file": "CSS/animation.md"
+        "children": [
+          {
+            "name": "Transitions",
+            "file": "CSS/transitions.md"
+          },
+          {
+            "name": "Keyframe animations",
+            "file": "CSS/keyframe-animations.md"
+          },
+          {
+            "name": "Transitions and animations overview",
+            "file": "CSS/animation.md"
+          }
+        ]
+      },
+      {
+        "name": "Visual effects",
+        "children": [
+          {
+            "name": "Shadows and filters",
+            "file": "CSS/shadows.md"
+          },
+          {
+            "name": "Gradients",
+            "file": "CSS/gradients.md"
+          },
+          {
+            "name": "Visual effects overview",
+            "file": "CSS/visual-effects.md"
+          }
+        ]
       }
     ]
   },
@@ -446,15 +551,49 @@
     "children": [
       {
         "name": "Scope, hoisting and closures",
-        "file": "JS/scope-closure.md"
+        "children": [
+          {
+            "name": "Scope and hoisting",
+            "file": "JS/scope-hoisting.md"
+          },
+          {
+            "name": "Closures",
+            "file": "JS/closures.md"
+          },
+          {
+            "name": "Scope, hoisting and closures overview",
+            "file": "JS/scope-closure.md"
+          }
+        ]
       },
       {
         "name": "Array methods",
-        "file": "JS/array-methods.md"
+        "children": [
+          {
+            "name": "Transforming and selecting arrays",
+            "file": "JS/array-methods-transform.md"
+          },
+          {
+            "name": "Sorting and mutating arrays",
+            "file": "JS/array-methods-sort.md"
+          },
+          {
+            "name": "Folding arrays with reduce",
+            "file": "JS/array-methods-reduce.md"
+          },
+          {
+            "name": "Array methods overview",
+            "file": "JS/array-methods.md"
+          }
+        ]
       },
       {
         "name": "Destructuring, spread and rest",
         "file": "JS/destructuring.md"
+      },
+      {
+        "name": "Practical destructuring patterns",
+        "file": "JS/destructuring-patterns.md"
       },
       {
         "name": "Objects, this and classes",
