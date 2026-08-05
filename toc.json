@@ -383,8 +383,41 @@
         "file": "CSS/flexbox.md"
       },
       {
-        "name": "Common page layout patterns",
-        "file": "CSS/page-layout-patterns.md"
+        "name": "Page layout patterns",
+        "children": [
+          {
+            "name": "Using tables (and why not to)",
+            "file": "CSS/layout-table.md"
+          },
+          {
+            "name": "Using div and flexbox",
+            "file": "CSS/layout-div.md"
+          },
+          {
+            "name": "Using semantic tags",
+            "file": "CSS/layout-semantic.md"
+          },
+          {
+            "name": "Responsive page layout",
+            "file": "CSS/layout-responsive.md"
+          },
+          {
+            "name": "Page layout patterns overview",
+            "file": "CSS/page-layout-patterns.md"
+          }
+        ]
+      },
+      {
+        "name": "Centering elements",
+        "file": "CSS/centering.md"
+      },
+      {
+        "name": "Overflow with images and text",
+        "file": "CSS/overflow-image-text.md"
+      },
+      {
+        "name": "CSS-only toggles with the checkbox hack",
+        "file": "CSS/toggle-checkbox.md"
       },
       {
         "name": "Grid",
@@ -397,6 +430,10 @@
       {
         "name": "Custom properties and theming",
         "file": "CSS/variables.md"
+      },
+      {
+        "name": "CSS hacks and workarounds",
+        "file": "CSS/css-hacks.md"
       },
       {
         "name": "Transitions and animations",
