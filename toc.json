@@ -341,7 +341,33 @@
       },
       {
         "name": "Meta, SEO and sharing",
-        "file": "HTML/meta-seo.md"
+        "children": [
+          {
+            "name": "Title, description and canonical URLs",
+            "file": "HTML/meta-seo-basics.md"
+          },
+          {
+            "name": "Open Graph and Twitter cards",
+            "file": "HTML/meta-social-sharing.md"
+          },
+          {
+            "name": "Meta, SEO and sharing overview",
+            "file": "HTML/meta-seo.md"
+          }
+        ]
+      },
+      {
+        "name": "Inline text semantics",
+        "children": [
+          {
+            "name": "Code and technical text",
+            "file": "HTML/inline-code.md"
+          },
+          {
+            "name": "Quotations, abbreviations and dates",
+            "file": "HTML/inline-quotes.md"
+          }
+        ]
       }
     ]
   },
@@ -355,6 +381,10 @@
       {
         "name": "Flexbox",
         "file": "CSS/flexbox.md"
+      },
+      {
+        "name": "Common page layout patterns",
+        "file": "CSS/page-layout-patterns.md"
       },
       {
         "name": "Grid",

@@ -1,17 +1,18 @@
-# Meta, SEO and sharing overview
+# Open Graph and Twitter cards
 
-You have now met title/description/canonical URLs and Open Graph/Twitter cards on their own. Nothing
-in `<head>` is drawn on the page, yet it decides how your page appears in search results, browser
-tabs and social previews alike.
+Chat apps and social networks do not read `<title>` or the description meta tag. They read **Open
+Graph** — `og:title`, `og:description`, `og:image`, `og:url` — plus Twitter's `twitter:card` set, and
+build a preview card from them. `og:image` must be an absolute URL on a real site.
 
 `lang` and `dir` on `<html>` tell the browser and screen readers which language to speak and which
-direction to lay out. Search engines also read **structured data** (JSON-LD) for rich results.
+direction to lay out. Search engines also read **structured data** — a `<script>` block of JSON-LD
+describing the page as a Course, Person or Event — which is how rich results are produced; you do not
+need it today, but know the name.
 
 ## Display
 ### HTML
 
 ```
-<meta name="description" content="A hands-on web development course for CE students at KMITL.">
 <meta property="og:title" content="CE WebDev Academy">
 <meta property="og:description" content="Learn HTML, CSS and JavaScript by building real pages.">
 <meta property="og:image" content="resources/img/campus-400.jpg">
@@ -51,27 +52,10 @@ set("cardTitle", meta('meta[property="og:title"]'));
 set("cardDesc", meta('meta[property="og:description"]'));
 set("cardUrl", meta('meta[property="og:url"]'));
 document.getElementById("cardImg").src = meta('meta[property="og:image"]');
-console.log("description:", meta('meta[name="description"]'));
 ```
 
 ## Your Tasks
-### 1. Title and description
-The title is the headline; the description is the summary under it. Both belong in `<head>`.
-
-```
-<title>Web Development — CE, KMITL</title>
-<meta name="description"
-      content="A second-year course on HTML, CSS and JavaScript at KMITL's CE department.">
-```
-
-### 2. Name the canonical URL
-Point every duplicate address at the single version you want indexed.
-
-```
-<link rel="canonical" href="https://ce.kmitl.ac.th/webdev">
-```
-
-### 3. Add Open Graph tags
+### 1. Add Open Graph tags
 Note the attribute is `property`, not `name`, and the image URL is absolute.
 
 ```
@@ -82,7 +66,7 @@ Note the attribute is `property`, not `name`, and the image URL is absolute.
 <meta property="og:type" content="website">
 ```
 
-### 4. Add a Twitter card
+### 2. Add a Twitter card
 `summary_large_image` renders the wide preview; the other tags fall back to Open Graph if omitted.
 
 ```
@@ -91,68 +75,85 @@ Note the attribute is `property`, not `name`, and the image URL is absolute.
 <meta name="twitter:image" content="https://ce.kmitl.ac.th/img/campus.jpg">
 ```
 
-### 5. Language, icon and indexing
+### 3. Set language and direction
 `lang` is on `<html>`; `dir="rtl"` is for right-to-left scripts such as Arabic.
 
 ```
 <html lang="en" dir="ltr">
-<head>
-  <link rel="icon" href="resources/img/ce-logo.svg" type="image/svg+xml">
-  <meta name="robots" content="index, follow">
-</head>
+```
+
+### 4. Add minimal structured data
+A JSON-LD block describes the page's meaning directly, in a format search engines parse.
+
+```
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": "Web Development",
+  "provider": "CE-KMITL"
+}
+</script>
+```
+
+### 5. Build the preview card from the tags
+The same pattern a real chat app uses: read each tag, then fill in a template.
+
+```
+const meta = (sel) => document.querySelector(sel)?.content ?? "(missing)";
+document.getElementById("cardTitle").textContent = meta('meta[property="og:title"]');
 ```
 
 ## Exercises
 
-### Exercise 1: Head block
-Write a complete `<head>` for a course page: charset, viewport, title, description, canonical and
-icon, in that order.
-
-### Exercise 2: Rewrite a bad title
-Given `<title>Home</title>`, write a better title under 60 characters and one sentence saying what
-makes it better in a search result.
-
-### Exercise 3: Read the tags in the console
-Log every meta tag on the starter page with
-`document.querySelectorAll("meta").forEach(m => console.log(m.name || m.getAttribute("property"), m.content))`
-and report which ones have no `name`.
-
-### Exercise 4: Break the preview
+### Exercise 1: Break the preview
 Delete the `og:image` tag from the starter and re-render. Describe what the card shows now and which
 line of the JavaScript produced it.
 
-### Exercise 5: Two languages
+### Exercise 2: Two languages
 Make one page `lang="th"` and one `lang="en"`, each with its own title and description, and link them
 with `<link rel="alternate" hreflang="…">`.
 
+### Exercise 3: Build a Twitter card
+Add a full `twitter:card` set (`card`, `title`, `description`, `image`) to a page that already has
+Open Graph tags, and explain in one sentence when Twitter falls back to Open Graph instead.
+
+### Exercise 4: Structured data for a person
+Write a JSON-LD block with `@type: "Person"` describing a course instructor, including `name` and
+`worksFor`.
+
+### Exercise 5: Fallback check
+Remove `og:title` but keep `<title>Course</title>`. Log which value a well-behaved chat app preview
+would most likely fall back to, and why.
+
 ## Quizes
 
-### Q1. Where does `<meta name="description">` appear?
-1. As a heading at the top of the page
-2. In the browser tab, next to the icon
-3. Nowhere — it is only for the developer
-4. As the summary text under the link in a search result
-
-### Q2. What does `<link rel="canonical">` solve?
-1. It redirects visitors to the correct page
-2. It stops search engines indexing the page at all
-3. It names the preferred URL when one page has several addresses
-4. It sets the site's home page
-
-### Q3. Which attribute does an Open Graph tag use for its key?
+### Q1. Which attribute does an Open Graph tag use for its key?
 1. `name`
 2. `property`
 3. `rel`
 4. `itemprop`
 
-### Q4. A page has no `og:title` but does have `<title>Course</title>`. What does a chat app most likely show?
+### Q2. A page has no `og:title` but does have `<title>Course</title>`. What does a chat app most likely show?
 1. Nothing at all, because Open Graph is required
 2. An error card
 3. It falls back to the `<title>` text
 4. The first `<h1>` on the page
 
-### Q5. What does `lang="th"` on `<html>` affect?
+### Q3. What does `lang="th"` on `<html>` affect?
 1. The character encoding of the file
 2. Pronunciation by screen readers, hyphenation and translation offers
 3. Which fonts are downloaded
 4. The direction the text is laid out
+
+### Q4. What must `og:image` be?
+1. A relative path, so it works on any domain
+2. An absolute URL on a real, reachable site
+3. A `data:` URL, so no request is needed
+4. Optional and ignored by most platforms
+
+### Q5. What is structured data (JSON-LD) used for?
+1. Styling the page for print
+2. Describing the page's meaning to search engines, enabling rich results
+3. Replacing `<meta>` tags entirely
+4. Loading fonts faster
