@@ -13,32 +13,33 @@ Adding a fourth alpha channel makes a color partly transparent: `rgba(242, 169, 
 ### HTML
 
 ```
-<div id="swatches"></div>
+<div style="height: 40px; background: teal; color: #fff; padding: 8px; font-family: system-ui;">
+  teal — a name
+</div>
+<div style="height: 40px; background: #F2A93B; color: #6B4207; padding: 8px; font-family: system-ui;">
+  #F2A93B — a hex code
+</div>
+<div style="height: 40px; background: rgb(15, 27, 51); color: #fff; padding: 8px; font-family: system-ui;">
+  rgb(15, 27, 51)
+</div>
+<div style="height: 40px; background: hsl(150, 65%, 35%); color: #fff; padding: 8px; font-family: system-ui;">
+  hsl(150, 65%, 35%)
+</div>
+<div style="height: 40px; background: rgba(185, 28, 28, 0.6); color: #fff; padding: 8px; font-family: system-ui;">
+  rgba(185, 28, 28, 0.6) — with alpha
+</div>
 ```
 
 ### CSS
 
 ```
-body { font-family: system-ui, sans-serif; margin: 16px; color: #131A26; }
-#swatches { display: flex; gap: 8px; flex-wrap: wrap; }
-.swatch { width: 92px; height: 60px; border-radius: 6px; display: flex; align-items: flex-end;
-  padding: 4px; color: #fff; font-size: 11px; text-shadow: 0 1px 2px rgba(0,0,0,.5); }
+
 ```
 
 ### Javascript
 
 ```
-const colors = [
-  { label: "teal", value: "teal" },
-  { label: "#F2A93B", value: "#F2A93B" },
-  { label: "rgb(15,27,51)", value: "rgb(15, 27, 51)" },
-  { label: "hsl(150,65%,35%)", value: "hsl(150, 65%, 35%)" },
-  { label: "rgba(185,28,28,.6)", value: "rgba(185, 28, 28, 0.6)" },
-];
 
-document.getElementById("swatches").innerHTML = colors
-  .map(c => `<div class="swatch" style="background:${c.value}">${c.label}</div>`)
-  .join("");
 ```
 
 ## Your Tasks
@@ -83,9 +84,9 @@ A fourth value fades the color without changing the element's opacity as a whole
 Pick one color and write it as a name (if it has one), a hex code, an `rgb()`, and an `hsl()`. Confirm
 all four render identically.
 
-### Exercise 2: Build a swatch grid
-Render five colors as swatches from a JS array, each swatch's background set from the array's value,
-as the Display above does.
+### Exercise 2: Build a color bar strip
+Add three more color bars below the five in the Display, each a different named color, and label
+each with its name inside the bar.
 
 ### Exercise 3: Fade a background
 Take one background color and render it at four different alpha values (1, 0.75, 0.5, 0.25) side by

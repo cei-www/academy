@@ -196,6 +196,14 @@
         ]
       },
       {
+        "name": "Rounded corners and cards",
+        "file": "CSS/cards.md"
+      },
+      {
+        "name": "Block and inline elements",
+        "file": "CSS/block-inline-tags.md"
+      },
+      {
         "name": "Display and sizing",
         "children": [
           {
@@ -495,6 +503,10 @@
         "file": "CSS/centering.md"
       },
       {
+        "name": "z-index",
+        "file": "CSS/z-index.md"
+      },
+      {
         "name": "Responsive design",
         "children": [
           {
@@ -556,6 +568,10 @@
             "file": "CSS/animation.md"
           }
         ]
+      },
+      {
+        "name": "Color transparency",
+        "file": "CSS/transparency.md"
       },
       {
         "name": "Visual effects",
@@ -696,6 +712,10 @@
             "file": "JS/dom-advanced.md"
           }
         ]
+      },
+      {
+        "name": "Toggling display and visibility",
+        "file": "JS/toggle-display.md"
       },
       {
         "name": "Working with tables",
