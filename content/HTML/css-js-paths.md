@@ -1,4 +1,4 @@
-# Adding CSS, JavaScript and file paths
+# CSS, JS and file paths overview
 
 CSS attaches to a page three ways: **inline** — a `style` attribute on one element, checked first but
 impossible to reuse; **internal** — a `<style>` block (in this playground, the CSS box itself becomes

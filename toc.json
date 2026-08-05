@@ -7,8 +7,29 @@
         "file": "HTML/introduction.md"
       },
       {
-        "name": "Adding CSS, JavaScript and file paths",
-        "file": "HTML/css-js-paths.md"
+        "name": "Tags, id and class",
+        "file": "HTML/id-and-class.md"
+      },
+      {
+        "name": "CSS, JS and file paths",
+        "children": [
+          {
+            "name": "CSS, JS and file paths overview",
+            "file": "HTML/css-js-paths.md"
+          },
+          {
+            "name": "Inline, internal and external CSS",
+            "file": "HTML/css-methods.md"
+          },
+          {
+            "name": "Script placement and linking JS files",
+            "file": "HTML/script-placement.md"
+          },
+          {
+            "name": "Relative and absolute file paths",
+            "file": "HTML/file-paths.md"
+          }
+        ]
       },
       {
         "name": "Text",
@@ -30,6 +51,14 @@
       {
         "name": "Character entities",
         "file": "HTML/entities.md"
+      },
+      {
+        "name": "HTML symbols",
+        "file": "HTML/symbols.md"
+      },
+      {
+        "name": "HTML colors",
+        "file": "HTML/colors.md"
       },
       {
         "name": "Links",
