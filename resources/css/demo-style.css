@@ -1,0 +1,5 @@
+/* A small external stylesheet used to demonstrate <link rel="stylesheet">. */
+.external-demo {
+  color: #15803D;
+  font-weight: 700;
+}

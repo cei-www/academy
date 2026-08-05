@@ -7,6 +7,10 @@
         "file": "HTML/introduction.md"
       },
       {
+        "name": "Adding CSS, JavaScript and file paths",
+        "file": "HTML/css-js-paths.md"
+      },
+      {
         "name": "Text",
         "children": [
           {
@@ -913,6 +917,31 @@
           {
             "name": "Mouse events on SVG",
             "file": "SVG/svg-events.md"
+          }
+        ]
+      },
+      {
+        "name": "D3.js",
+        "children": [
+          {
+            "name": "Line charts with D3",
+            "file": "D3/line-chart.md"
+          },
+          {
+            "name": "Bar charts with D3",
+            "file": "D3/bar-chart.md"
+          },
+          {
+            "name": "Chord diagrams with D3",
+            "file": "D3/chord-diagram.md"
+          },
+          {
+            "name": "Force-directed graphs with D3",
+            "file": "D3/force-graph.md"
+          },
+          {
+            "name": "Contour plots with D3",
+            "file": "D3/contour-plot.md"
           }
         ]
       }
