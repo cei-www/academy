@@ -82,7 +82,7 @@ Draw three stacked circles in red, yellow and green inside one SVG.
 Draw four `<line>` elements forming an X pattern inside a square `viewBox`.
 
 ### Exercise 5: Mix fill and stroke
-Give one shape both a `fill` and a different-coloured `stroke`, and describe what each one affects.
+Give one shape both a `fill` and a different-colored `stroke`, and describe what each one affects.
 
 ## Quizes
 

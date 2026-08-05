@@ -40,7 +40,7 @@ body { font-family: system-ui, sans-serif; margin: 16px; background: #F7F5F0; }
 
 ## Your Tasks
 ### 1. Drop a shadow behind a card
-Offset, blur, and a translucent colour read as depth.
+Offset, blur, and a translucent color read as depth.
 
 ```
 .card { box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); }
@@ -61,7 +61,7 @@ The fourth value, spread, can be negative to pull the shadow in from the box edg
 ```
 
 ### 4. Add a text shadow
-`text-shadow` uses the same offset/blur/colour pattern, following the letterforms.
+`text-shadow` uses the same offset/blur/color pattern, following the letterforms.
 
 ```
 .title { text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25); }
@@ -97,7 +97,7 @@ the change is smooth.
 ## Quizes
 
 ### Q1. What does the fourth value in `box-shadow: 0 4px 12px -2px red` control?
-1. The shadow's colour
+1. The shadow's color
 2. The blur radius
 3. The spread — how much the shadow grows or shrinks from the box edges
 4. The offset direction
@@ -111,7 +111,7 @@ the change is smooth.
 ### Q3. What does `text-shadow` follow, unlike `box-shadow`?
 1. The element's border-radius
 2. The actual glyph outlines of the text
-3. The element's background colour
+3. The element's background color
 4. Nothing — the two are identical
 
 ### Q4. Why use `filter: drop-shadow()` instead of `box-shadow` on a transparent PNG logo?
@@ -120,7 +120,7 @@ the change is smooth.
 3. `drop-shadow()` is faster to compute in every case
 4. There is no difference between the two
 
-### Q5. Which `filter` value removes all colour from an element?
+### Q5. Which `filter` value removes all color from an element?
 1. `blur(100%)`
 2. `grayscale(100%)`
 3. `brightness(0)`

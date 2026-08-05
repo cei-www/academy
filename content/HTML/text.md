@@ -116,7 +116,7 @@ order. Report any level you skipped.
 ### Q2. What does `<strong>` add that `<b>` does not?
 1. A larger font size
 2. Meaning — it marks the content as important
-3. A different colour
+3. A different color
 4. Nothing; they are identical
 
 ### Q3. Your source says `<p>KMITL    Bangkok</p>` with four spaces. What does the browser show?

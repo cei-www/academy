@@ -61,7 +61,7 @@ after the markup, so a script placed there loads too late to style it.
 ```
 
 ### 2. Style a first element
-Each class does one thing. Read them left to right: size, weight, colour.
+Each class does one thing. Read them left to right: size, weight, color.
 
 ```
 <h1 class="text-3xl font-bold text-slate-900">Course catalogue</h1>

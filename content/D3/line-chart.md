@@ -119,7 +119,7 @@ const i = bisect(data, 4.5, 1);
 ## Exercises
 
 ### Exercise 1: Second series
-Add a second line for a different course's weekly scores, in a different stroke colour, on the same
+Add a second line for a different course's weekly scores, in a different stroke color, on the same
 axes.
 
 ### Exercise 2: Y domain from data
@@ -135,7 +135,7 @@ permanently visible circle.
 
 ### Exercise 5: Area under the line
 Replace or add to the line with `d3.area()`, which needs a `y0` and `y1` accessor, and fill it with a
-translucent colour.
+translucent color.
 
 ## Quizes
 

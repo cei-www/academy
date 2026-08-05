@@ -1,13 +1,13 @@
 # HTML colors
 
-A colour value can be written four common ways. A **name** — `teal`, `tomato` — about 140 of them,
+A color value can be written four common ways. A **name** — `teal`, `tomato` — about 140 of them,
 readable but limited. A **hex code** — `#F2A93B` — two hex digits each for red, green and blue, `00`
 to `ff`. An **rgb function** — `rgb(242, 169, 59)` — the same three channels as decimal numbers, `0` to
-`255`. An **hsl function** — `hsl(38, 87%, 59%)` — hue as a 0–360 degree position on a colour wheel,
+`255`. An **hsl function** — `hsl(38, 87%, 59%)` — hue as a 0–360 degree position on a color wheel,
 then saturation and lightness as percentages, often the easiest to reason about by hand.
 
-Adding a fourth alpha channel makes a colour partly transparent: `rgba(242, 169, 59, 0.5)` or
-`hsla(38, 87%, 59%, 0.5)`. A hex colour can do the same with two extra digits, `#F2A93B80`.
+Adding a fourth alpha channel makes a color partly transparent: `rgba(242, 169, 59, 0.5)` or
+`hsla(38, 87%, 59%, 0.5)`. A hex color can do the same with two extra digits, `#F2A93B80`.
 
 ## Display
 ### HTML
@@ -42,36 +42,36 @@ document.getElementById("swatches").innerHTML = colors
 ```
 
 ## Your Tasks
-### 1. Use a named colour
+### 1. Use a named color
 About 140 names are built in, no punctuation needed.
 
 ```
-<p style="color: teal;">Named colour</p>
+<p style="color: teal;">Named color</p>
 ```
 
 ### 2. Use a hex code
 Two hex digits each for red, green, blue — `00` to `ff`.
 
 ```
-<p style="color: #F2A93B;">Hex colour</p>
+<p style="color: #F2A93B;">Hex color</p>
 ```
 
 ### 3. Use rgb()
 The same channels, written as decimal numbers 0–255.
 
 ```
-<p style="color: rgb(242, 169, 59);">RGB colour</p>
+<p style="color: rgb(242, 169, 59);">RGB color</p>
 ```
 
 ### 4. Use hsl()
-Hue is a position on a colour wheel, 0–360; saturation and lightness are percentages.
+Hue is a position on a color wheel, 0–360; saturation and lightness are percentages.
 
 ```
-<p style="color: hsl(38, 87%, 59%);">HSL colour</p>
+<p style="color: hsl(38, 87%, 59%);">HSL color</p>
 ```
 
 ### 5. Add transparency with an alpha channel
-A fourth value fades the colour without changing the element's opacity as a whole.
+A fourth value fades the color without changing the element's opacity as a whole.
 
 ```
 <p style="background: rgba(185, 28, 28, 0.5);">Semi-transparent</p>
@@ -79,20 +79,20 @@ A fourth value fades the colour without changing the element's opacity as a whol
 
 ## Exercises
 
-### Exercise 1: One colour, four notations
-Pick one colour and write it as a name (if it has one), a hex code, an `rgb()`, and an `hsl()`. Confirm
+### Exercise 1: One color, four notations
+Pick one color and write it as a name (if it has one), a hex code, an `rgb()`, and an `hsl()`. Confirm
 all four render identically.
 
 ### Exercise 2: Build a swatch grid
-Render five colours as swatches from a JS array, each swatch's background set from the array's value,
+Render five colors as swatches from a JS array, each swatch's background set from the array's value,
 as the Display above does.
 
 ### Exercise 3: Fade a background
-Take one background colour and render it at four different alpha values (1, 0.75, 0.5, 0.25) side by
+Take one background color and render it at four different alpha values (1, 0.75, 0.5, 0.25) side by
 side.
 
 ### Exercise 4: Lighten with hsl()
-Take one `hsl()` colour and render three versions with the same hue and saturation but different
+Take one `hsl()` color and render three versions with the same hue and saturation but different
 lightness values. Describe what changes.
 
 ### Exercise 5: Convert by hand
@@ -101,11 +101,11 @@ digits.
 
 ## Quizes
 
-### Q1. In a hex colour like `#F2A93B`, what does each pair of digits represent?
+### Q1. In a hex color like `#F2A93B`, what does each pair of digits represent?
 1. Hue, saturation, lightness
 2. Red, green and blue channels, `00` to `ff`
 3. Opacity, then two unused digits
-4. A named colour lookup index
+4. A named color lookup index
 
 ### Q2. What range does each channel take in `rgb(242, 169, 59)`?
 1. 0 to 1
@@ -115,18 +115,18 @@ digits.
 
 ### Q3. In `hsl(38, 87%, 59%)`, what does the first number represent?
 1. A percentage of red
-2. A hue, as a 0–360 degree position on a colour wheel
+2. A hue, as a 0–360 degree position on a color wheel
 3. The alpha channel
 4. A hex digit pair
 
 ### Q4. What does the fourth value in `rgba(185, 28, 28, 0.5)` control?
-1. A fourth colour channel with no visual effect
+1. A fourth color channel with no visual effect
 2. The element's alpha (transparency)
 3. The border width
 4. The saturation
 
-### Q5. What is a limitation of named colours compared to hex, rgb or hsl?
-1. Named colours cannot be used in CSS at all
-2. Only about 140 exist, far fewer than the full colour range
-3. Named colours are always fully transparent
-4. Named colours only work inside `<body>`
+### Q5. What is a limitation of named colors compared to hex, rgb or hsl?
+1. Named colors cannot be used in CSS at all
+2. Only about 140 exist, far fewer than the full color range
+3. Named colors are always fully transparent
+4. Named colors only work inside `<body>`

@@ -7,7 +7,7 @@ outside it — empty space that pushes other boxes away.
 
 `padding` and `margin` take one to four values, clockwise from the top. `padding: 10px 20px` is 10px
 top and bottom, 20px left and right; `margin: 0 auto` centres a box in its parent. `border` is
-shorthand for width, style and colour, in that order, and `border-radius` rounds the corners.
+shorthand for width, style and color, in that order, and `border-radius` rounds the corners.
 
 ## Display
 ### HTML
@@ -62,7 +62,7 @@ Margin is outside the border and always transparent.
 ```
 
 ### 3. Draw a border
-Width, style, colour — in that order, in one declaration.
+Width, style, color — in that order, in one declaration.
 
 ```
 .card {
@@ -131,9 +131,9 @@ to the card below it.
 4. Adds margin only above the box
 
 ### Q4. In `border: 2px solid #DDE2E8`, what order are the values given?
-1. Colour, style, width
-2. Style, colour, width
-3. Width, style, colour
+1. Color, style, width
+2. Style, color, width
+3. Width, style, color
 4. The order does not matter
 
 ### Q5. What does `border-radius: 50%` do to a square box?

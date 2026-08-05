@@ -86,8 +86,8 @@ Before `</body>` is the classic spot; in `<head>` it needs `defer` to avoid bloc
 ## Exercises
 
 ### Exercise 1: Three ways, one element
-Style the same paragraph with all three CSS methods at once, giving each a different colour. Remove
-them one at a time and record which colour wins at each step, and why.
+Style the same paragraph with all three CSS methods at once, giving each a different color. Remove
+them one at a time and record which color wins at each step, and why.
 
 ### Exercise 2: Move a script without defer
 Move a script that reads `document.getElementById(...)` from just before `</body>` up into `<head>`,

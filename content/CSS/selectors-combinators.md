@@ -111,7 +111,7 @@ just matches a smaller set of elements.
 3. The `<a>` that comes immediately after a `<nav>`
 4. Every `<nav>` that sits inside an `<a>`
 
-### Q4. Given `<div class="menu"><ul><li><a>Home</a></li></ul></div>`, which rule colours the link?
+### Q4. Given `<div class="menu"><ul><li><a>Home</a></li></ul></div>`, which rule colors the link?
 1. `.menu > a { color: red; }`
 2. `.menu a { color: red; }`
 3. `a > .menu { color: red; }`

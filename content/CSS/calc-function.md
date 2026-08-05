@@ -102,7 +102,7 @@ declaration, then put the spaces back.
 ## Quizes
 
 ### Q1. What can `calc()` do that a plain CSS value cannot?
-1. Change colours dynamically
+1. Change colors dynamically
 2. Combine two different units in one expression
 3. Animate a property
 4. Select an element by class

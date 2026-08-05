@@ -1,4 +1,4 @@
-# Inline, internal and external CSS
+# Adding CSS
 
 CSS attaches to a page three ways. **Inline** is a `style` attribute on one element — fast to write,
 but it cannot be reused and has to be repeated on every element that needs it. **Internal** is a
@@ -79,8 +79,8 @@ Delete the semicolon after the first of two internal declarations and see what t
 ## Exercises
 
 ### Exercise 1: Three ways, one element
-Style the same paragraph with all three methods at once, each a different colour. Remove them one at
-a time and record which colour wins at each step.
+Style the same paragraph with all three methods at once, each a different color. Remove them one at
+a time and record which color wins at each step.
 
 ### Exercise 2: Inline beats external
 Give a paragraph an external rule setting `color: teal` and an inline `style="color: red;"`. Predict
@@ -112,17 +112,17 @@ default. Confirm in DevTools that the rule is gone entirely, not just crossed ou
 3. It is compiled into inline `style` attributes before rendering
 4. Internal CSS does not really exist; it is the same as inline
 
-### Q3. A `<style>` sets `p { color: teal; }`, and the same `<p>` has `style="color: red;"`. What colour shows?
+### Q3. A `<style>` sets `p { color: teal; }`, and the same `<p>` has `style="color: red;"`. What color shows?
 1. teal, because the internal rule was declared in the page's `<head>`
 2. red, because an inline style always beats a selector-based rule
 3. Neither — the browser reports an error
-4. It alternates between the two colours
+4. It alternates between the two colors
 
 ### Q4. Why is external CSS preferred for a real, multi-page site?
 1. Inline styles are not supported by modern browsers
 2. It loads before the HTML is parsed
 3. One file styles every page and the browser caches it
-4. Hex colours only work in an external file
+4. Hex colors only work in an external file
 
 ### Q5. Between two internal rules of equal specificity targeting the same property, which wins?
 1. The first one written

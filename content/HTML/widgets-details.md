@@ -101,7 +101,7 @@ Log how many `<details>` elements are currently open using
 `document.querySelectorAll("details[open]").length`.
 
 ### Exercise 5: Style the marker
-Give `<summary>` a custom look (colour, bold, or a hover state) and confirm the built-in disclosure
+Give `<summary>` a custom look (color, bold, or a hover state) and confirm the built-in disclosure
 triangle still works without any JavaScript.
 
 ## Quizes

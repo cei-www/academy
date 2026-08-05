@@ -92,7 +92,7 @@ Render one long paragraph with `leading-tight` and another with `leading-relaxed
 readability.
 
 ### Exercise 5: Build a notice heading
-Combine size, weight, tracking and colour classes into one heading, and identify which class does
+Combine size, weight, tracking and color classes into one heading, and identify which class does
 which job.
 
 ## Quizes

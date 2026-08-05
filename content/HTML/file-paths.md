@@ -1,9 +1,12 @@
-# Relative and absolute file paths
+# File paths
 
-Every `href` and `src` — on a `<link>`, a `<script>`, an `<img>`, or an `<a>` — is a path, and the
-browser resolves it one of three ways. A **relative** path (`style.css`, `../lib/x.js`,
-`img/logo.svg`) is resolved from the folder of the *current page*, not the site root — move the page
-to a different folder and every relative path inside it now points somewhere else.
+*Links* introduced the three path styles for one attribute, `href`. The same three rules govern
+**every** path in a page — `src` on a `<script>` or `<img>`, `href` on a `<link>` — so they are worth
+knowing properly.
+
+A **relative** path (`style.css`, `../lib/x.js`, `img/logo.svg`) is resolved from the folder of the
+*current page*, not the site root — move the page to a different folder and every relative path
+inside it now points somewhere else.
 
 A **root-relative** path (`/assets/style.css`) starts with `/` and always resolves from the site's
 root, no matter which folder the current page lives in — the same link works unchanged from any depth.

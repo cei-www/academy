@@ -152,6 +152,6 @@ text is not red, then make it red on phones and slate from `md` up.
 
 ### Q5. By default in the v4 browser build, when does `dark:bg-slate-900` take effect?
 1. Always, because dark mode is the default
-2. When the operating system reports a dark colour scheme
+2. When the operating system reports a dark color scheme
 3. When a `.dark` class is on `<html>`, with no extra setup
 4. Only after you call a JavaScript API to enable it

@@ -99,7 +99,7 @@ Reference an SVG file with `<img>`, and try (and fail) to style its internal sha
 targeting them directly — note what happens.
 
 ### Exercise 5: Choose an embedding method
-For "a site logo that never changes", "an icon that needs a hover colour change" and "a chart drawn
+For "a site logo that never changes", "an icon that needs a hover color change" and "a chart drawn
 by JavaScript", state which embedding method fits each, in one sentence.
 
 ## Quizes
@@ -113,7 +113,7 @@ by JavaScript", state which embedding method fits each, in one sentence.
 ### Q2. What does `viewBox` define?
 1. The SVG's on-page display size in pixels
 2. The internal coordinate system the shapes are drawn in
-3. The border colour of the SVG
+3. The border color of the SVG
 4. Whether the SVG is inline or external
 
 ### Q3. Why does inline SVG stay crisp when scaled up?

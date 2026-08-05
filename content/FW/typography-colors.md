@@ -1,16 +1,16 @@
-# Typography and colours overview
+# Typography and colors overview
 
 Text size is a named scale, not a pixel value: `text-sm`, `text-base`, `text-lg`, `text-xl`,
 `text-2xl`, `text-3xl`. Each one sets a matching `line-height` too, so headings do not need tuning.
 Weight is `font-medium`, `font-semibold`, `font-bold`. `leading-tight` and `leading-relaxed` override
 line height; `tracking-tight` and `tracking-wide` change letter spacing. `text-center` aligns.
 
-Every colour comes in eleven shades from `50` (almost white) to `950` (almost black), with `500` in
+Every color comes in eleven shades from `50` (almost white) to `950` (almost black), with `500` in
 the middle. The prefix picks the property: `text-slate-700` for body text, `bg-amber-100` for a
 highlight, `border-slate-200` for a hairline. `slate` and `amber` are the stock scales closest to this
 site's navy and amber.
 
-`border` alone gives a 1px border — you still need a `border-*` colour class or it uses the default.
+`border` alone gives a 1px border — you still need a `border-*` color class or it uses the default.
 `rounded`, `rounded-lg` and `rounded-full` set corner radius; `shadow`, `shadow-md` and `shadow-lg`
 set elevation.
 
@@ -85,7 +85,7 @@ Light background, dark ink of the same hue, matching border — one family, thre
 </div>
 ```
 
-### 5. Overlay text on a colour
+### 5. Overlay text on a color
 The `/80` suffix sets alpha, so what is behind stays partly visible.
 
 ```
@@ -130,7 +130,7 @@ Note what changed after each step.
 3. Navy text on an 80% white background
 4. An 80px blur behind the element
 
-### Q3. In a colour scale, which shade is the lightest?
+### Q3. In a color scale, which shade is the lightest?
 1. `50`
 2. `100`
 3. `500`
@@ -142,8 +142,8 @@ Note what changed after each step.
 3. Small regular grey text, centred
 4. Small bold grey text, centred
 
-### Q5. You wrote `border` but see no visible line change in colour. Why?
+### Q5. You wrote `border` but see no visible line change in color. Why?
 1. `border` only works on flex children
-2. `border` sets the width; the colour still comes from a `border-*` class
+2. `border` sets the width; the color still comes from a `border-*` class
 3. `border` needs `rounded` before it renders
 4. Borders are disabled unless the element has a background

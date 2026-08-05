@@ -99,7 +99,7 @@ DevTools.
 ## Quizes
 
 ### Q1. Why does a font stack end with `sans-serif` or `serif`?
-1. It sets the fallback text colour
+1. It sets the fallback text color
 2. It is a generic family the browser can always resolve
 3. It forces the browser to download the font
 4. It is required syntax after any quoted name

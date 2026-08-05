@@ -83,7 +83,7 @@ Style three shapes' `fill` and `stroke` using only plain attributes, no CSS.
 ### Exercise 2: CSS styling with classes
 Rebuild the same three shapes using `class` and a `<style>` block instead of attributes.
 
-### Exercise 3: Hover colour change
+### Exercise 3: Hover color change
 Give a shape a smooth `fill` transition on `:hover`.
 
 ### Exercise 4: Dashed border
@@ -114,7 +114,7 @@ report which one wins.
 4. Only with JavaScript assistance
 
 ### Q4. What does `stroke-dasharray="8 4"` do?
-1. Sets the stroke's colour to two alternating values
+1. Sets the stroke's color to two alternating values
 2. Alternates 8 units of dash with 4 units of gap along the outline
 3. Sets the stroke's width to 8, then 4
 4. Rotates the shape by 8 then 4 degrees

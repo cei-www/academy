@@ -1,7 +1,7 @@
 # Visual effects overview
 
 You have now met shadows and gradients on their own. Together they are what makes flat boxes read as
-raised cards, glowing badges, and hero banners — depth and colour blending, with no images needed for
+raised cards, glowing badges, and hero banners — depth and color blending, with no images needed for
 either.
 
 ## Display
@@ -42,7 +42,7 @@ body { font-family: system-ui, sans-serif; margin: 16px; background: #F7F5F0; }
 
 ## Your Tasks
 ### 1. Drop a shadow behind a card
-Offset, blur, and a translucent colour read as depth.
+Offset, blur, and a translucent color read as depth.
 
 ```
 .card { box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); }
@@ -55,7 +55,7 @@ Offset, blur, and a translucent colour read as depth.
 .well { box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2); }
 ```
 
-### 3. Blend two colours in a straight line
+### 3. Blend two colors in a straight line
 `linear-gradient(direction, from, to)` is the simplest gradient form.
 
 ```
@@ -95,19 +95,19 @@ Build a circular badge with a `radial-gradient` background and a small shadow.
 Style a button's `:active` state with an `inset` shadow so it looks pressed while held down.
 
 ### Exercise 5: Choose the tool
-For "a raised card", "a glowing button" and "a two-colour banner", state in one sentence each which
+For "a raised card", "a glowing button" and "a two-color banner", state in one sentence each which
 of shadow, gradient, or both you would use.
 
 ## Quizes
 
 ### Q1. What does the fourth value in `box-shadow: 0 4px 12px -2px red` control?
-1. The shadow's colour
+1. The shadow's color
 2. The blur radius
 3. The spread — how much the shadow grows or shrinks from the box edges
 4. The offset direction
 
 ### Q2. What does `linear-gradient(135deg, red, blue)` produce?
-1. A solid colour, whichever is listed last
+1. A solid color, whichever is listed last
 2. A blend from red to blue along a diagonal line
 3. A blend that starts at the centre and spreads outward
 4. A striped pattern, not a gradient

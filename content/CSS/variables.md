@@ -66,7 +66,7 @@ root.style.setProperty("--radius", "999px");
 
 ## Your Tasks
 ### 1. Declare a palette
-Name tokens by role, not by colour, so a theme swap does not make the names lie.
+Name tokens by role, not by color, so a theme swap does not make the names lie.
 
 ```
 :root {
@@ -151,7 +151,7 @@ only those tokens. Log all four with `getPropertyValue` to confirm they resolve.
 3. It makes them `!important` automatically
 4. It compiles them to static values at build time
 
-### Q3. `:root { --c: red; } .box { --c: blue; } .box p { color: var(--c); }` — what colour is the paragraph?
+### Q3. `:root { --c: red; } .box { --c: blue; } .box p { color: var(--c); }` — what color is the paragraph?
 1. Red, because `:root` has higher priority
 2. Black, because `var()` cannot cross elements
 3. Both, alternating on repaint

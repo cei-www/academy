@@ -72,8 +72,8 @@ hovered — a whole card can react to one hover without any JavaScript.
 <button class="px-4 py-2 bg-amber-400 rounded active:scale-95">Submit</button>
 ```
 
-### 5. Follow the dark colour scheme
-`dark:` applies when the operating system reports a dark colour scheme, no JavaScript needed.
+### 5. Follow the dark color scheme
+`dark:` applies when the operating system reports a dark color scheme, no JavaScript needed.
 
 ```
 <div class="bg-white text-slate-900 dark:bg-slate-900 dark:text-white">Adapts automatically</div>
@@ -98,7 +98,7 @@ Build a genuinely `disabled` button styled with `disabled:opacity-50 disabled:cu
 and confirm clicking it does nothing.
 
 ### Exercise 5: Dark mode card
-Style a card with both light and `dark:` variants for background and text, and toggle your OS colour
+Style a card with both light and `dark:` variants for background and text, and toggle your OS color
 scheme (or DevTools' rendering emulation) to see it switch.
 
 ## Quizes
@@ -117,7 +117,7 @@ scheme (or DevTools' rendering emulation) to see it switch.
 
 ### Q3. By default in the v4 browser build, when does `dark:bg-slate-900` take effect?
 1. Always, because dark mode is the default
-2. When the operating system reports a dark colour scheme
+2. When the operating system reports a dark color scheme
 3. When a `.dark` class is on `<html>`, with no extra setup
 4. Only after you call a JavaScript API to enable it
 

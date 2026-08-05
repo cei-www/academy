@@ -1,4 +1,4 @@
-# Script placement and linking JS files
+# Adding JavaScript
 
 A `<script>` tag blocks HTML parsing at the exact point it appears: the browser stops, fetches the
 script if it is external, runs it, and only then keeps parsing the rest of the page. That is why a

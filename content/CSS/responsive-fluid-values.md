@@ -70,7 +70,7 @@ Users who ask for less movement get a still page. This is a one-block obligation
 }
 ```
 
-### 5. Follow the system colour scheme
+### 5. Follow the system color scheme
 Query the preference and repaint; do not ask the user to flip a switch first.
 
 ```

@@ -74,14 +74,14 @@ a:hover { color: teal; }
 ## Exercises
 
 ### Exercise 1: Hover feedback
-Make every nav link change its background colour and gain an underline on `:hover`, keeping the text
+Make every nav link change its background color and gain an underline on `:hover`, keeping the text
 readable in both states.
 
 ### Exercise 2: Button hover state
 Style a button so it visibly changes on `:hover`, without changing its size or moving other content.
 
 ### Exercise 3: Predict the winner
-Give one link both a class-based colour rule and an `a:hover` rule. Predict which colour shows while
+Give one link both a class-based color rule and an `a:hover` rule. Predict which color shows while
 hovering, then check.
 
 ### Exercise 4: Force the state in DevTools

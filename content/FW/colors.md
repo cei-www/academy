@@ -1,11 +1,11 @@
-# Colours
+# Colors
 
-Every colour comes in eleven shades from `50` (almost white) to `950` (almost black), with `500` in
+Every color comes in eleven shades from `50` (almost white) to `950` (almost black), with `500` in
 the middle. The prefix picks the property: `text-slate-700` for body text, `bg-amber-100` for a
 highlight, `border-slate-200` for a hairline. `slate` and `amber` are the stock scales closest to
 this site's navy and amber.
 
-`border` alone gives a 1px border — you still need a `border-*` colour class or it uses the default.
+`border` alone gives a 1px border — you still need a `border-*` color class or it uses the default.
 `rounded`, `rounded-lg` and `rounded-full` set corner radius; `shadow`, `shadow-md` and `shadow-lg`
 set elevation. Add `/` and a number for opacity: `bg-slate-900/80` is the same navy at 80% alpha,
 which is how you build a readable overlay on a photo.
@@ -43,7 +43,7 @@ which is how you build a readable overlay on a photo.
 ```
 
 ## Your Tasks
-### 1. Colour body text
+### 1. Color body text
 `slate-700` on white is a common readable body pairing, softer than pure black.
 
 ```
@@ -59,8 +59,8 @@ Light background, dark ink of the same hue, matching border — one family, thre
 </div>
 ```
 
-### 3. Add a border colour
-`border` alone sets width only — pair it with a `border-*` colour class.
+### 3. Add a border color
+`border` alone sets width only — pair it with a `border-*` color class.
 
 ```
 <div class="border border-slate-200 rounded p-3">Bordered box</div>
@@ -75,7 +75,7 @@ Light background, dark ink of the same hue, matching border — one family, thre
 </div>
 ```
 
-### 5. Overlay text on a colour
+### 5. Overlay text on a color
 The `/80` suffix sets alpha, so what is behind stays partly visible.
 
 ```
@@ -113,15 +113,15 @@ Compare `rounded`, `rounded-lg` and `rounded-full` on the same square box, and d
 3. Navy text on an 80% white background
 4. An 80px blur behind the element
 
-### Q2. In a colour scale, which shade is the lightest?
+### Q2. In a color scale, which shade is the lightest?
 1. `50`
 2. `100`
 3. `500`
 4. `950`
 
-### Q3. You wrote `border` but see no visible line change in colour. Why?
+### Q3. You wrote `border` but see no visible line change in color. Why?
 1. `border` only works on flex children
-2. `border` sets the width; the colour still comes from a `border-*` class
+2. `border` sets the width; the color still comes from a `border-*` class
 3. `border` needs `rounded` before it renders
 4. Borders are disabled unless the element has a background
 
@@ -131,7 +131,7 @@ Compare `rounded`, `rounded-lg` and `rounded-full` on the same square box, and d
 3. `rounded-full`
 4. `rounded-circle`
 
-### Q5. Which shade sits in the middle of an eleven-step colour scale?
+### Q5. Which shade sits in the middle of an eleven-step color scale?
 1. `50`
 2. `500`
 3. `900`

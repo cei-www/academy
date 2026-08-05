@@ -76,13 +76,13 @@ h1 { color: blue; }
 ## Exercises
 
 ### Exercise 1: Style every paragraph
-Apply one type selector to colour every `<p>` on a page the same way.
+Apply one type selector to color every `<p>` on a page the same way.
 
 ### Exercise 2: Page-wide reset
 Use `*` to set one font family for the whole page.
 
 ### Exercise 3: Predict the winner
-Write two rules for `p`, both setting `color`. Predict which colour appears, then render the page
+Write two rules for `p`, both setting `color`. Predict which color appears, then render the page
 and check.
 
 ### Exercise 4: Add a class to one heading
@@ -112,7 +112,7 @@ Given `p` and `*` on the same page, say in one sentence which one matches more n
 3. Type and universal selectors
 4. Pseudo-classes
 
-### Q4. `.title { color: green; }` is followed later by `h1 { color: blue; }`, applied to `<h1 class="title">`. What colour is the text?
+### Q4. `.title { color: green; }` is followed later by `h1 { color: blue; }`, applied to `<h1 class="title">`. What color is the text?
 1. Blue, because it is written later
 2. Green, because a class selector outranks a type selector regardless of order
 3. Black, the browser default

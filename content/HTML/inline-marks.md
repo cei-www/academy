@@ -37,7 +37,7 @@ ins { color: #15803D; text-decoration: underline; }
 
 ## Your Tasks
 ### 1. Highlight a search match
-`<mark>` says "this is relevant right now", not just "colour this text".
+`<mark>` says "this is relevant right now", not just "color this text".
 
 ```
 <p>Result: "fetch" appears in <mark>fetch</mark>(url).</p>
@@ -92,7 +92,7 @@ Write a sentence showing an edited deadline or room number using `<del>` for the
 ## Quizes
 
 ### Q1. What does `<mark>` represent?
-1. Any text the author wants coloured yellow
+1. Any text the author wants colored yellow
 2. Text highlighted as relevant to the current context, such as a search match
 3. A required form field
 4. A footnote reference

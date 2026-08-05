@@ -83,10 +83,10 @@ with no quote characters typed in the HTML itself.
 Style a paragraph's `::first-letter` to be noticeably larger and bolder than the rest of the text.
 
 ### Exercise 3: Custom placeholder style
-Give an `<input>`'s `::placeholder` a muted colour and italic style, distinct from its typed text.
+Give an `<input>`'s `::placeholder` a muted color and italic style, distinct from its typed text.
 
-### Exercise 4: Custom selection colour
-Set `::selection` to your site's accent colour and confirm it applies when you drag-select any text
+### Exercise 4: Custom selection color
+Set `::selection` to your site's accent color and confirm it applies when you drag-select any text
 on the page.
 
 ### Exercise 5: Missing content
@@ -111,7 +111,7 @@ generated content.
 1. The input's typed value
 2. The input's placeholder text specifically
 3. The `<label>` associated with the input
-4. The input's border colour
+4. The input's border color
 
 ### Q4. When does `::selection` apply?
 1. Permanently, once the page loads

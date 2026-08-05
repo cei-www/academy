@@ -97,7 +97,7 @@ browser actually fetches it.
 ## Quizes
 
 ### Q1. Why is `title` required on every `<iframe>`?
-1. It sets the frame's border colour
+1. It sets the frame's border color
 2. Screen readers announce it to say what the embedded document is
 3. It is purely decorative and has no accessibility role
 4. It sets the embedded document's `<title>` tag

@@ -47,7 +47,7 @@ svg { border: 1px solid #DDE2E8; }
 ```
 
 ## Your Tasks
-### 1. Transition a fill colour
+### 1. Transition a fill color
 `transition` on SVG properties works exactly like on HTML.
 
 ```
@@ -104,7 +104,7 @@ Animate a rectangle's rotation continuously, with the correct `transform-origin`
 its own centre.
 
 ### Exercise 3: Hover fill transition
-Give a shape a smooth colour transition on `:hover`.
+Give a shape a smooth color transition on `:hover`.
 
 ### Exercise 4: Self-drawing line
 Animate a `<path>`'s `stroke-dashoffset` from its full length to zero so it appears to draw itself.
@@ -121,7 +121,7 @@ Wrap every SVG animation on the page in a `prefers-reduced-motion` guard.
 4. Only inside `<script>`, never in CSS
 
 ### Q2. What does `transform-origin` control on an SVG shape?
-1. Its fill colour
+1. Its fill color
 2. The pivot point that rotation and scale transform around
 3. Its stroke width
 4. Nothing — SVG ignores `transform-origin`
@@ -135,7 +135,7 @@ Wrap every SVG animation on the page in a `prefers-reduced-motion` guard.
 ### Q4. What does animating `stroke-dashoffset` from full length to zero create?
 1. A fade-in effect
 2. The appearance of the line drawing itself
-3. A colour change
+3. A color change
 4. No visible effect
 
 ### Q5. Why guard SVG animations with `prefers-reduced-motion`?

@@ -6,7 +6,7 @@ of height. `bandwidth` controls how smooth each contour is, and `thresholds` con
 levels are drawn.
 
 Each returned contour is a GeoJSON `MultiPolygon` with a `value` (its density level); `d3.geoPath()`
-turns that geometry into an SVG path's `d` attribute, the same renderer used for maps. Colouring each
+turns that geometry into an SVG path's `d` attribute, the same renderer used for maps. Coloring each
 contour by its `value` with a sequential scale, and adding a hover handler per contour, turns a static
 density plot into something a student can probe.
 
@@ -107,8 +107,8 @@ const path = d3.geoPath();
 svg.selectAll("path").data(contours).join("path").attr("d", path);
 ```
 
-### 5. Colour by density value
-A sequential scale maps each contour's `value` to a colour, darkest where points are densest.
+### 5. Color by density value
+A sequential scale maps each contour's `value` to a color, darkest where points are densest.
 
 ```
 const color = d3.scaleSequential(d3.interpolateBlues).domain(d3.extent(contours, d => d.value));
@@ -131,7 +131,7 @@ Replace the two `cluster()` calls with a hand-typed array of 15–20 `[x, y]` po
 score vs. study hours for a class, then render its density contours.
 
 ### Exercise 5: Legend
-Add a small colour legend showing which shade of blue corresponds to which density `value`.
+Add a small color legend showing which shade of blue corresponds to which density `value`.
 
 ## Quizes
 
@@ -151,7 +151,7 @@ Add a small colour legend showing which shade of blue corresponds to which densi
 1. A single data point
 2. A GeoJSON polygon at one density level, with a `value`
 3. An axis tick
-4. A colour from the scale
+4. A color from the scale
 
 ### Q4. What does `d3.geoPath()` do with a contour object?
 1. Nothing — contours render without a path generator
@@ -161,6 +161,6 @@ Add a small colour legend showing which shade of blue corresponds to which densi
 
 ### Q5. What does `d3.scaleSequential(d3.interpolateBlues).domain(d3.extent(contours, d => d.value))` do?
 1. Sorts the contours by value
-2. Maps each contour's density value onto a continuous blue colour range
+2. Maps each contour's density value onto a continuous blue color range
 3. Filters out contours below the median value
 4. Converts the contours back into raw points

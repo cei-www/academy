@@ -115,7 +115,7 @@ that is not in the list.
 Give a "student ID" field `inputmode="numeric"` and describe, in one sentence, what changes about the
 on-screen keyboard on a phone (use DevTools' device toolbar to check).
 
-### Exercise 4: Colour and range together
+### Exercise 4: Color and range together
 Add a `type="color"` field with a default value and a `type="range"` field for a 0–100 scale, both
 with visible labels.
 

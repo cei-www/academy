@@ -75,7 +75,7 @@ Margin is outside the border and always transparent.
 ```
 
 ### 3. Draw a border and round its corners
-Width, style, colour — in that order, in one declaration; `border-radius` rounds all four corners.
+Width, style, color — in that order, in one declaration; `border-radius` rounds all four corners.
 
 ```
 .card {

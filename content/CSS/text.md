@@ -48,7 +48,7 @@ a { color: #6B4207; text-decoration: none; }
 
 ## Your Tasks
 ### 1. Style a heading in one pass
-Colour, weight and size together give a heading its identity.
+Color, weight and size together give a heading its identity.
 
 ```
 h1 {
@@ -70,7 +70,7 @@ body {
 ```
 
 ### 3. Style a lead paragraph
-A lead paragraph is usually larger, centred and a softer colour than body text.
+A lead paragraph is usually larger, centred and a softer color than body text.
 
 ```
 .lead {
@@ -81,7 +81,7 @@ A lead paragraph is usually larger, centred and a softer colour than body text.
 ```
 
 ### 4. Style a link
-Give it its own colour and remove the default underline.
+Give it its own color and remove the default underline.
 
 ```
 a {
@@ -102,8 +102,8 @@ h2 { font-size: 1.5rem; }
 ## Exercises
 
 ### Exercise 1: Style an article
-Combine everything from this group: give a heading its own colour and weight, a lead paragraph its
-own size and alignment, body text a font stack and line height, and a link a colour with no
+Combine everything from this group: give a heading its own color and weight, a lead paragraph its
+own size and alignment, body text a font stack and line height, and a link a color with no
 underline.
 
 ### Exercise 2: Style guide page
@@ -114,17 +114,17 @@ you chose those values.
 Given three paragraphs with three different font stacks, unify them into one consistent stack.
 
 ### Exercise 4: Hover feedback
-Style links so they have no underline normally but gain one on `:hover`, and make sure colour alone
+Style links so they have no underline normally but gain one on `:hover`, and make sure color alone
 is never the only signal that text is a link.
 
 ### Exercise 5: Readable long-form text
-Take a paragraph of at least eight lines, and choose a font size, line height and colour you would
+Take a paragraph of at least eight lines, and choose a font size, line height and color you would
 actually ship for a course reading page. Justify each choice in one sentence.
 
 ## Quizes
 
 ### Q1. Why does a font stack end with `sans-serif` or `serif`?
-1. It sets the fallback text colour
+1. It sets the fallback text color
 2. It is a generic family the browser can always resolve
 3. It forces the browser to download the font
 4. It is required syntax after any quoted name

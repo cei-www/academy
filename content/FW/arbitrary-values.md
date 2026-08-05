@@ -6,7 +6,7 @@ design genuinely needs a value outside that scale, square brackets let a utility
 comes from inside the brackets.
 
 Reach for an arbitrary value only when nothing on the scale fits — a `137px` icon slot to match a
-fixed design, a one-off colour from a brand guideline. For everything else, the named scale (`p-4`,
+fixed design, a one-off color from a brand guideline. For everything else, the named scale (`p-4`,
 `gap-6`, `text-brand` from `@theme`) keeps values consistent across the whole page; arbitrary values
 bypass that consistency, so overusing them brings back the drift problem utilities exist to prevent.
 
@@ -49,7 +49,7 @@ Square brackets accept any CSS length, not just the named scale.
 <div class="w-[137px] h-[137px] bg-slate-200"></div>
 ```
 
-### 2. Use a one-off colour
+### 2. Use a one-off color
 A brand hex that is not on the default palette still works as an arbitrary value.
 
 ```
@@ -83,9 +83,9 @@ Before writing an arbitrary value, check whether a named utility already matches
 Build an avatar exactly `72px` square using `w-[72px] h-[72px]`, and compare it to the nearest named
 size (`w-16` at `4rem`/`64px` or `w-20` at `5rem`/`80px`).
 
-### Exercise 2: One-off brand colour
-Style a banner with a hex colour from outside Tailwind's default palette using `bg-[#...]`, and
-explain why `@theme` would be the better choice if this colour were reused three times.
+### Exercise 2: One-off brand color
+Style a banner with a hex color from outside Tailwind's default palette using `bg-[#...]`, and
+explain why `@theme` would be the better choice if this color were reused three times.
 
 ### Exercise 3: Precise positioning
 Place a small badge at an exact pixel offset inside a `relative` container using
@@ -96,7 +96,7 @@ Find a font size that falls between two of Tailwind's named `text-*` steps and s
 arbitrary value. Note both neighbouring named sizes for comparison.
 
 ### Exercise 5: Arbitrary value vs theme token
-Take a colour used in three different elements as `bg-[#0F1B33]` each time, and refactor all three to
+Take a color used in three different elements as `bg-[#0F1B33]` each time, and refactor all three to
 use a `@theme`-registered `bg-brand` instead. Explain which version is easier to change later.
 
 ## Quizes
@@ -125,8 +125,8 @@ use a `@theme`-registered `bg-brand` instead. Explain which version is easier to
 3. They require a build step and fail in the CDN browser build
 4. They cannot be combined with responsive prefixes
 
-### Q5. Which is the better fix for a colour reused in five components?
+### Q5. Which is the better fix for a color reused in five components?
 1. Repeat `bg-[#0F1B33]` in all five, since brackets are the standard tool
 2. Register it once with `@theme` as `--color-brand` and use `bg-brand`
-3. Move the colour into the CSS box as a plain class
+3. Move the color into the CSS box as a plain class
 4. There is no way to reuse an arbitrary value

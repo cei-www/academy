@@ -11,27 +11,6 @@
         "file": "HTML/id-and-class.md"
       },
       {
-        "name": "CSS, JS and file paths",
-        "children": [
-          {
-            "name": "CSS, JS and file paths overview",
-            "file": "HTML/css-js-paths.md"
-          },
-          {
-            "name": "Inline, internal and external CSS",
-            "file": "HTML/css-methods.md"
-          },
-          {
-            "name": "Script placement and linking JS files",
-            "file": "HTML/script-placement.md"
-          },
-          {
-            "name": "Relative and absolute file paths",
-            "file": "HTML/file-paths.md"
-          }
-        ]
-      },
-      {
         "name": "Text",
         "children": [
           {
@@ -49,12 +28,17 @@
         ]
       },
       {
-        "name": "Character entities",
-        "file": "HTML/entities.md"
-      },
-      {
-        "name": "HTML symbols",
-        "file": "HTML/symbols.md"
+        "name": "Characters and symbols",
+        "children": [
+          {
+            "name": "Character entities",
+            "file": "HTML/entities.md"
+          },
+          {
+            "name": "HTML symbols",
+            "file": "HTML/symbols.md"
+          }
+        ]
       },
       {
         "name": "HTML colors",
@@ -111,6 +95,27 @@
           {
             "name": "Forms overview",
             "file": "HTML/forms.md"
+          }
+        ]
+      },
+      {
+        "name": "CSS, JS and file paths",
+        "children": [
+          {
+            "name": "Adding CSS",
+            "file": "HTML/css-methods.md"
+          },
+          {
+            "name": "Adding JavaScript",
+            "file": "HTML/script-placement.md"
+          },
+          {
+            "name": "File paths",
+            "file": "HTML/file-paths.md"
+          },
+          {
+            "name": "CSS, JS and file paths overview",
+            "file": "HTML/css-js-paths.md"
           }
         ]
       }
@@ -453,6 +458,10 @@
         "file": "CSS/specificity.md"
       },
       {
+        "name": "Custom properties and theming",
+        "file": "CSS/variables.md"
+      },
+      {
         "name": "Pseudo-elements",
         "file": "CSS/pseudo-elements.md"
       },
@@ -463,6 +472,44 @@
       {
         "name": "Flexbox",
         "file": "CSS/flexbox.md"
+      },
+      {
+        "name": "Grid",
+        "children": [
+          {
+            "name": "Grid tracks and sizing",
+            "file": "CSS/grid-tracks.md"
+          },
+          {
+            "name": "Grid placement and named areas",
+            "file": "CSS/grid-placement.md"
+          },
+          {
+            "name": "Grid overview",
+            "file": "CSS/grid.md"
+          }
+        ]
+      },
+      {
+        "name": "Centering elements",
+        "file": "CSS/centering.md"
+      },
+      {
+        "name": "Responsive design",
+        "children": [
+          {
+            "name": "Viewport and breakpoints",
+            "file": "CSS/responsive-breakpoints.md"
+          },
+          {
+            "name": "Fluid values and user preferences",
+            "file": "CSS/responsive-fluid-values.md"
+          },
+          {
+            "name": "Responsive design overview",
+            "file": "CSS/responsive.md"
+          }
+        ]
       },
       {
         "name": "Page layout patterns",
@@ -490,58 +537,8 @@
         ]
       },
       {
-        "name": "Centering elements",
-        "file": "CSS/centering.md"
-      },
-      {
         "name": "Overflow with images and text",
         "file": "CSS/overflow-image-text.md"
-      },
-      {
-        "name": "CSS-only toggles with the checkbox hack",
-        "file": "CSS/toggle-checkbox.md"
-      },
-      {
-        "name": "Grid",
-        "children": [
-          {
-            "name": "Grid tracks and sizing",
-            "file": "CSS/grid-tracks.md"
-          },
-          {
-            "name": "Grid placement and named areas",
-            "file": "CSS/grid-placement.md"
-          },
-          {
-            "name": "Grid overview",
-            "file": "CSS/grid.md"
-          }
-        ]
-      },
-      {
-        "name": "Responsive design",
-        "children": [
-          {
-            "name": "Viewport and breakpoints",
-            "file": "CSS/responsive-breakpoints.md"
-          },
-          {
-            "name": "Fluid values and user preferences",
-            "file": "CSS/responsive-fluid-values.md"
-          },
-          {
-            "name": "Responsive design overview",
-            "file": "CSS/responsive.md"
-          }
-        ]
-      },
-      {
-        "name": "Custom properties and theming",
-        "file": "CSS/variables.md"
-      },
-      {
-        "name": "CSS hacks and workarounds",
-        "file": "CSS/css-hacks.md"
       },
       {
         "name": "Transitions and animations",
@@ -576,6 +573,14 @@
             "file": "CSS/visual-effects.md"
           }
         ]
+      },
+      {
+        "name": "CSS-only toggles with the checkbox hack",
+        "file": "CSS/toggle-checkbox.md"
+      },
+      {
+        "name": "CSS hacks and workarounds",
+        "file": "CSS/css-hacks.md"
       }
     ]
   },
@@ -638,6 +643,23 @@
         "file": "JS/destructuring-patterns.md"
       },
       {
+        "name": "Map and Set",
+        "children": [
+          {
+            "name": "The Map object",
+            "file": "JS/map-basics.md"
+          },
+          {
+            "name": "The Set object",
+            "file": "JS/set-basics.md"
+          },
+          {
+            "name": "Map and Set overview",
+            "file": "JS/collections.md"
+          }
+        ]
+      },
+      {
         "name": "Objects, this and classes",
         "children": [
           {
@@ -653,6 +675,10 @@
             "file": "JS/classes.md"
           }
         ]
+      },
+      {
+        "name": "Optional chaining and nullish coalescing",
+        "file": "JS/optional-chaining.md"
       },
       {
         "name": "DOM manipulation",
@@ -731,23 +757,6 @@
         ]
       },
       {
-        "name": "Map and Set",
-        "children": [
-          {
-            "name": "The Map object",
-            "file": "JS/map-basics.md"
-          },
-          {
-            "name": "The Set object",
-            "file": "JS/set-basics.md"
-          },
-          {
-            "name": "Map and Set overview",
-            "file": "JS/collections.md"
-          }
-        ]
-      },
-      {
         "name": "Storage and timers",
         "children": [
           {
@@ -767,10 +776,6 @@
       {
         "name": "Regular expressions",
         "file": "JS/regex-basics.md"
-      },
-      {
-        "name": "Optional chaining and nullish coalescing",
-        "file": "JS/optional-chaining.md"
       }
     ]
   },
@@ -836,18 +841,18 @@
         "file": "FW/spacing.md"
       },
       {
-        "name": "Typography and colours",
+        "name": "Typography and colors",
         "children": [
           {
             "name": "Typography",
             "file": "FW/typography.md"
           },
           {
-            "name": "Colours",
+            "name": "Colors",
             "file": "FW/colors.md"
           },
           {
-            "name": "Typography and colours overview",
+            "name": "Typography and colors overview",
             "file": "FW/typography-colors.md"
           }
         ]

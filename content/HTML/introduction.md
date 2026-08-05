@@ -133,7 +133,7 @@ saying what it does.
 
 ### Q1. What is HTML responsible for?
 1. The structure and meaning of the content
-2. The colours and spacing of the page
+2. The colors and spacing of the page
 3. The behaviour of buttons when they are clicked
 4. Storing the data the page shows
 

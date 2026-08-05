@@ -103,7 +103,7 @@ does not close.
 1. Moves without drawing
 2. Draws a straight line to `(50, 20)`
 3. Draws a circle at `(50, 20)`
-4. Sets the fill colour
+4. Sets the fill color
 
 ### Q4. What does `Z` do at the end of a path?
 1. Nothing — it is optional decoration
@@ -114,5 +114,5 @@ does not close.
 ### Q5. What format does the `points` attribute expect?
 1. A single width and height
 2. A list of `x,y` pairs
-3. A CSS colour value
+3. A CSS color value
 4. A path's `d` string

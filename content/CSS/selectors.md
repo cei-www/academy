@@ -98,7 +98,7 @@ Style `h1`, `h2` and `h3` with one grouped rule, then add a second rule that cha
 Write markup where `.menu a` matches a link but `.menu > a` does not. Explain in one sentence why.
 
 ### Exercise 4: Hover feedback
-Make every nav link change its background colour and gain an underline on `:hover`, and keep the
+Make every nav link change its background color and gain an underline on `:hover`, and keep the
 text readable in both states.
 
 ### Exercise 5: Count the matches
@@ -119,7 +119,7 @@ selector matches, then repeat with `.menu > a`.
 3. The `<a>` that comes immediately after a `<nav>`
 4. Every `<nav>` that sits inside an `<a>`
 
-### Q3. Given `<div class="menu"><ul><li><a>Home</a></li></ul></div>`, which rule colours the link?
+### Q3. Given `<div class="menu"><ul><li><a>Home</a></li></ul></div>`, which rule colors the link?
 1. `.menu > a { color: red; }`
 2. `.menu a { color: red; }`
 3. `a > .menu { color: red; }`

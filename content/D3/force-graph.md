@@ -124,8 +124,8 @@ function dragged(event, d) { d.fx = event.x; d.fy = event.y; }
 ### Exercise 1: Stronger repulsion
 Change `forceManyBody().strength(-180)` to `-400` and describe how the layout spreads out differently.
 
-### Exercise 2: Colour by degree
-Count how many links touch each node, then colour nodes with more connections a different colour.
+### Exercise 2: Color by degree
+Count how many links touch each node, then color nodes with more connections a different color.
 
 ### Exercise 3: Directed arrows
 Add an SVG `<marker>` arrowhead to each link so the graph reads as directed rather than undirected.
@@ -149,7 +149,7 @@ graph settle around it.
 1. It does not — links must reference node objects directly
 2. To match each link's `source`/`target` string to the corresponding node object
 3. To generate a unique DOM id for each link element
-4. It is optional and only affects link colour
+4. It is optional and only affects link color
 
 ### Q3. What happens inside a `tick` handler?
 1. The simulation stops permanently
@@ -160,7 +160,7 @@ graph settle around it.
 ### Q4. What do `fx` and `fy` do while a node is being dragged?
 1. Nothing — dragging is handled entirely by the browser
 2. They pin the node's position, overriding the simulation's forces until released
-3. They set the node's fill colour
+3. They set the node's fill color
 4. They permanently remove the node from the simulation
 
 ### Q5. What does `d3.forceCenter(width / 2, height / 2)` do?

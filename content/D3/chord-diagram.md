@@ -102,7 +102,7 @@ svg.selectAll("path.ribbon").data(chords).join("path").attr("d", ribbonGen);
 ```
 
 ### 5. Highlight on hover
-Recolour every ribbon's opacity based on whether it touches the hovered category.
+Recolor every ribbon's opacity based on whether it touches the hovered category.
 
 ```
 .on("mouseenter", (event, d) => {
@@ -116,8 +116,8 @@ Recolour every ribbon's opacity based on whether it touches the hovered category
 Add a fifth row and column to the matrix for a new category, and confirm a new arc and its ribbons
 appear automatically.
 
-### Exercise 2: Colour by target instead of source
-Change each ribbon's fill to `color(names[d.target.index])` and describe how the diagram's colouring
+### Exercise 2: Color by target instead of source
+Change each ribbon's fill to `color(names[d.target.index])` and describe how the diagram's coloring
 changes.
 
 ### Exercise 3: Category labels
@@ -133,14 +133,14 @@ Add a `mouseenter` handler on the ribbons themselves that shows `d.source.value`
 ## Quizes
 
 ### Q1. What does `matrix[i][j]` represent in a chord diagram?
-1. The colour of category `i`
+1. The color of category `i`
 2. The flow or relationship from category `i` to category `j`
 3. The angle of category `i`'s arc
 4. The number of categories total
 
 ### Q2. What does `d3.chord()(matrix)` return?
 1. A single SVG path string
-2. A colour scale
+2. A color scale
 3. A layout object with `groups` (arcs) and per-cell ribbon data
 4. The original matrix, unchanged
 
@@ -153,7 +153,7 @@ Add a `mouseenter` handler on the ribbons themselves that shows `d.source.value`
 ### Q4. In the hover handler, why check `r.source.index === d.index || r.target.index === d.index`?
 1. To find ribbons that touch the hovered category on either end
 2. To find the ribbon with the largest value
-3. To sort the ribbons by colour
+3. To sort the ribbons by color
 4. This check has no effect on the diagram
 
 ### Q5. What determines a ribbon's width where it meets an arc?

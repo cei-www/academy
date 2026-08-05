@@ -39,7 +39,7 @@ to Tailwind.
 ```
 
 ## Your Tasks
-### 1. Register a brand colour
+### 1. Register a brand color
 `@theme` makes the value available under a name Tailwind turns into utilities.
 
 ```
@@ -49,7 +49,7 @@ to Tailwind.
 ```
 
 ### 2. Use the generated utilities
-Once declared, `bg-brand`, `text-brand` and `border-brand` all exist, just like built-in colours.
+Once declared, `bg-brand`, `text-brand` and `border-brand` all exist, just like built-in colors.
 
 ```
 <header class="p-4 bg-brand text-white">KMITL CE</header>
@@ -65,8 +65,8 @@ Multiple `--color-*` declarations in one `@theme` block each generate their own 
 }
 ```
 
-### 4. Compose a navbar with the brand colour
-Swap a hard-coded `bg-slate-900` for `bg-brand` so the colour has one source of truth.
+### 4. Compose a navbar with the brand color
+Swap a hard-coded `bg-slate-900` for `bg-brand` so the color has one source of truth.
 
 ```
 <nav class="flex items-center justify-between px-6 py-3 bg-brand text-white">
@@ -87,7 +87,7 @@ Inspect an element using `bg-brand` and confirm the generated rule reads the `--
 Add `--color-brand: #0F1B33` and `--color-accent: #F2A93B` with `@theme`, then use `bg-brand` and
 `text-accent`. Verify the generated rules in the DevTools Styles panel.
 
-### Exercise 2: Replace hard-coded colours
+### Exercise 2: Replace hard-coded colors
 Take a navbar and button that use `bg-slate-900` and `bg-amber-400` directly, and switch both to
 `@theme`-registered `bg-brand` and `bg-accent` instead.
 
@@ -108,7 +108,7 @@ one template function, buttons from one `@apply` class, and the palette comes fr
 
 ### Q1. What does `@theme { --color-brand: #0F1B33; }` make available?
 1. A CSS variable only, usable with `var(--color-brand)`
-2. A replacement for the whole default colour palette
+2. A replacement for the whole default color palette
 3. A `brand` breakpoint prefix
 4. Utilities such as `bg-brand`, `text-brand` and `border-brand`
 
@@ -121,16 +121,16 @@ one template function, buttons from one `@apply` class, and the palette comes fr
 ### Q3. After declaring `--color-accent`, which utility becomes available?
 1. `accent-color` only, no Tailwind class
 2. `bg-accent`, among others
-3. Nothing — `@theme` only affects colours named `brand`
+3. Nothing — `@theme` only affects colors named `brand`
 4. `--tw-accent`, a variable with no matching class
 
 ### Q4. What is the main benefit of a theme token over a hard-coded value like `bg-[#0F1B33]`?
 1. It renders faster
-2. It gives the colour one name and one source of truth, reused as a real utility
+2. It gives the color one name and one source of truth, reused as a real utility
 3. It disables the default Tailwind palette
-4. It is required before any custom colour can be used at all
+4. It is required before any custom color can be used at all
 
-### Q5. Which namespace prefix does a theme colour token use?
+### Q5. Which namespace prefix does a theme color token use?
 1. `--font-*`
 2. `--spacing-*`
 3. `--color-*`

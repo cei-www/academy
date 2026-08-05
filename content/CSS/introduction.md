@@ -1,25 +1,19 @@
 # Introduction
 
-CSS (Cascading Style Sheets) decides how HTML looks — colour, size, spacing, layout. HTML says what
-a thing is; CSS says how it is presented.
-
-There are three ways to attach it:
-
-- inline — a `style` attribute on one element
-- internal — a `<style>` block in the `<head>`
-- external — a separate file linked with `<link rel="stylesheet" href="style.css">`
-
-Use external for real work. One file styles every page, the browser caches it, and the markup stays
-readable.
+CSS (Cascading Style Sheets) decides how HTML looks — color, size, spacing, layout. HTML says what
+a thing is; CSS says how it is presented. Attaching CSS to a page is covered in *Adding CSS* back in
+Basic HTML; this group is about the language itself.
 
 ```
 h1 { color: #0F1B33; }   /* selector { property: value; } */
 ```
 
-`h1` is the selector, `{ }` is the declaration block, and every `property: value` declaration ends
-with a semicolon. `/* … */` is a comment; CSS has no `//`. When two equally specific rules set the
-same property, the later one wins — a more specific selector can win too, which the Advanced group
-covers.
+`h1` is the **selector** — it picks which elements the rule applies to. `{ }` is the **declaration
+block**. Inside it, each `property: value` pair is one **declaration**, and every declaration ends
+with a semicolon. One rule can hold as many declarations as you like.
+
+`/* … */` is a comment; CSS has no `//`. When two equally specific rules set the same property, the
+later one wins — a more specific selector can win too, which the Advanced group covers.
 
 ## Display
 ### HTML
@@ -28,7 +22,6 @@ covers.
 <h1>CE WebDev Academy</h1>
 <p>HTML gives this page its structure.</p>
 <p class="note">CSS gives it style. Change a value and press Render.</p>
-<p style="color: #6B4207;">This paragraph is styled inline.</p>
 ```
 
 ### CSS
@@ -56,13 +49,12 @@ h1 { color: #0F1B33; }
 ```
 
 ## Your Tasks
-### 1. Link an external stylesheet
-The `<link>` goes in the `<head>`, and `href` is relative to the HTML file.
+### 1. Name the parts of a rule
+Selector, declaration block, property, value — four words that describe every rule you will write.
 
 ```
-<head>
-  <link rel="stylesheet" href="style.css">
-</head>
+h1 { color: #0F1B33; }
+/* h1 = selector, { } = declaration block, color = property, #0F1B33 = value */
 ```
 
 ### 2. Write a rule
@@ -75,11 +67,15 @@ p {
 }
 ```
 
-### 3. Style a single element inline
-Fine for a quick test, bad for a real site — the rule cannot be reused or cached.
+### 3. Put several declarations in one rule
+Each declaration ends with a semicolon, so the browser knows where the next one starts.
 
 ```
-<p style="color: #6B4207; background-color: #F2A93B;">Notice me</p>
+.note {
+  background-color: #F2A93B;
+  padding: 8px;
+  font-weight: 700;
+}
 ```
 
 ### 4. Comment out a declaration
@@ -102,9 +98,9 @@ h1 { color: #0F1B33; }   /* the heading is navy */
 
 ## Exercises
 
-### Exercise 1: Three ways, one paragraph
-Colour the same paragraph navy three times — inline, in a `<style>` block, and from a linked file.
-Remove them one at a time and record which colour survives each removal.
+### Exercise 1: Label the parts
+Write one rule with three declarations, then label its selector, declaration block, and each
+property and value by name.
 
 ### Exercise 2: One rule, four declarations
 Write a single rule for `h1` that sets `color`, `background-color`, `padding` and `text-align`.
@@ -114,7 +110,7 @@ Delete the semicolon after the first of two declarations. Open the DevTools Styl
 which declarations the browser kept and which it dropped.
 
 ### Exercise 4: Predict the winner
-Write two rules for `p` that both set `background-color`. Predict the colour that appears, then
+Write two rules for `p` that both set `background-color`. Predict the color that appears, then
 render the page and check whether you were right.
 
 ### Exercise 5: Comment out a whole rule
@@ -129,13 +125,13 @@ Confirm in DevTools that the rule is absent, not merely crossed out.
 3. `.note`
 4. `<style>`
 
-### Q2. Why is an external stylesheet preferred for a real site?
-1. Inline styles are not supported by modern browsers
-2. It loads before the HTML is parsed
-3. Hex colours only work in an external file
-4. One file styles every page and the browser caches it
+### Q2. In `h1 { color: #0F1B33; }`, what is `h1`?
+1. The property
+2. The value
+3. The selector
+4. The declaration block
 
-### Q3. A stylesheet contains `p { color: teal; }` and then `p { color: #0F1B33; }`. What colour is the paragraph text?
+### Q3. A stylesheet contains `p { color: teal; }` and then `p { color: #0F1B33; }`. What color is the paragraph text?
 1. The browser default black
 2. teal, because it was declared first
 3. navy `#0F1B33`, because it was declared last

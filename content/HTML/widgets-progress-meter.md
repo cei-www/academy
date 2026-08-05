@@ -68,7 +68,7 @@ bar.value = 75;
 ```
 
 ### 5. Mark a meter's healthy range
-`low`, `high` and `optimum` let the browser colour the meter based on the value's position.
+`low`, `high` and `optimum` let the browser color the meter based on the value's position.
 
 ```
 <meter value="30" min="0" max="100" low="33" high="66" optimum="80"></meter>
@@ -87,7 +87,7 @@ Build a `<meter>` showing 7.2 out of 10 GB used, with a visible label.
 Show an indeterminate `<progress>` element, then explain in one sentence when you would use it over
 a determinate one.
 
-### Exercise 4: Coloured ranges
+### Exercise 4: Colored ranges
 Give a `<meter>` `low`, `high` and `optimum` values so a low score renders differently from a high
 one, and test both ends.
 

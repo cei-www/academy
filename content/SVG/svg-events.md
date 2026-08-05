@@ -107,7 +107,7 @@ Use CSS `:hover` combined with a `mouseover` listener that logs the hovered shap
 Rewrite Exercise 1 using one delegated listener on the `<svg>` element instead of one per shape.
 
 ### Exercise 4: Read then write an attribute
-On click, read a shape's current `fill`, log it, then set it to a new colour.
+On click, read a shape's current `fill`, log it, then set it to a new color.
 
 ### Exercise 5: Toggle selection
 Click a shape to toggle a `selected` class on it, and confirm clicking it again removes the class.
@@ -132,7 +132,7 @@ Click a shape to toggle a `selected` class on it, and confirm clicking it again 
 3. `null`, since SVG does not support `event.target`
 4. The page's `<body>`
 
-### Q4. How do you change a shape's fill colour from JavaScript?
+### Q4. How do you change a shape's fill color from JavaScript?
 1. `shape.fill = "red"`
 2. `shape.setAttribute("fill", "red")`
 3. It cannot be changed after the page loads

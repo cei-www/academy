@@ -88,7 +88,7 @@ Define once inside `<defs>`, then stamp copies wherever needed.
 ## Exercises
 
 ### Exercise 1: Styled text
-Render a heading with `<text>`, using a `<tspan>` to highlight one word in a different colour.
+Render a heading with `<text>`, using a `<tspan>` to highlight one word in a different color.
 
 ### Exercise 2: Grouped badge
 Build a rounded rectangle with text inside it, grouped with `<g>` so both move together.
@@ -116,7 +116,7 @@ three times.
 1. Nothing — it is not a real SVG element
 2. Restyle or reposition part of the text inside a `<text>` element
 3. Create a new, separate text block
-4. Only change the font family, not colour
+4. Only change the font family, not color
 
 ### Q3. What does a `<g>` element do?
 1. Draws a visible grid

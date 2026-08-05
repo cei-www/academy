@@ -23,7 +23,7 @@ the fix is to lower the other rule, not to add another weapon.
 
 ```
 <div id="panel">
-  <p class="note important">Which colour wins?</p>
+  <p class="note important">Which color wins?</p>
   <p class="note">Only one class here.</p>
 </div>
 ```
@@ -140,7 +140,7 @@ visually. State the tuple before and after.
 3. One id
 4. It doubles the specificity of the rest of the selector
 
-### Q5. Given `p { color: red; }` and a parent `div { color: blue; }`, what colour is the text in `<div><p>Hi</p></div>`?
+### Q5. Given `p { color: red; }` and a parent `div { color: blue; }`, what color is the text in `<div><p>Hi</p></div>`?
 1. Blue, because the parent's rule is inherited and applied last
 2. Black, because the two rules cancel out
 3. Red, because a rule that matches the element beats an inherited value

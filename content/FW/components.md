@@ -93,7 +93,7 @@ Justified here: the navbar is hand-written markup, and the button appears in sev
 </style>
 ```
 
-### 4. Add a theme colour
+### 4. Add a theme color
 `@theme` registers the value, and Tailwind generates `bg-brand`, `text-brand` and `border-brand`.
 
 ```
@@ -159,7 +159,7 @@ function, buttons from one `@apply` class, and nothing goes in the CSS box.
 
 ### Q4. What does `@theme { --color-brand: #0F1B33; }` make available?
 1. A CSS variable only, usable with `var(--color-brand)`
-2. A replacement for the whole default colour palette
+2. A replacement for the whole default color palette
 3. A `brand` breakpoint prefix
 4. Utilities such as `bg-brand`, `text-brand` and `border-brand`
 

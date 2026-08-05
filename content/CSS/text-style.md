@@ -7,7 +7,7 @@ Write `line-height` with no unit — `1.5` means 1.5 times *this* element's own 
 heading and small body text each get sensible spacing.
 
 `text-align` positions text inside its box. `text-decoration` adds or removes the underline, which
-is how you strip the default line off a link — but never let colour be the only signal that text is
+is how you strip the default line off a link — but never let color be the only signal that text is
 a link.
 
 ## Display
@@ -126,8 +126,8 @@ Give `h1` a heavier weight, `h2` a lighter one, and both a consistent `line-heig
 3. 16px
 4. The browser default, because `line-height` is not inherited
 
-### Q5. Why should a link never rely on colour alone to show it is a link?
-1. Colour is not supported on `<a>` elements
-2. Some readers cannot rely on colour to tell links from plain text
-3. `text-decoration` overrides colour automatically
-4. Search engines ignore coloured text
+### Q5. Why should a link never rely on color alone to show it is a link?
+1. Color is not supported on `<a>` elements
+2. Some readers cannot rely on color to tell links from plain text
+3. `text-decoration` overrides color automatically
+4. Search engines ignore colored text

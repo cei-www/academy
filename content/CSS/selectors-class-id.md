@@ -66,7 +66,7 @@ Space-separate a `class` attribute to mix two independent styles on the same ele
 `#lead` wins even though `.note` is written after it and the element carries both.
 
 ```
-<p id="lead" class="note">Which colour wins?</p>
+<p id="lead" class="note">Which color wins?</p>
 ```
 
 ```
@@ -90,11 +90,11 @@ List five KMITL courses. Give them all `class="course"`, and give the one you ar
 
 ### Exercise 2: Two classes, one element
 Build a "badge" element with two classes — one setting its shape and padding, the other setting its
-colour — so the two concerns stay separate.
+color — so the two concerns stay separate.
 
 ### Exercise 3: Predict the winner
 Give one element both an id-based rule and a class-based rule that set the same property. Predict the
-colour before rendering, then check.
+color before rendering, then check.
 
 ### Exercise 4: Count the matches
 Apply one class to four elements. Open DevTools' console and confirm the count with
@@ -119,10 +119,10 @@ and why.
 4. Any number, as long as they are siblings
 
 ### Q3. An element has both `id="lead"` and `class="note"`, styled by `#lead { color: navy; }` and
-`.note { color: red; }`. What colour is it?
+`.note { color: red; }`. What color is it?
 1. Red, because class selectors are checked first
 2. Navy, because an id selector always outranks a class selector
-3. Both colours blend
+3. Both colors blend
 4. Neither; the conflicting rules cancel out
 
 ### Q4. How do you give one element two classes?
