@@ -1,4 +1,4 @@
-# Layout with flex and grid
+# Layout with flex and grid overview
 
 `flex` turns an element into a flex container; its children sit in a row. `items-center` aligns them
 on the cross axis, `justify-between` pushes the first and last to the edges and spreads the rest, and

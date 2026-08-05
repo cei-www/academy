@@ -821,7 +821,20 @@
       },
       {
         "name": "Layout with flex and grid",
-        "file": "FW/layout.md"
+        "children": [
+          {
+            "name": "Flexbox utilities",
+            "file": "FW/flex.md"
+          },
+          {
+            "name": "Grid utilities",
+            "file": "FW/grid.md"
+          },
+          {
+            "name": "Layout with flex and grid overview",
+            "file": "FW/layout.md"
+          }
+        ]
       },
       {
         "name": "Responsive and states",
@@ -862,6 +875,10 @@
           {
             "name": "Animating SVG",
             "file": "SVG/svg-animation.md"
+          },
+          {
+            "name": "Mouse events on SVG",
+            "file": "SVG/svg-events.md"
           }
         ]
       }
