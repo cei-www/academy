@@ -589,7 +589,16 @@
       },
       {
         "name": "Destructuring, spread and rest",
-        "file": "JS/destructuring.md"
+        "children": [
+          {
+            "name": "Spread and rest",
+            "file": "JS/spread-rest.md"
+          },
+          {
+            "name": "Destructuring, spread and rest overview",
+            "file": "JS/destructuring.md"
+          }
+        ]
       },
       {
         "name": "Practical destructuring patterns",
@@ -597,19 +606,138 @@
       },
       {
         "name": "Objects, this and classes",
-        "file": "JS/classes.md"
+        "children": [
+          {
+            "name": "The this keyword",
+            "file": "JS/this-keyword.md"
+          },
+          {
+            "name": "Class basics",
+            "file": "JS/classes-basics.md"
+          },
+          {
+            "name": "Objects, this and classes overview",
+            "file": "JS/classes.md"
+          }
+        ]
       },
       {
         "name": "DOM manipulation",
-        "file": "JS/dom-advanced.md"
+        "children": [
+          {
+            "name": "Creating and attaching DOM nodes",
+            "file": "JS/dom-create.md"
+          },
+          {
+            "name": "Event delegation",
+            "file": "JS/event-delegation.md"
+          },
+          {
+            "name": "DOM manipulation overview",
+            "file": "JS/dom-advanced.md"
+          }
+        ]
+      },
+      {
+        "name": "Working with tables",
+        "children": [
+          {
+            "name": "Adding table rows with JavaScript",
+            "file": "JS/table-add-row.md"
+          },
+          {
+            "name": "Highlighting table rows",
+            "file": "JS/table-hover-row.md"
+          },
+          {
+            "name": "Editing table cells in place",
+            "file": "JS/table-edit-row.md"
+          },
+          {
+            "name": "Removing table rows",
+            "file": "JS/table-remove-row.md"
+          },
+          {
+            "name": "Working with tables overview",
+            "file": "JS/table-crud.md"
+          }
+        ]
       },
       {
         "name": "Error handling",
-        "file": "JS/errors.md"
+        "children": [
+          {
+            "name": "try, catch and finally",
+            "file": "JS/try-catch-finally.md"
+          },
+          {
+            "name": "Custom error classes",
+            "file": "JS/custom-errors.md"
+          },
+          {
+            "name": "Error handling overview",
+            "file": "JS/errors.md"
+          }
+        ]
       },
       {
         "name": "Asynchronous JavaScript",
-        "file": "JS/async.md"
+        "children": [
+          {
+            "name": "Promises",
+            "file": "JS/promises.md"
+          },
+          {
+            "name": "async and await",
+            "file": "JS/async-await.md"
+          },
+          {
+            "name": "Asynchronous JavaScript overview",
+            "file": "JS/async.md"
+          }
+        ]
+      },
+      {
+        "name": "Map and Set",
+        "children": [
+          {
+            "name": "The Map object",
+            "file": "JS/map-basics.md"
+          },
+          {
+            "name": "The Set object",
+            "file": "JS/set-basics.md"
+          },
+          {
+            "name": "Map and Set overview",
+            "file": "JS/collections.md"
+          }
+        ]
+      },
+      {
+        "name": "Storage and timers",
+        "children": [
+          {
+            "name": "Local storage",
+            "file": "JS/local-storage.md"
+          },
+          {
+            "name": "Timers",
+            "file": "JS/timers.md"
+          },
+          {
+            "name": "Storage and timers overview",
+            "file": "JS/storage-timers.md"
+          }
+        ]
+      },
+      {
+        "name": "Regular expressions",
+        "file": "JS/regex-basics.md"
+      },
+      {
+        "name": "Optional chaining and nullish coalescing",
+        "file": "JS/optional-chaining.md"
       }
     ]
   },
@@ -633,12 +761,33 @@
         "file": "AJAX/render.md"
       },
       {
-        "name": "POST, PUT and DELETE",
-        "file": "AJAX/fetch-post.md"
+        "name": "Writing data with fetch",
+        "children": [
+          {
+            "name": "Creating data with POST",
+            "file": "AJAX/fetch-post-create.md"
+          },
+          {
+            "name": "Replacing data with PUT",
+            "file": "AJAX/fetch-put-replace.md"
+          },
+          {
+            "name": "Removing data with DELETE",
+            "file": "AJAX/fetch-delete-remove.md"
+          },
+          {
+            "name": "Writing data with fetch overview",
+            "file": "AJAX/fetch-write.md"
+          }
+        ]
       },
       {
         "name": "Errors and CORS",
         "file": "AJAX/errors-cors.md"
+      },
+      {
+        "name": "Debounced search",
+        "file": "AJAX/search-debounce.md"
       }
     ]
   },
@@ -655,7 +804,20 @@
       },
       {
         "name": "Typography and colours",
-        "file": "FW/typography-colors.md"
+        "children": [
+          {
+            "name": "Typography",
+            "file": "FW/typography.md"
+          },
+          {
+            "name": "Colours",
+            "file": "FW/colors.md"
+          },
+          {
+            "name": "Typography and colours overview",
+            "file": "FW/typography-colors.md"
+          }
+        ]
       },
       {
         "name": "Layout with flex and grid",
@@ -668,6 +830,40 @@
       {
         "name": "Building components",
         "file": "FW/components.md"
+      }
+    ]
+  },
+  {
+    "name": "Advanced Topics",
+    "children": [
+      {
+        "name": "SVG",
+        "children": [
+          {
+            "name": "What is SVG",
+            "file": "SVG/introduction.md"
+          },
+          {
+            "name": "Basic shapes",
+            "file": "SVG/basic-shapes.md"
+          },
+          {
+            "name": "Polygons and paths",
+            "file": "SVG/polygons-paths.md"
+          },
+          {
+            "name": "Styling SVG",
+            "file": "SVG/styling-svg.md"
+          },
+          {
+            "name": "Text, groups and reuse",
+            "file": "SVG/text-and-groups.md"
+          },
+          {
+            "name": "Animating SVG",
+            "file": "SVG/svg-animation.md"
+          }
+        ]
       }
     ]
   }

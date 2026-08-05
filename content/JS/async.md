@@ -1,4 +1,4 @@
-# Asynchronous JavaScript
+# Asynchronous JavaScript overview
 
 JavaScript runs your code on one thread. Slow work — a timer, a network reply, a click — is handed to
 the browser, which queues a callback when it is ready; the event loop runs that callback only once the

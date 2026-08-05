@@ -1,4 +1,4 @@
-# Objects, this and classes
+# Objects, this and classes overview
 
 An object literal can hold functions. Written with the shorthand `read() { ... }` they are methods,
 and inside a method `this` is the object the method was called *on* — decided at call time, not where

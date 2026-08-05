@@ -1,4 +1,4 @@
-# DOM manipulation
+# DOM manipulation overview
 
 Building nodes is safer than building strings. `document.createElement("li")` returns a detached
 element; set its properties, then attach it with `parent.append(node)`, which takes several nodes or

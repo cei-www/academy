@@ -1,4 +1,4 @@
-# Error handling
+# Error handling overview
 
 When a statement throws, the rest of the block is abandoned and JavaScript looks for the nearest
 enclosing `catch`, which receives the thrown value. `finally` runs either way — after success, after a

@@ -1,4 +1,4 @@
-# Destructuring, spread and rest
+# Destructuring, spread and rest overview
 
 Destructuring pulls values out of an object or array into variables in one statement. For objects the
 name on the left must match the key; for arrays position decides.
