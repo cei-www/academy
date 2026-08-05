@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WebDev Academy · Text color</title>
+<style>
+  :root{
+    --navy:#0F1B33;
+    --navy-2:#16294A;
+    --amber:#F2A93B;
+    --amber-ink:#6B4207;
+    --paper:#EEF1F4;
+    --card:#FFFFFF;
+    --ink:#131A26;
+    --ink-soft:#4B5563;
+    --ink-muted:#8A93A3;
+    --border:#DDE2E8;
+    --code-bg:#151B26;
+    --code-text:#E5E9F0;
+    --green:#2E9E6D;
+    --red:#D8503C;
+    --font-ui:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --font-mono:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{height:100%;margin:0;}
+  body{font-family:var(--font-ui);background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased;}
+  a{color:inherit;text-decoration:none;}
+  code{font-family:var(--font-mono);}
+  body.resizing{cursor:col-resize;user-select:none;}
+  body.resizing iframe{pointer-events:none;}
+
+  .app{display:flex;flex-direction:column;height:100vh;overflow:hidden;}
+  .app-head{background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:space-between;padding:10px 16px;flex:0 0 auto;}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:14px;letter-spacing:-.01em;}
+  .brand .mark{width:24px;height:24px;border-radius:0;background:var(--amber);display:flex;align-items:center;justify-content:center;color:var(--amber-ink);font-family:var(--font-mono);font-weight:700;font-size:12px;}
+  .crumb{font-size:12px;color:#AEB8CC;font-family:var(--font-mono);}
+  .crumb b{color:#fff;font-weight:500;}
+  .app-foot{background:var(--navy);color:#8A93A3;display:flex;justify-content:space-between;padding:7px 16px;font-size:11px;flex:0 0 auto;}
+  .app-foot span:last-child{color:#5D6B85;}
+
+  .app-main{flex:1;min-height:0;padding:10px;display:flex;flex-direction:column;overflow:hidden;}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:0;padding:10px 12px;display:flex;flex-direction:column;height:100%;min-height:0;}
+
+  /* ---- 3-column page split, full height, draggable ratios ---- */
+  .split3{flex:1;min-height:0;display:grid;grid-template-columns:260px 10px 1fr 10px 340px;}
+  .panel{background:var(--card);border:1px solid var(--border);border-radius:0;overflow:hidden;display:flex;flex-direction:column;height:100%;min-height:0;}
+  .panel-head{flex:0 0 auto;display:flex;align-items:center;justify-content:space-between;padding:7px 9px;border-bottom:1px solid var(--border);}
+  .panel-head h2{font-size:12px;margin:0;letter-spacing:-.01em;}
+  .collapse-btn{background:none;border:none;width:22px;height:22px;cursor:pointer;color:var(--ink-muted);font-size:12px;font-family:var(--font-mono);letter-spacing:-1px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .collapse-btn:hover{color:var(--amber-ink);}
+  .panel-body{flex:1;min-height:0;overflow-y:auto;padding:10px;}
+  .panel.collapsed .panel-body{display:none;}
+  .panel.collapsed .panel-head h2{display:none;}
+  .panel.collapsed .nav-search-row{display:none;}
+
+  .nav-search-row{flex:0 0 auto;padding:8px 10px;border-bottom:1px solid var(--border);}
+  .nav-search{width:100%;font-family:var(--font-ui);font-size:12px;padding:6px 8px;border:1px solid var(--border);background:#fff;color:var(--ink);}
+  .nav-search:focus{outline:2px solid var(--amber);outline-offset:1px;}
+  a.nav-leaf.no-match, details.no-match{display:none;}
+
+  /* md panel itself stays square; only the inner code boxes get rounded corners */
+  #mdPanel .mdout pre{border-radius:8px;}
+  #mdPanel .mdout code:not(pre code){border-radius:4px;}
+
+  /* ---- resize handles: wide invisible hit-area, thin visible 2-layer line ---- */
+  .split-handle{display:flex;align-items:stretch;justify-content:center;cursor:col-resize;}
+  .split-handle .line{width:1px;height:100%;background:var(--border);}
+  .split-handle .line + .line{margin-left:2px;}
+  .split-handle:hover .line{background:var(--amber);}
+  .split-handle.hidden{visibility:hidden;pointer-events:none;}
+
+  /* ---- playground ---- */
+  .pg-header{flex:0 0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:10px;}
+  .pg-header h1{font-size:14px;margin:0;letter-spacing:-.01em;}
+  .seg{display:flex;background:var(--paper);border:1px solid var(--border);border-radius:8px;padding:2px;gap:2px;flex-wrap:wrap;}
+  .seg button{font-family:var(--font-ui);font-size:11px;font-weight:600;border:none;background:transparent;color:var(--ink-soft);width:30px;height:26px;border-radius:6px;cursor:pointer;display:flex;align-items:center;justify-content:center;}
+  .seg button.active{background:var(--amber);color:var(--amber-ink);}
+
+  .font-ctrl{display:flex;align-items:center;gap:1px;background:var(--paper);border:1px solid var(--border);border-radius:8px;padding:2px;}
+  .font-ctrl button{font-family:var(--font-ui);font-size:11px;font-weight:700;border:none;background:transparent;color:var(--ink-soft);padding:5px 8px;border-radius:6px;cursor:pointer;}
+  .font-ctrl button:hover{color:var(--ink);}
+  .font-ctrl span{font-family:var(--font-mono);font-size:10px;color:var(--ink-muted);padding:0 4px;min-width:28px;text-align:center;}
+
+  .pg-body{flex:1;min-height:0;overflow:hidden;display:grid;grid-template-columns:1fr 10px 1fr;}
+  .pg-body.layout-grid{grid-template-areas:"html handle css" "js handle out";grid-template-rows:1fr 1fr;}
+  .pg-body.layout-stack{grid-template-areas:"html handle out" "css handle out" "js handle out";grid-template-rows:1fr 1fr 1fr;}
+  .pg-body.layout-tabs{grid-template-areas:"tabs handle out" "editor handle out";grid-template-rows:auto 1fr;}
+  .pg-body.layout-fullhtml{grid-template-areas:"fullhtml handle out";grid-template-rows:1fr;}
+
+  .fullhtml-panel{display:none;grid-area:fullhtml;flex-direction:column;height:100%;min-height:0;padding:2px 6px 2px 3px;}
+  .pg-body.layout-fullhtml .fullhtml-panel{display:flex;}
+  .pg-body.layout-fullhtml .pg-box, .pg-body.layout-fullhtml .pg-tabs{display:none;}
+  .warn-banner{flex:0 0 auto;display:flex;align-items:center;gap:7px;background:#FDF3E3;border:1px solid #F0D9A8;color:#7A4E06;font-size:11px;line-height:1.4;padding:6px 9px;margin-bottom:6px;border-radius:6px;}
+  .warn-banner svg{flex-shrink:0;}
+  .full-html-box{flex:1;min-height:0;width:100%;font-family:var(--font-mono);font-size:12px;line-height:1.5;padding:8px;border:1px solid var(--border);border-radius:0;background:#fff;color:var(--ink);resize:none;}
+
+  .pg-split-handle{grid-area:handle;}
+  .pg-split-handle .line{transform:translateX(-2px);}
+  .pg-split-handle .line + .line{display:none;}
+
+  .pg-body.layout-grid .pg-box.html{grid-area:html;} .pg-body.layout-grid .pg-box.css{grid-area:css;} .pg-body.layout-grid .pg-box.js{grid-area:js;}
+  .pg-body.layout-stack .pg-box.html{grid-area:html;} .pg-body.layout-stack .pg-box.css{grid-area:css;} .pg-body.layout-stack .pg-box.js{grid-area:js;}
+  .pg-body.layout-grid .pg-out, .pg-body.layout-stack .pg-out{grid-area:out;}
+  .pg-body.layout-grid .pg-tabs, .pg-body.layout-stack .pg-tabs{display:none;}
+
+  .pg-body.layout-tabs .pg-tabs{display:flex;grid-area:tabs;gap:3px;align-self:start;}
+  .pg-body.layout-tabs .pg-box{grid-area:editor;display:none;}
+  .pg-body.layout-tabs .pg-box.tab-active{display:flex;}
+  .pg-body.layout-tabs .pg-out{grid-area:out;}
+
+  .pg-tabs button{font-family:var(--font-mono);font-size:10.5px;font-weight:600;padding:5px 9px;border:1px solid var(--border);border-bottom:none;border-radius:0;background:var(--paper);color:var(--ink-muted);cursor:pointer;}
+  .pg-tabs button.active{background:#fff;color:var(--ink);}
+
+  .pg-box{display:flex;flex-direction:column;height:100%;min-height:0;padding:2px 6px 2px 3px;}
+  .pg-box label{flex:0 0 auto;font-family:var(--font-mono);font-size:10px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-muted);display:flex;align-items:center;gap:5px;margin-bottom:4px;}
+  .pg-box textarea{flex:1;min-height:0;width:100%;font-family:var(--font-mono);font-size:12px;line-height:1.5;padding:8px;border:1px solid var(--border);border-radius:0;background:#fff;color:var(--ink);resize:none;}
+  .pg-box textarea:focus{outline:2px solid var(--amber);outline-offset:1px;}
+  .pg-out{grid-area:out;display:flex;flex-direction:column;height:100%;min-height:0;padding:2px 0 2px 6px;}
+  .pg-out label{flex:0 0 auto;font-family:var(--font-mono);font-size:10px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-muted);display:flex;align-items:center;justify-content:space-between;gap:5px;margin-bottom:4px;}
+  .pg-out iframe{flex:1;min-height:0;width:100%;border:1px solid var(--border);border-radius:0;background:#fff;}
+  .run-btn{font-family:var(--font-ui);text-transform:none;letter-spacing:0;font-size:11px;font-weight:600;padding:3px 10px;border:1px solid var(--amber);border-radius:0;background:var(--amber);color:var(--amber-ink);cursor:pointer;}
+  .run-btn:hover{background:#EE9E22;}
+  .run-btn:active{transform:translateY(1px);}
+
+  /* ---- nav tree: single column, weight/color signal level instead of boxes ---- */
+  details.l1{margin-bottom:1px;}
+  details.l1 > summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:7px;padding:7px 8px;font-weight:600;font-size:12.5px;color:var(--ink);background:var(--paper);border-radius:6px;}
+  details.l1 > summary::-webkit-details-marker{display:none;}
+  details.l1 > summary:hover{background:var(--border);}
+  details.l1 > summary .chev{display:inline-block;width:10px;font-size:10px;color:var(--ink-muted);transition:transform .15s ease;}
+  details.l1[open] > summary .chev{transform:rotate(90deg);}
+  .l1-body{padding-left:15px;display:flex;flex-direction:column;gap:1px;margin:2px 0 6px;}
+
+  details.l2{margin:0;}
+  details.l2 > summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:6px;padding:5px 8px;font-weight:600;font-size:12px;color:var(--ink);}
+  details.l2 > summary::-webkit-details-marker{display:none;}
+  details.l2 > summary:hover{background:var(--paper);}
+  details.l2 > summary .chev{display:inline-block;width:9px;font-size:9px;color:var(--ink-muted);transition:transform .15s ease;}
+  details.l2[open] > summary .chev{transform:rotate(90deg);}
+  .l2-body{padding-left:13px;display:flex;flex-direction:column;gap:1px;margin:1px 0 3px;}
+
+  a.nav-leaf{display:block;padding:5px 6px;font-size:12px;font-weight:400;color:var(--ink-soft);}
+  a.nav-leaf:hover{background:var(--paper);}
+  a.nav-leaf.active{font-weight:600;color:var(--amber-ink);background:var(--amber);border-radius:6px;}
+
+  /* ---- rendered markdown output ---- */
+  .mdout h1{font-size:18px;margin:0 0 6px;letter-spacing:-.01em;}
+  .mdout h2{font-size:14px;margin:16px 0 6px;padding-top:10px;border-top:1px solid var(--border);letter-spacing:-.01em;}
+  .mdout h2:first-of-type{border-top:none;padding-top:0;}
+  .mdout h3{font-size:12.5px;margin:12px 0 5px;color:var(--ink);}
+  .mdout p{font-size:12.5px;color:var(--ink-soft);line-height:1.65;margin:0 0 7px;}
+  .mdout pre{background:transparent;margin:0;overflow-x:auto;}
+  .mdout pre code{font-size:11px;line-height:1.55;}
+  .mdout ol,.mdout ul{margin:0 0 9px;padding-left:18px;font-size:12px;color:var(--ink-soft);line-height:1.75;}
+  .mdout code:not(pre code){background:var(--paper);border:1px solid var(--border);padding:1px 5px;font-size:11px;}
+
+  .code-block{position:relative;margin:0 0 9px;}
+  .code-block pre{background:var(--paper);color:var(--ink);border:1px solid var(--border);padding:9px 34px 9px 10px;}
+  .copy-btn{position:absolute;top:7px;right:7px;width:24px;height:24px;display:flex;align-items:center;justify-content:center;background:var(--card);border:1px solid var(--border);padding:0;color:var(--ink-muted);cursor:pointer;opacity:0;transition:opacity .12s;}
+  .code-block:hover .copy-btn{opacity:1;}
+  .copy-btn:hover{background:var(--paper);color:var(--ink);}
+  .copy-btn.copied{color:var(--green);border-color:var(--green);opacity:1;}
+
+  @media (max-width:960px){
+    .app{height:auto;overflow:visible;}
+    .app-main{overflow:visible;}
+    .split3{grid-template-columns:1fr !important;height:auto;}
+    .split-handle{display:none;}
+    .panel,.card{height:auto;}
+    .panel-body{overflow-y:visible;}
+    .pg-body{overflow-y:visible;grid-template-columns:1fr !important;grid-template-areas:"html" "css" "js" "tabs" "editor" "fullhtml" "out" !important;}
+    .pg-split-handle{display:none;}
+    .pg-box textarea, .pg-out iframe{height:120px;flex:none;}
+  }
+</style>
+</head>
+<body>
+
+<div class="app">
+  <header class="app-head">
+    <div class="brand"><span class="mark">&lt;/&gt;</span>WebDev Academy</div>
+    <div class="crumb" id="crumb">Loading&hellip;</div>
+  </header>
+
+  <div class="app-main">
+    <div class="split3" id="split">
+
+      <!-- ================= LEFT: course nav (collapsible + resizable) ================= -->
+      <aside class="panel" id="navPanel">
+        <div class="panel-head">
+          <h2>Course</h2>
+          <button class="collapse-btn" id="navToggle" aria-label="Collapse course navigation"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="11 17 6 12 11 7"></polyline><polyline points="18 17 13 12 18 7"></polyline></svg></button>
+        </div>
+        <div class="nav-search-row">
+          <input type="search" id="navSearch" class="nav-search" placeholder="Search lessons&hellip;" aria-label="Search lessons">
+        </div>
+        <div class="panel-body" id="navTree"></div>
+      </aside>
+
+      <div class="split-handle" id="handleNav" role="separator" aria-orientation="vertical" aria-label="Resize course panel"><span class="line"></span><span class="line"></span></div>
+
+      <!-- ================= MIDDLE: code playground ================= -->
+      <section class="card">
+        <div class="pg-header">
+          <h1>Code playground</h1>
+          <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+            <div class="font-ctrl">
+              <button id="fontDec" aria-label="Decrease code font size">A-</button>
+              <span id="fontSizeLabel">12px</span>
+              <button id="fontInc" aria-label="Increase code font size">A+</button>
+            </div>
+            <div class="seg" id="layoutSwitch">
+              <button data-layout="grid" class="active" title="Grid 2×2" aria-label="Grid 2 by 2 layout"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="8" height="8" rx="1"></rect><rect x="13" y="3" width="8" height="8" rx="1"></rect><rect x="3" y="13" width="8" height="8" rx="1"></rect><rect x="13" y="13" width="8" height="8" rx="1"></rect></svg></button>
+              <button data-layout="stack" title="Stack + output" aria-label="Stacked editors with output layout"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="4.5" rx="1"></rect><rect x="3" y="9.75" width="7" height="4.5" rx="1"></rect><rect x="3" y="16.5" width="7" height="4.5" rx="1"></rect><rect x="13" y="3" width="8" height="18" rx="1"></rect></svg></button>
+              <button data-layout="tabs" title="Tabs + output" aria-label="Tabbed editors with output layout"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="3" rx="0.5"></rect><rect x="3" y="7.5" width="7" height="13.5" rx="1"></rect><rect x="13" y="3" width="8" height="18" rx="1"></rect></svg></button>
+              <button data-layout="fullhtml" title="Full HTML + output" aria-label="Full HTML document with output layout"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="8" height="18" rx="1"></rect><rect x="13" y="3" width="8" height="18" rx="1"></rect></svg></button>
+            </div>
+          </div>
+        </div>
+
+        <div class="pg-body layout-grid" id="pgBody">
+          <div class="pg-tabs" id="pgTabs">
+            <button data-tab="html" class="active">HTML</button>
+            <button data-tab="css">CSS</button>
+            <button data-tab="js">JS</button>
+          </div>
+
+          <div class="pg-box html tab-active">
+            <label>HTML</label>
+            <textarea id="pgHtml">&lt;h1&gt;This is heading 1&lt;/h1&gt;
+&lt;h2&gt;This is heading 2&lt;/h2&gt;</textarea>
+          </div>
+          <div class="pg-box css">
+            <label>CSS</label>
+            <textarea id="pgCss">h1 { color: green; }
+h2 { color: red; }</textarea>
+          </div>
+          <div class="pg-box js">
+            <label>JS</label>
+            <textarea id="pgJs"></textarea>
+          </div>
+
+          <div class="pg-split-handle split-handle" id="pgHandle" role="separator" aria-orientation="vertical" aria-label="Resize editors vs output"><span class="line"></span><span class="line"></span></div>
+
+          <div class="fullhtml-panel">
+            <div class="warn-banner">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 17h.01M10.29 3.86l-8.18 14.14A2 2 0 0 0 3.82 21h16.36a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path></svg>
+              <span>Editing here is just a merged preview &mdash; it won't change the real HTML, CSS or JS boxes.</span>
+            </div>
+            <textarea id="pgFullHtml" class="full-html-box" spellcheck="false"></textarea>
+          </div>
+
+          <div class="pg-out">
+            <label>
+              <span>Output</span>
+              <button id="pgRender" class="run-btn">Render</button>
+            </label>
+            <iframe id="pgOut" title="Output"></iframe>
+          </div>
+        </div>
+      </section>
+
+      <div class="split-handle" id="handleMd" role="separator" aria-orientation="vertical" aria-label="Resize lesson panel"><span class="line"></span><span class="line"></span></div>
+
+      <!-- ================= RIGHT: md output (collapsible + resizable), rounded box ================= -->
+      <section class="panel" id="mdPanel">
+        <div class="panel-head">
+          <h2 id="mdTitle">Lesson</h2>
+          <button class="collapse-btn" id="mdToggle" aria-label="Collapse lesson content"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="13 17 18 12 13 7"></polyline><polyline points="6 17 11 12 6 7"></polyline></svg></button>
+        </div>
+        <div class="panel-body mdout" id="mdBody">
+          <p style="color:var(--ink-muted)">Loading&hellip;</p>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <footer class="app-foot">
+    <span>&copy; WebDev Academy</span>
+    <span>Terms &middot; Privacy</span>
+  </footer>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/9.1.6/marked.min.js"></script>
+<script src="app.js"></script>
+<script>
+(function(){
+  /* ---- playground output rendering (manual, via Render button) ---- */
+  var h = document.getElementById('pgHtml');
+  var c = document.getElementById('pgCss');
+  var j = document.getElementById('pgJs');
+  var out = document.getElementById('pgOut');
+  var fullBox = document.getElementById('pgFullHtml');
+  var renderBtn = document.getElementById('pgRender');
+  var currentLayout = 'grid';
+  function buildFullHtml(){
+    return '<!DOCTYPE html>\n<html>\n<head>\n<style>\n' + c.value + '\n</style>\n</head>\n<body>\n' + h.value + '\n<script>\n' + j.value + '\n<' + '/script>\n</body>\n</html>';
+  }
+  function update(){
+    if(currentLayout === 'fullhtml'){
+      /* render exactly what's in the Full HTML box, including any manual edits -
+         this never writes back into the html/css/js boxes */
+      out.srcdoc = fullBox.value;
+    } else {
+      out.srcdoc = '<style>' + c.value + '</style>' + h.value + '<script>' + j.value + '<' + '/script>';
+      fullBox.value = buildFullHtml();
+    }
+  }
+  renderBtn.addEventListener('click', update);
+
+  /* Called by app.js whenever a new lesson loads, with that lesson's Display code.
+     Bypasses the fullhtml-passthrough branch of update() since this is fresh
+     starter content, not a manual edit of the Full HTML box. */
+  window.pgLoadStarter = function(htmlStr, cssStr, jsStr){
+    h.value = htmlStr || '';
+    c.value = cssStr || '';
+    j.value = jsStr || '';
+    out.srcdoc = '<style>' + c.value + '</style>' + h.value + '<script>' + j.value + '<' + '/script>';
+    fullBox.value = buildFullHtml();
+  };
+  update();
+
+  /* ---- playground layout switch ---- */
+  var pgBody = document.getElementById('pgBody');
+  var layoutBtns = document.querySelectorAll('#layoutSwitch button');
+  layoutBtns.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      layoutBtns.forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      var mode = btn.getAttribute('data-layout');
+      currentLayout = mode;
+      pgBody.className = 'pg-body layout-' + mode;
+      if(mode === 'fullhtml'){ fullBox.value = buildFullHtml(); }
+    });
+  });
+
+  /* ---- playground tab switch (tabs layout) ---- */
+  var tabBtns = document.querySelectorAll('#pgTabs button');
+  var boxes = { html: document.querySelector('.pg-box.html'), css: document.querySelector('.pg-box.css'), js: document.querySelector('.pg-box.js') };
+  tabBtns.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      tabBtns.forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      Object.keys(boxes).forEach(function(k){ boxes[k].classList.remove('tab-active'); });
+      boxes[btn.getAttribute('data-tab')].classList.add('tab-active');
+    });
+  });
+
+  /* ---- generic pointer-drag helper ---- */
+  function startDrag(onMove){
+    document.body.classList.add('resizing');
+    function move(ev){ onMove(ev.clientX); }
+    function stop(){
+      document.body.classList.remove('resizing');
+      document.removeEventListener('pointermove', move);
+      document.removeEventListener('pointerup', stop);
+    }
+    document.addEventListener('pointermove', move);
+    document.addEventListener('pointerup', stop);
+  }
+
+  /* ---- outer 3-section split: collapse + resize ---- */
+  var split = document.getElementById('split');
+  var navPanel = document.getElementById('navPanel');
+  var mdPanel = document.getElementById('mdPanel');
+  var navToggle = document.getElementById('navToggle');
+  var mdToggle = document.getElementById('mdToggle');
+  var handleNav = document.getElementById('handleNav');
+  var handleMd = document.getElementById('handleMd');
+  var navCollapsed = false, mdCollapsed = false;
+  var navWidth = 260, mdWidth = 340;
+  var CHEV_LEFT = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="11 17 6 12 11 7"></polyline><polyline points="18 17 13 12 18 7"></polyline></svg>';
+  var CHEV_RIGHT = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="13 17 18 12 13 7"></polyline><polyline points="6 17 11 12 6 7"></polyline></svg>';
+
+  function applySplit(){
+    var navRender = navCollapsed ? 48 : navWidth;
+    var mdRender = mdCollapsed ? 48 : mdWidth;
+    split.style.gridTemplateColumns = navRender + 'px 10px 1fr 10px ' + mdRender + 'px';
+    navPanel.classList.toggle('collapsed', navCollapsed);
+    mdPanel.classList.toggle('collapsed', mdCollapsed);
+    handleNav.classList.toggle('hidden', navCollapsed);
+    handleMd.classList.toggle('hidden', mdCollapsed);
+    navToggle.innerHTML = navCollapsed ? CHEV_RIGHT : CHEV_LEFT;
+    mdToggle.innerHTML = mdCollapsed ? CHEV_LEFT : CHEV_RIGHT;
+  }
+  navToggle.addEventListener('click', function(){ navCollapsed = !navCollapsed; applySplit(); });
+  mdToggle.addEventListener('click', function(){ mdCollapsed = !mdCollapsed; applySplit(); });
+
+  handleNav.addEventListener('pointerdown', function(e){
+    if(navCollapsed) return;
+    var startX = e.clientX, startW = navWidth;
+    startDrag(function(x){ navWidth = Math.min(480, Math.max(160, startW + (x - startX))); applySplit(); });
+  });
+  handleMd.addEventListener('pointerdown', function(e){
+    if(mdCollapsed) return;
+    var startX = e.clientX, startW = mdWidth;
+    startDrag(function(x){ mdWidth = Math.min(600, Math.max(220, startW - (x - startX))); applySplit(); });
+  });
+
+  /* ---- playground internal split: editors vs output, both scale proportionally when the playground is resized ---- */
+  var pgHandle = document.getElementById('pgHandle');
+  var pgLeftFr = 1, pgRightFr = 1;
+  function applyPgSplit(){ pgBody.style.gridTemplateColumns = pgLeftFr + 'fr 10px ' + pgRightFr + 'fr'; }
+  pgHandle.addEventListener('pointerdown', function(e){
+    var startX = e.clientX;
+    var rect = pgBody.getBoundingClientRect();
+    var totalW = Math.max(200, rect.width - 10);
+    var startLeftPx = totalW * (pgLeftFr / (pgLeftFr + pgRightFr));
+    startDrag(function(x){
+      var newLeftPx = Math.min(totalW - 100, Math.max(100, startLeftPx + (x - startX)));
+      pgLeftFr = newLeftPx;
+      pgRightFr = totalW - newLeftPx;
+      applyPgSplit();
+    });
+  });
+
+  applySplit();
+  applyPgSplit();
+
+  /* ---- code font-size control ---- */
+  var fontSize = 12;
+  var fontLabel = document.getElementById('fontSizeLabel');
+  var codeAreas = [h, c, j];
+  function applyFontSize(){
+    codeAreas.forEach(function(el){ el.style.fontSize = fontSize + 'px'; });
+    fontLabel.textContent = fontSize + 'px';
+  }
+  document.getElementById('fontDec').addEventListener('click', function(){ fontSize = Math.max(10, fontSize - 1); applyFontSize(); });
+  document.getElementById('fontInc').addEventListener('click', function(){ fontSize = Math.min(20, fontSize + 1); applyFontSize(); });
+  applyFontSize();
+
+  /* ---- copy buttons on md code blocks ---- */
+  var COPY_ICON = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>';
+  var CHECK_ICON = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>';
+  document.querySelectorAll('.copy-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var code = btn.previousElementSibling.querySelector('code').innerText;
+      navigator.clipboard.writeText(code).then(function(){
+        btn.innerHTML = CHECK_ICON;
+        btn.classList.add('copied');
+        setTimeout(function(){ btn.innerHTML = COPY_ICON; btn.classList.remove('copied'); }, 1500);
+      });
+    });
+  });
+})();
+</script>
+
+</body>
+</html>

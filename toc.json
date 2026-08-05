@@ -1,0 +1,31 @@
+[
+  {
+    "name": "HTML",
+    "children": [
+      { "name": "Introduction", "file": "HTML/introduction.md" },
+      { "name": "Common tags", "file": "HTML/common-tags.md" }
+    ]
+  },
+  {
+    "name": "CSS",
+    "children": [
+      { "name": "Selectors", "file": "CSS/selectors.md" },
+      {
+        "name": "Text",
+        "children": [
+          { "name": "color", "file": "CSS/text-color.md" },
+          { "name": "font size", "file": "CSS/text-font-size.md" }
+        ]
+      },
+      { "name": "Box model", "file": "CSS/box-model.md" },
+      { "name": "Flexbox", "file": "CSS/flexbox.md" }
+    ]
+  },
+  {
+    "name": "JS",
+    "children": [
+      { "name": "Variables", "file": "JS/variables.md" },
+      { "name": "Functions", "file": "JS/functions.md" }
+    ]
+  }
+]
