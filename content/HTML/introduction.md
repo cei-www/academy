@@ -40,8 +40,8 @@ then act on a tree you did not intend. Anything inside `<!-- ... -->` is a comme
 <p>This page is <strong>structure</strong>, not decoration.</p>
 
 <p>
-  My name is Nattapong and I study Computer Engineering
-  at KMITL.
+  My name is Rathachai Chawuthai and I study Computer Engineering
+  at CE-KMITL.
 </p>
 
 <hr>
@@ -97,7 +97,7 @@ Every document needs a doctype, an `<html>` root, a `<head>` and a `<body>`.
 `<title>` is the browser tab label, the bookmark name and the search-result headline.
 
 ```
-<title>Nattapong — CE student at KMITL</title>
+<title>Rathachai Chawuthai — CE student at KMITL</title>
 ```
 
 ### 5. Nest one element inside another

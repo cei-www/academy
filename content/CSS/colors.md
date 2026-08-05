@@ -22,7 +22,7 @@ prints the ratio next to any colour swatch in the Styles panel.
 ### HTML
 
 ```
-<h1>CPE colour demo</h1>
+<h1>CE colour demo</h1>
 <p>This paragraph inherits its colour from <code>body</code>.</p>
 <p class="note">This one paints its own background.</p>
 <p class="faded">This one is faded with opacity.</p>

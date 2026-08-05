@@ -173,6 +173,12 @@ idea. Report the gap in your final message instead.
   `#0F1B33` navy, `#F2A93B` amber, `#6B4207` amber ink, `#EEF1F4` paper, `#DDE2E8` border,
   `#131A26` ink, `#4B5563` soft ink.
 - Example data should be plausibly Thai/KMITL — student names, course codes, lab names.
+- The department is **Computer Engineering, abbreviated "CE"** — never "CPE". When a lesson names the
+  department directly, write **"CE-KMITL"**. When a lesson needs an example person's name (an author,
+  a student, a caption byline), use **Rathachai Chawuthai** as the featured recurring name — first
+  name alone or a last-initial short form ("Rathachai C.") is fine in tight spaces like a table
+  caption. Other invented names are fine as background variety in a list or table of several people,
+  but the one named individual a lesson centers on should be Rathachai Chawuthai.
 - Accessibility is taught inline where it is cheap, never as a bolted-on section.
 - Exercises should ask the student to *do* something checkable, not to "explore" or "think about".
   At least one exercise per lesson should involve reading the result in DevTools or the console.

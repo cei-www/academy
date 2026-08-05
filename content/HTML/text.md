@@ -1,21 +1,8 @@
-# Text and headings
+# Text overview
 
-`<h1>` to `<h6>` are the six heading levels. `<h1>` is the page's one main title; each level below it
-opens a sub-section. Do not skip levels — an `<h4>` under an `<h2>` reads as a missing section to a
-screen reader, which lets its users jump through the page by heading. Choose the level for the
-structure it expresses, never for the size it happens to render at; size is CSS's job.
-
-`<p>` marks a paragraph. Use a new `<p>` for a new thought. `<br>` is only a forced line break
-*inside* one block of text — an address, a line of a poem — never a way to add space between
-paragraphs.
-
-`<strong>` means the content is important, `<em>` means it is stressed or emphasised. Both are
-announced by screen readers. `<b>` and `<i>` only change the letters' shape and carry no meaning, so
-prefer the semantic pair.
-
-`<blockquote>` wraps quoted material, and `<hr>` marks a thematic break between sections. One last
-rule: HTML collapses whitespace — any run of spaces, tabs and newlines in your source renders as a
-single space.
+You have now met headings and paragraphs on their own. A real page combines them: a heading
+hierarchy that outlines the page, paragraphs that carry the content, and inline emphasis where a
+word or phrase genuinely needs it.
 
 ## Display
 ### HTML
@@ -36,7 +23,7 @@ single space.
 
 <hr>
 
-<p>Room ECC-703<br>Faculty of Engineering, KMITL</p>
+<p>Room ECC-703<br>CE-KMITL</p>
 ```
 
 ### CSS
@@ -62,39 +49,38 @@ One `<h1>`, then `<h2>` for each section, then `<h3>` inside a section. No skipp
 <h2>Year 3</h2>
 ```
 
-### 2. Write two paragraphs
-Two separate thoughts need two `<p>` elements, not one paragraph split by `<br>`.
+### 2. Add a paragraph under a section
+A section's heading is followed by the text it introduces.
 
 ```
-<p>HTML gives a document its structure.</p>
-<p>CSS then decides how that structure looks.</p>
+<h2>Course description</h2>
+<p>This course covers HTML, CSS and JavaScript.</p>
 ```
 
-### 3. Break a line inside a paragraph
-An address is one paragraph whose lines must stay apart.
-
-```
-<p>
-  Nattapong Srisai<br>
-  1 Chalong Krung Road<br>
-  Ladkrabang, Bangkok 10520
-</p>
-```
-
-### 4. Mark importance and emphasis
-`<strong>` for importance, `<em>` for stress.
+### 3. Mark importance inside a paragraph
+`<strong>` for importance, `<em>` for stress, both inside the flow of a sentence.
 
 ```
 <p>The exam is <strong>on Monday</strong>, and it is <em>closed book</em>.</p>
 ```
 
-### 5. Quote a source
-`<blockquote>` is a block; `<hr>` after it separates the sections.
+### 4. Insert a quote between two sections
+`<blockquote>` is a block; `<hr>` after it separates the sections that follow.
 
 ```
 <blockquote>Semantic markup is the cheapest accessibility work there is.</blockquote>
 <hr>
 <p>Next section.</p>
+```
+
+### 5. Close with a contact block
+An address is one paragraph whose lines must stay apart with `<br>`.
+
+```
+<p>
+  Rathachai Chawuthai<br>
+  CE-KMITL
+</p>
 ```
 
 ## Exercises
@@ -103,17 +89,17 @@ An address is one paragraph whose lines must stay apart.
 Write a page with one `<h1>`, three `<h2>` sections and at least two `<h3>` under one of them, each
 followed by a paragraph.
 
-### Exercise 2: Prove whitespace collapsing
-Type a paragraph with ten spaces and two newlines in the middle of a sentence. Render it, then state
-how many spaces actually appear.
+### Exercise 2: Full page assembly
+Combine everything from this group: a heading hierarchy, at least one paragraph with `<strong>`/`<em>`,
+a `<blockquote>` with a following `<hr>`, and a contact block using `<br>`.
 
 ### Exercise 3: Replace the wrong tags
 Take `<p><b>Warning</b>: submit <i>before</i> midnight.</p>` and rewrite it with the semantic
 elements, then explain in one sentence what changed for a screen-reader user.
 
 ### Exercise 4: `<br>` audit
-Write a two-line address and a two-paragraph description. Use `<br>` in exactly one of them and say
-why the other one must not have it.
+Write a two-line address and a two-paragraph description inside the same page. Use `<br>` in exactly
+one of them and say why the other one must not have it.
 
 ### Exercise 5: Read the outline
 Render your syllabus page, open DevTools' Elements panel, and list the heading elements in document

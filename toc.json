@@ -7,15 +7,32 @@
         "file": "HTML/introduction.md"
       },
       {
-        "name": "Text and headings",
-        "file": "HTML/text.md"
+        "name": "Text",
+        "children": [
+          {
+            "name": "Headings",
+            "file": "HTML/text-headings.md"
+          },
+          {
+            "name": "Paragraphs and emphasis",
+            "file": "HTML/text-paragraphs.md"
+          },
+          {
+            "name": "Text overview",
+            "file": "HTML/text.md"
+          }
+        ]
+      },
+      {
+        "name": "Character entities",
+        "file": "HTML/entities.md"
       },
       {
         "name": "Links",
         "file": "HTML/links.md"
       },
       {
-        "name": "Working with Images",
+        "name": "Images",
         "file": "HTML/images.md"
       },
       {

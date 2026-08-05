@@ -22,7 +22,7 @@ turns a screen reader's row-by-row reading into nonsense.
 
 ```
 <table>
-  <caption>Semester 1 results — Nattapong S.</caption>
+  <caption>Semester 1 results — Rathachai Chawuthai</caption>
   <thead>
     <tr>
       <th scope="col">Code</th><th scope="col">Course</th>

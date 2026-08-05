@@ -57,7 +57,7 @@ console.log("Hello from KMITL");
 `console.log` accepts a comma-separated list and prints all of them on one line.
 
 ```
-console.log("student:", "Nattapong", "year:", 2);
+console.log("student:", "Rathachai", "year:", 2);
 ```
 
 ### 3. Write a comment
