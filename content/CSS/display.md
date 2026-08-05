@@ -1,23 +1,17 @@
-# Display and sizing
+# Display and sizing overview
 
-Every element starts with a default `display`. A block box begins on a new line and fills the
-available width — `<div>`, `<p>`, `<h1>`. An inline box sits inside a line of text and is only as
-wide as its content — `<span>`, `<a>`, `<strong>`.
+You have now met display types (block, inline, `inline-block`) and sizing/hiding (`max-width`,
+`display: none`, `visibility: hidden`, `overflow`) on their own. Here they work together on one page.
 
-`width` and `height` are ignored on an inline box, and its vertical padding overlaps the
-neighbouring lines instead of pushing them apart. `display: inline-block` fixes both: the box stays
-in the text flow but accepts a size, which is how tags, chips and small buttons are built.
-
-`max-width` caps a width without forcing it, so `max-width: 60ch` holds a paragraph at a readable
-line length and still shrinks on a phone. `display: none` removes the element entirely — no box, no space. `visibility: hidden` keeps the
-space and only hides what is drawn in it. `overflow` decides what happens to content too big for a
-fixed-size box: `visible` (the default), `hidden`, `scroll` or `auto`.
+`width` and `height` are ignored on a plain inline box; `inline-block` fixes that while keeping the
+element in the text flow. `max-width` caps a box without forcing it, and `overflow` decides what
+happens when content is still too big for a fixed height.
 
 ## Display
 ### HTML
 
 ```
-<p>Inline <span class="tag">CPE</span> <span class="tag">Year 2</span> chips in a sentence.</p>
+<p>Inline <span class="tag">CE</span> <span class="tag">Year 2</span> chips in a sentence.</p>
 
 <div class="col">
   <p>This column is capped with max-width, so the lines stay readable on a wide window.</p>

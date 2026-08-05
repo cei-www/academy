@@ -1,31 +1,25 @@
-# Box model
+# Box model overview
 
-Every element the browser renders is a box with four layers: the content, then `padding` inside the
-border, then the `border` itself, then `margin` — empty space that pushes other boxes away.
+You have now met spacing (`padding`, `margin`, `border`) and sizing (`box-sizing`, collapsing
+margins) on their own. Every element renders as a box with four layers: content, then `padding`,
+then `border`, then `margin`.
 
 ![The four regions of the CSS box model: margin, border, padding, content](resources/img/box-model.svg)
 
-`padding` and `margin` take one to four values, clockwise from the top. `padding: 10px 20px` is 10px
-top and bottom, 20px left and right; `margin: 0 auto` centres a box in its parent. `border` is
-shorthand for width, style and colour, and `border-radius` rounds the corners.
-
-By default `width` sizes the *content* only, so `width: 300px` with `padding: 20px` and a `2px`
-border occupies 300 + 40 + 4 = 344px and overflows a 320px column. `box-sizing: border-box` makes
-`width` include the padding and border, keeping the box exactly 300px, which is why nearly every
-project starts with `* { box-sizing: border-box; }`. Vertical margins between neighbours collapse:
-20px under one box and 30px above the next gives a 30px gap, not 50px.
+`box-sizing: border-box` makes `width` include the padding and border, which is why it belongs on
+almost every project's reset alongside the spacing rules.
 
 ## Display
 ### HTML
 
 ```
 <div class="card">
-  <h2>CPE231 Databases</h2>
+  <h2>CE231 Databases</h2>
   <p>3 credits — Tuesday 13:00, Lab 4</p>
 </div>
 
 <div class="card">
-  <h2>CPE221 Data Structures</h2>
+  <h2>CE221 Data Structures</h2>
   <p>3 credits — Thursday 09:00, Lab 2</p>
 </div>
 ```
@@ -80,25 +74,17 @@ Margin is outside the border and always transparent.
 }
 ```
 
-### 3. Draw a border
-Width, style, colour — in that order, in one declaration.
+### 3. Draw a border and round its corners
+Width, style, colour — in that order, in one declaration; `border-radius` rounds all four corners.
 
 ```
 .card {
   border: 2px solid #DDE2E8;
+  border-radius: 8px;
 }
 ```
 
-### 4. Round the corners
-One radius for all four corners; `50%` on a square gives a circle.
-
-```
-.card { border-radius: 8px; }
-
-.avatar { border-radius: 50%; }
-```
-
-### 5. Make `width` mean the whole box
+### 4. Make `width` mean the whole box
 Without the reset this card renders 344px wide; with it, 300px.
 
 ```
@@ -109,6 +95,14 @@ Without the reset this card renders 344px wide; with it, 300px.
   padding: 20px;
   border: 2px solid #DDE2E8;
 }
+```
+
+### 5. Stack two cards and watch the gap
+Vertical margins between neighbours collapse to the larger value, not the sum.
+
+```
+.card { margin-bottom: 16px; }
+/* two stacked cards leave a 16px gap, not 32px */
 ```
 
 ## Exercises

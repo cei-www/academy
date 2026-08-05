@@ -92,7 +92,28 @@
       },
       {
         "name": "Selectors",
-        "file": "CSS/selectors.md"
+        "children": [
+          {
+            "name": "Type and universal selectors",
+            "file": "CSS/selectors-type.md"
+          },
+          {
+            "name": "Class and ID selectors",
+            "file": "CSS/selectors-class-id.md"
+          },
+          {
+            "name": "Grouping and combinators",
+            "file": "CSS/selectors-combinators.md"
+          },
+          {
+            "name": "Pseudo-classes",
+            "file": "CSS/selectors-pseudo-classes.md"
+          },
+          {
+            "name": "Selectors overview",
+            "file": "CSS/selectors.md"
+          }
+        ]
       },
       {
         "name": "Colors and backgrounds",
@@ -121,11 +142,58 @@
       },
       {
         "name": "Box model",
-        "file": "CSS/box-model.md"
+        "children": [
+          {
+            "name": "Padding, margin and border",
+            "file": "CSS/box-model-spacing.md"
+          },
+          {
+            "name": "Box-sizing and collapsing margins",
+            "file": "CSS/box-model-sizing.md"
+          },
+          {
+            "name": "Box model overview",
+            "file": "CSS/box-model.md"
+          }
+        ]
       },
       {
         "name": "Display and sizing",
-        "file": "CSS/display.md"
+        "children": [
+          {
+            "name": "Display types",
+            "file": "CSS/display-types.md"
+          },
+          {
+            "name": "Constraining and hiding content",
+            "file": "CSS/display-sizing.md"
+          },
+          {
+            "name": "Display and sizing overview",
+            "file": "CSS/display.md"
+          }
+        ]
+      },
+      {
+        "name": "Position",
+        "children": [
+          {
+            "name": "Relative and absolute positioning",
+            "file": "CSS/position-relative-absolute.md"
+          },
+          {
+            "name": "Fixed, sticky and z-index",
+            "file": "CSS/position-fixed-sticky.md"
+          },
+          {
+            "name": "Position overview",
+            "file": "CSS/position.md"
+          }
+        ]
+      },
+      {
+        "name": "The calc() function",
+        "file": "CSS/calc-function.md"
       },
       {
         "name": "Styling Images",

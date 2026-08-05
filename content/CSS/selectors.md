@@ -1,21 +1,10 @@
-# Selectors
+# Selectors overview
 
-A selector chooses which elements a rule applies to.
-
-- `p` — every `<p>` element
-- `.note` — every element whose `class` contains `note`
-- `#title` — the one element with `id="title"`
-- `*` — every element on the page
-
-The class is the workhorse: any number of elements can share one. An `id` must be unique in the
-document, so an id selector can only ever style a single element.
-
-A comma groups selectors — `h1, h2, h3 { … }` applies one block to all three. A space means
-*descendant*: `.menu a` matches an `<a>` at any depth inside `.menu`. A `>` means *direct child*:
-`.menu > a` matches only a link that is `.menu`'s own child.
-
-A pseudo-class selects a state rather than an element. `a:hover` applies only while the pointer is
-over the link. When two rules collide, the more specific selector wins — that is the Advanced lesson.
+You have now met the four kinds of selector on their own: type/universal, class/id, combinators and
+pseudo-classes. The priority ladder across all of them, lowest to highest: **type/universal, then
+class and pseudo-class together, then id** — combinators add no weight, and a later rule wins any
+tie. The full point-scoring system, including `!important`, is Advanced CSS's Cascade and
+specificity lesson.
 
 ## Display
 ### HTML
@@ -26,8 +15,8 @@ over the link. When two rules collide, the more specific selector wins — that 
 <nav class="menu">
   <a href="#">Home</a>
   <ul>
-    <li><a href="#">CPE221 Data Structures</a></li>
-    <li><a href="#">CPE231 Databases</a></li>
+    <li><a href="#">CE221 Data Structures</a></li>
+    <li><a href="#">CE231 Databases</a></li>
   </ul>
 </nav>
 
@@ -89,12 +78,11 @@ A comma applies one block to several selectors; `*` matches everything.
 h1, h2, h3 { color: #0F1B33; }
 ```
 
-### 5. Descendant versus direct child
-A space reaches any depth; `>` reaches exactly one level down.
+### 5. Add an interactive state
+A pseudo-class can follow a combinator, just like any other selector.
 
 ```
-.menu a   { color: #6B4207; }
-.menu > a { font-weight: 700; }
+.menu a:hover { color: #F2A93B; }
 ```
 
 ## Exercises
@@ -119,11 +107,11 @@ selector matches, then repeat with `.menu > a`.
 
 ## Quizes
 
-### Q1. Which selector matches every element with `class="note"`?
-1. `note`
-2. `#note`
-3. `.note`
-4. `*note`
+### Q1. Which lists the selector priority order correctly, lowest to highest?
+1. id, then class/pseudo-class, then type/universal
+2. type/universal, then class/pseudo-class, then id
+3. class/pseudo-class, then id, then type/universal
+4. All four kinds share exactly the same priority
 
 ### Q2. What does `nav > a` match?
 1. Every `<a>` anywhere inside a `<nav>`
