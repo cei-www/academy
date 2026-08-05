@@ -1,11 +1,17 @@
-# Media and responsive images overview
+# Responsive images
 
-You have now met video/audio and responsive images on their own. `<video>`/`<audio>` embed a player
-with `controls`, `poster`, `preload` and `muted`; `<picture>` and `srcset` solve two different
-image problems — art direction and resolution switching.
+There are two different problems. **Art direction** — a different crop for a narrow screen — is
+`<picture>` with `<source media="…">`; the browser takes the first matching `<source>` and falls
+back to the `<img>`, which is the element that actually renders. **Resolution switching** — the same
+picture at several sizes — is `srcset` with widths plus `sizes`.
 
-Add `loading="lazy"`, `decoding="async"`, and always `width`/`height`, so the space is reserved and
-the page does not jump while images load.
+This course ships `campus-400.jpg` (400px wide), `campus-800.jpg` (800px) and `campus.jpg` (1600px),
+so you describe them as `campus-400.jpg 400w, campus-800.jpg 800w, campus.jpg 1600w`, then tell the
+browser with `sizes` how wide the slot will be. It multiplies that width by the device pixel ratio
+and downloads the smallest candidate that still covers it.
+
+Add `loading="lazy"` for images below the fold, `decoding="async"` so decoding does not block
+rendering, and always `width` and `height` so the space is reserved and the page does not jump.
 
 ## Display
 ### HTML
@@ -77,28 +83,24 @@ Reserve the box, defer offscreen work, and let the decode happen off the main th
      width="400" height="225" loading="lazy" decoding="async">
 ```
 
-### 4. Embed a video
-The browser tries each `<source>` in order and shows the fallback content only if it can play none
-of them.
+### 4. Read which candidate the browser picked
+`currentSrc` reports the actual file chosen, which can differ from `src`.
 
 ```
-<video controls poster="resources/img/campus-800.jpg"
-       width="800" height="450" preload="metadata" muted>
-  <source src="lecture.webm" type="video/webm">
-  <source src="lecture.mp4" type="video/mp4">
-  <p>Your browser cannot play this video. <a href="lecture.mp4">Download it</a>.</p>
-</video>
+const img = document.querySelector("img[srcset]");
+console.log(img.currentSrc);
 ```
 
-### 5. Embed audio
-`preload="none"` fetches nothing until the user presses play, which matters on mobile data.
+### 5. Cover both problems on one image
+Art direction and resolution switching can combine: each `<source>` can carry its own `srcset`.
 
 ```
-<audio controls preload="none">
-  <source src="lecture.ogg" type="audio/ogg">
-  <source src="lecture.mp3" type="audio/mpeg">
-  <p>No audio support. <a href="lecture.mp3">Download the recording</a>.</p>
-</audio>
+<picture>
+  <source media="(max-width: 600px)" srcset="resources/img/campus-400.jpg 400w">
+  <img src="resources/img/campus-800.jpg"
+       srcset="resources/img/campus-800.jpg 800w, resources/img/campus.jpg 1600w"
+       sizes="600px" alt="KMITL campus" width="800" height="450">
+</picture>
 ```
 
 ## Exercises
@@ -149,8 +151,8 @@ Throttle the network to Slow 3G and describe what the text does in each case.
 3. `campus.jpg`
 4. The file in `src`, because `srcset` is a hint only
 
-### Q5. Which attribute shows the still frame before a video plays?
-1. `preload`
-2. `thumbnail`
-3. `poster`
-4. `muted`
+### Q5. Why include `width` and `height` on every `<img>`?
+1. They are required for `alt` to work
+2. So the browser reserves the space and the page does not jump while loading
+3. They control which `srcset` candidate is chosen
+4. They are only needed for `<picture>`, not plain `<img>`

@@ -1,11 +1,14 @@
-# Advanced forms overview
+# Constraint validation
 
-You have now met input types/keyboards and constraint validation on their own. Here they work
-together: `type` picks the widget and keyboard, and `required`/`pattern`/`min`/`max`/`step` decide
-what counts as a legal value for it.
+`required` demands a value, `pattern` holds a regular expression the whole value must match,
+`min`/`max` bound a number or date, `step` sets the legal increments, and `minlength`/`maxlength`
+bound the character count. A control that satisfies its constraints matches the `:valid`
+pseudo-class; one that does not matches `:invalid`, so you can style the state without any
+JavaScript.
 
-`:valid`/`:invalid` style the state without JavaScript; `novalidate` turns off the browser's own
-blocking, which is a reminder that the server must always check again.
+Add `novalidate` to the `<form>` and the browser stops blocking submission. That is the reminder that
+client-side validation is a convenience for the user, never a security boundary — anyone can send a
+request with `curl`, so the server must check every value again.
 
 ## Display
 ### HTML
@@ -16,19 +19,15 @@ blocking, which is a reminder that the server must always check again.
     <legend>Lab sign-up</legend>
     <p>
       <label for="email">CE-KMITL email</label><br>
-      <input type="email" id="email" name="email" required autocomplete="email">
+      <input type="email" id="email" name="email" required>
     </p>
     <p>
       <label for="year">Year (1-4)</label><br>
       <input type="number" id="year" name="year" min="1" max="4" step="1" required>
     </p>
     <p>
-      <label for="lab">Lab</label><br>
-      <input type="search" id="lab" name="lab" list="labs">
-      <datalist id="labs">
-        <option value="Robotics Lab"></option>
-        <option value="Embedded Systems Lab"></option>
-      </datalist>
+      <label for="sid">Student ID</label><br>
+      <input type="text" id="sid" name="sid" pattern="[0-9]{8}" title="Eight digits">
     </p>
     <button type="submit">Send</button>
   </fieldset>
@@ -60,22 +59,18 @@ form.addEventListener("submit", (e) => {
 ```
 
 ## Your Tasks
-### 1. Pick the right type
-The type decides the widget, the keyboard and the built-in check.
+### 1. Require a value
+`required` blocks submission until the field has any value at all.
 
 ```
-<input type="date" id="due" name="due">
-<input type="range" id="load" name="load" min="0" max="21" step="3">
-<input type="color" id="tag" name="tag" value="#F2A93B">
-<input type="file" id="report" name="report" accept=".pdf">
+<input type="email" id="email" name="email" required>
 ```
 
-### 2. Require a value and bound its length
-`minlength` and `maxlength` count characters; both are checked only when the field is not empty.
+### 2. Bound a number
+`min`, `max` and `step` together define exactly which numbers are legal.
 
 ```
-<label for="nick">Nickname</label>
-<input type="text" id="nick" name="nick" required minlength="2" maxlength="12">
+<input type="number" id="year" name="year" min="1" max="4" step="1" required>
 ```
 
 ### 3. Match a pattern
@@ -87,15 +82,15 @@ The type decides the widget, the keyboard and the built-in check.
        title="Eight digits, for example 66010123" required>
 ```
 
-### 4. Help the keyboard and the autofill
-`inputmode` changes the on-screen keyboard only; `autocomplete` names the saved value to reuse.
+### 4. Bound the character count
+`minlength` and `maxlength` count characters; both are checked only when the field is not empty.
 
 ```
-<input type="tel" id="phone" name="phone" inputmode="tel" autocomplete="tel">
-<input type="text" id="zip" name="zip" inputmode="numeric" autocomplete="postal-code">
+<label for="nick">Nickname</label>
+<input type="text" id="nick" name="nick" required minlength="2" maxlength="12">
 ```
 
-### 5. Turn the browser's messages off
+### 5. Turn the browser's blocking off
 `novalidate` keeps the `:valid`/`:invalid` styling and the validity API but stops the browser
 blocking submission — so you can show your own messages. The server still has to validate.
 
@@ -105,21 +100,21 @@ blocking submission — so you can show your own messages. The server still has 
 
 ## Exercises
 
-### Exercise 1: Typed registration form
-Build a form with `email`, `number`, `date` and `file` inputs, each with a `<label>`, all inside one
-`<fieldset>` with a `<legend>`.
-
-### Exercise 2: Course code pattern
+### Exercise 1: Course code pattern
 Add an input that only accepts a KMITL course code — eight digits like `01076021` — using `pattern`,
 and give it a `title` that explains the format.
 
-### Exercise 3: Validity in the console
+### Exercise 2: Validity in the console
 Type a bad address in an `email` field, then log
 `document.getElementById("email").validity` and report which flag is `true`.
 
-### Exercise 4: Two groups
-Split a form into two `<fieldset>` blocks, "Student" and "Project", each with its own `<legend>`, and
-give the project's supervisor field a `<datalist>` of three lecturer names.
+### Exercise 3: Bounded number
+Give a "credits" field `min="1" max="6" step="1"`, try to submit `4.5`, and report what the browser
+does.
+
+### Exercise 4: Length limits
+Add a "reason" text field with `minlength="10" maxlength="200"`, and test both a too-short and a
+too-long value.
 
 ### Exercise 5: Break the client check
 Add `novalidate` to a form with a `required` field and submit it empty. Report what changed in the
@@ -145,11 +140,11 @@ URL's query string and write one sentence on what the server must now do.
 3. Because older browsers ignore `required`
 4. Because `novalidate` is on by default
 
-### Q4. What does `<datalist>` do?
-1. Restricts the input to the listed values
-2. Renders a `<select>` dropdown
-3. Sends the whole list to the server
-4. Offers suggestions while still allowing any value
+### Q4. What do `minlength` and `maxlength` count?
+1. The number of words
+2. The number of characters
+3. The number of lines
+4. The byte size of the submitted form
 
 ### Q5. `<input type="number" min="1" max="4" step="1">` holds the value `2.5`. What happens on submit?
 1. It submits and the server receives `2.5`

@@ -307,11 +307,37 @@
       },
       {
         "name": "Advanced forms",
-        "file": "HTML/forms-advanced.md"
+        "children": [
+          {
+            "name": "Input types and keyboards",
+            "file": "HTML/forms-input-types.md"
+          },
+          {
+            "name": "Constraint validation",
+            "file": "HTML/forms-validation.md"
+          },
+          {
+            "name": "Advanced forms overview",
+            "file": "HTML/forms-advanced.md"
+          }
+        ]
       },
       {
-        "name": "Media and responsive images",
-        "file": "HTML/media.md"
+        "name": "Media",
+        "children": [
+          {
+            "name": "Video and audio",
+            "file": "HTML/media-video-audio.md"
+          },
+          {
+            "name": "Responsive images",
+            "file": "HTML/media-responsive-images.md"
+          },
+          {
+            "name": "Media and responsive images overview",
+            "file": "HTML/media.md"
+          }
+        ]
       },
       {
         "name": "Meta, SEO and sharing",
