@@ -1,5 +1,9 @@
 [
   {
+    "name": "Getting Started",
+    "file": "getting-started.md"
+  },
+  {
     "name": "Basic HTML",
     "children": [
       {
